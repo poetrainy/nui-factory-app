@@ -1,6 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const colors = {
+  black500: '#2B2B2B',
   example: 'tomato',
 };
 const styles = {
