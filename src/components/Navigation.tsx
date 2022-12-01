@@ -37,20 +37,35 @@ const Navigation: FC = () => {
         <Box as="span" m="0 auto" />
         <Box as="span" inset="auto 0 0 auto " />
       </Flex>
-      <Heading as="h1" pos="absolute" inset="0 0 0 0" m="auto">
+      <Heading
+        as="h1"
+        w="fit-content"
+        pos="absolute"
+        inset="0 0 0 0"
+        m="auto"
+        sx={{
+          a: {
+            display: 'flex',
+            alignItems: 'center',
+            height: '100%',
+          },
+        }}
+      >
         <NextLink href="/" passHref>
-          <Box as="a">ぬいふぁく！</Box>
+          ぬいふぁく！
         </NextLink>
       </Heading>
-      {/* <Flex>
+      <Flex as="ul" gap="8px">
         {nav.map((item) => (
-          <NextLink href={`/${item.path}`} passHref key={item.path}>
-            <Box as="a">
-              <Box as={item.icon} w="24px" height="24px" />
-            </Box>
-          </NextLink>
+          <Box as="li" key={item.path}>
+            <NextLink href={`/${item.path}`} passHref>
+              <Box as="span">
+                <Box as={item.icon} w="24px" height="24px" />
+              </Box>
+            </NextLink>
+          </Box>
         ))}
-      </Flex> */}
+      </Flex>
     </Flex>
   );
 };

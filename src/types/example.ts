@@ -6,3 +6,16 @@ export type Example = {
   publishedAt: string;
   revisedAt: string;
 };
+
+type date = {
+  yy: number;
+  mm: number;
+  dd: number;
+};
+
+export type CouponType = {
+  name: string;
+  percent: number;
+  start: date;
+  end: date;
+};

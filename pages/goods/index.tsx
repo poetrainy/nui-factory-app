@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 
 const CategoryIndex: NextPage = () => {
-  return <></>;
+  return <>aaaa</>;
 };
 
 export default CategoryIndex;

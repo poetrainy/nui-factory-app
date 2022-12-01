@@ -1,8 +1,14 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const colors = {
+  primary500: '#DD705E',
+  black900: '#000000',
   black500: '#2B2B2B',
-  example: 'tomato',
+  black300: '#636363',
+  black200: '#BCBCBC',
+  black100: '#E8E8E8',
+  white: '#FFFFFF',
+  important: '#ED3434',
 };
 const styles = {
   global: {
@@ -10,7 +16,7 @@ const styles = {
       fontSize: '62.5%',
     },
     body: {
-      color: 'black',
+      color: 'black500',
       fontSize: '1.4rem',
       fontFamily: 'body',
       a: {
@@ -59,6 +65,13 @@ const textStyles = {
       sm: '80vw',
     },
     mx: 'auto',
+  },
+  focus: {
+    '&:focus': {
+      outlineWidth: '3px',
+      outlineStyle: 'solid',
+      outlineColor: 'primary500',
+    },
   },
 };
 
