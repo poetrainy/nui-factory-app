@@ -1,19 +1,102 @@
-import { Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
+import { useEffect, useState } from 'react';
+import Navigation from '../../../src/components/Navigation';
+import Heading from '../../../src/components/Heading';
 import { category } from '../../../src/libs/category';
+import { goodsType } from '../../../src/types/goods';
+import { categoryType } from '../../../src/types/example';
+import OriginalSpacer from '../../../src/components/OriginalSpacer';
+// import goodsApi from '../../api/goods';
+
+const goodsApi = 'http://localhost:3000/api/goods';
 
 type Props = {
-  category: string;
+  id: string;
+  data: goodsType[];
 };
 
-const CategoryTop: NextPage<Props> = ({ category }) => {
-  return <Text>{category}</Text>;
+const CategoryTop: NextPage<Props> = ({ id, data }) => {
+  const heading = category.filter((item: categoryType) => item.path === id)[0]
+    .heading;
+
+  return (
+    <>
+      <Navigation />
+      <Box as="section" textStyle="bodyWidth">
+        <Heading data={heading} back="服を着せる" />
+        <Flex as="ul" flexDirection="column" gap="16px">
+          {data.map((item) => (
+            <Flex
+              as="li"
+              justifyContent="space-between"
+              key={item.name + item.id}
+            >
+              <Flex
+                justifyContent="center"
+                flexDirection="column"
+                w="calc(100% - 120px - 5%)"
+              >
+                <Flex gap="6px" transform="traslateY(-1px)">
+                  {item.category.map((category, i) => (
+                    <Text
+                      key={category.length + i + ''}
+                      w="fit-content"
+                      color="white"
+                      bg="secondary500"
+                      p="3px 12px"
+                      fontSize="1.1rem"
+                      fontWeight="bold"
+                      borderRadius="9999px"
+                    >
+                      {category}
+                    </Text>
+                  ))}
+                </Flex>
+                <OriginalSpacer size="4px" />
+                <Text fontSize="1.7rem" fontWeight="bold">
+                  {item.name}
+                </Text>
+                <OriginalSpacer size="4px" />
+                <Flex as="ul" gap="4px">
+                  {item.color.map((color, i) => (
+                    <Box
+                      key={color + i}
+                      w="12px"
+                      h="12px"
+                      borderRadius="9999px"
+                      bg={color}
+                    />
+                  ))}
+                </Flex>
+                <OriginalSpacer size="12px" />
+                <Text>
+                  <Text as="span" fontSize="2rem" fontWeight="bold">
+                    ¥{item.price}
+                  </Text>
+                  <Text
+                    as="span"
+                    color="black200"
+                    fontSize="1.3rem"
+                    fontWeight="bold"
+                  >
+                    （税込）
+                  </Text>
+                </Text>
+              </Flex>
+              <Box w="120px" h="120px" bg="black200" />
+            </Flex>
+          ))}
+        </Flex>
+      </Box>
+    </>
+  );
 };
 
 export default CategoryTop;
 
 export const getStaticPaths = () => {
-  const paths = category.map((item) => ({ params: { category: item } }));
+  const paths = category.map((item) => ({ params: { category: item.path } }));
 
   return {
     paths,
@@ -26,57 +109,17 @@ export const getStaticProps = async ({
 }: {
   params: { category: string };
 }) => {
+  const response = await fetch(`${goodsApi}`);
+  const data = await response.json();
+  const categoryOfData = data.filter(
+    (item: goodsType) => item.category[0] === params.category
+  );
   console.log(params.category);
-
-  // const microCMSData = await client.get({
-  //   endpoint: "schedule",
-  //   queries: {
-  //     offset: 0,
-  //     limit: 100,
-  //   },
-  // });
-  // // スケジュール全て
-  // let schedule: Schedule[] = microCMSData.contents.reverse();
-  // // 日曜日の日付の配列
-  // let getSunday: number[] = [3, 10, 17, 24];
-  // // 1週間分の予定を入れる予定の配列
-  // let getSundayData = [];
-
-  // let week = Number(params.id) - 1;
-
-  // for (let i = 0; i < schedule.length; i++) {
-  //   let hoge = Number(schedule[i].id.split("-")[0]);
-  //   if (week === 3) {
-  //     if (hoge >= getSunday[week]) {
-  //       getSundayData.push(schedule[i]);
-  //     }
-  //   } else {
-  //     if (hoge >= getSunday[week] && hoge < getSunday[week + 1]) {
-  //       getSundayData.push(schedule[i]);
-  //     }
-  //   }
-  // }
-
-  // let streamingTitle: string[] = [];
-  // let hoge = 0;
-
-  // if (Number(params.id) === 4) {
-  //   hoge = getSundayData.length - 1;
-  // } else {
-  //   hoge = getSundayData.length;
-  // }
-  // for (let i = 0; i < hoge; i++) {
-  //   const getItem = await axios.get(getSundayData[i].url);
-  //   const item = getItem.data;
-  //   const streamingTitleItem = item
-  //     .split("<title>")[1]
-  //     .split(" - YouTube</title>")[0];
-  //   streamingTitle.push(streamingTitleItem);
-  // }
 
   return {
     props: {
-      category: params.category,
+      id: params.category,
+      data: categoryOfData,
     },
   };
 };

@@ -6,16 +6,16 @@ type Props = {
   example: string;
 };
 
-const Heading: FC<Props> = ({ title, example }) => {
+const Textarea: FC<Props> = ({ title, example }) => {
   return (
-    <Box as="label" display="flex" flexDirection="column" gap="8px">
+    <Box as="label" display="flex" flexDirection="column" gap="8px" w="100%">
       <Text as="h3" fontSize="1.3rem">
         {title}
       </Text>
       <Flex
         as="input"
         type="text"
-        placeholder={example}
+        placeholder={`例:${example}`}
         h="48px"
         bg="black100"
         p="0 16px"
@@ -27,4 +27,4 @@ const Heading: FC<Props> = ({ title, example }) => {
   );
 };
 
-export default Heading;
+export default Textarea;

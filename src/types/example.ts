@@ -1,12 +1,3 @@
-export type Example = {
-  // microCMSのデータとか引っ張ってくる時のため
-  // endpointごとにつくる
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-};
-
 type date = {
   yy: number;
   mm: number;
@@ -18,4 +9,9 @@ export type CouponType = {
   percent: number;
   start: date;
   end: date;
+};
+
+export type categoryType = {
+  path: string;
+  heading: string;
 };

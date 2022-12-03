@@ -6,7 +6,7 @@ import Navigation from '../../../src/components/Navigation';
 import OriginalSpacer from '../../../src/components/OriginalSpacer';
 import Sms from '../../../src/components/Sms';
 
-const Favorite: NextPage = () => {
+const SignupSms: NextPage = () => {
   return (
     <>
       <Navigation />
@@ -15,11 +15,11 @@ const Favorite: NextPage = () => {
         <OriginalSpacer size="10vh" />
         <Box as="form">
           <Sms />
-          <Button data="認証する" textIndex={[1, 0]} path="/form" />
+          <Button data="認証する" textIndex={[1, 0]} path="/signup/form" />
         </Box>
       </Box>
     </>
   );
 };
 
-export default Favorite;
+export default SignupSms;

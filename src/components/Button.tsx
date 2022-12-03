@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import OriginalSpacer from './OriginalSpacer';
 
@@ -25,12 +25,25 @@ type Props = {
   data: string;
   textIndex?: number[];
   path: string;
+  policy?: boolean;
 };
 
-const Button: FC<Props> = ({ data, textIndex, path }) => {
+const Button: FC<Props> = ({ data, textIndex, path, policy }) => {
   return (
     <>
       <OriginalSpacer size="48px" />
+      {policy && (
+        <>
+          <Flex>
+            <Box as="input" type="checkbox" />
+            <Text>
+              <Text as="span">利用規約</Text>と
+              <Text as="span">プライバシーポリシー</Text>に同意
+            </Text>
+          </Flex>
+          <OriginalSpacer size="20px" />
+        </>
+      )}
       <Flex
         // as="button"
         // type="submit"
