@@ -1,5 +1,5 @@
 // import { Box } from '@chakra-ui/react';
-// import type { NextPage } from 'next';
+import type { NextPage } from 'next';
 // import Heading from '../../src/components/Heading';
 // import Navigation from '../../src/components/Navigation';
 // import { goodsApi, orderApi } from '../../src/libs/api';
@@ -10,17 +10,18 @@
 //   id: string;
 // };
 
-// const historyDate: NextPage<Props> = ({ id }) => {
-//   return (
-//     <>
-//       <Navigation />
-//       <Box as="section" textStyle="bodyWidth">
-//         <Heading data="ああああ" back="注文履歴" />
-//         {id}
-//       </Box>
-//     </>
-//   );
-// };
+const historyDate: NextPage = () => {
+  // const historyDate: NextPage<Props> = ({ id }) => {
+  return (
+    <>
+      {/* <Navigation />
+      <Box as="section" textStyle="bodyWidth">
+        <Heading data="ああああ" back="注文履歴" />
+        {id}
+      </Box> */}
+    </>
+  );
+};
 
 // export default historyDate;
 
