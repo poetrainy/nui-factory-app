@@ -5,9 +5,9 @@ import Navigation from '../../src/components/Navigation';
 import OriginalSpacer from '../../src/components/OriginalSpacer';
 import { goodsType } from '../../src/types/goods';
 import Product from '../../src/components/Product';
-import NextLink from 'next/link';
 import { historyType } from '../../src/types/example';
 import { goodsApi, orderApi } from '../../src/libs/api';
+import EditButton from '../../src/components/EditButton';
 
 type Props = {
   goodsData: goodsType[];
@@ -26,20 +26,7 @@ const history: NextPage<Props> = ({ goodsData, historyData }) => {
               <Text fontSize="1.2rem">
                 注文日：{item.date.yyyy}年{item.date.mm}月{item.date.dd}日
               </Text>
-              <NextLink href={`/order-history/${item.id}`} passHref>
-                <Flex
-                  as="span"
-                  display="block"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  p="8px 16px"
-                  border="1px solid #E8E8E8"
-                  borderRadius="4px"
-                  fontSize="1.3rem"
-                >
-                  確認
-                </Flex>
-              </NextLink>
+              <EditButton data="確認" path={`/order-history/${item.id}`} />
             </Flex>
             <OriginalSpacer size="12px" />
             {item.productId.map((id) => (
@@ -60,8 +47,8 @@ const history: NextPage<Props> = ({ goodsData, historyData }) => {
 export default history;
 
 export const getStaticProps = async () => {
-  const goodResponse = await fetch(`${goodsApi}`);
-  const goodsData = await goodResponse.json();
+  const goodsResponse = await fetch(`${goodsApi}`);
+  const goodsData = await goodsResponse.json();
   const historyResponse = await fetch(`${orderApi}`);
   const historyData = await historyResponse.json();
 

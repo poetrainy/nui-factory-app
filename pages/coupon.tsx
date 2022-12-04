@@ -1,7 +1,5 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Account from '../src/components/Account';
-import Card from '../src/components/Card';
 import Heading from '../src/components/Heading';
 import Navigation from '../src/components/Navigation';
 import OriginalSpacer from '../src/components/OriginalSpacer';
