@@ -9,7 +9,7 @@ import OriginalSpacer from './OriginalSpacer';
 
 const smsForm = [0, 1, 2, 3];
 
-const Favorite: FC = () => {
+const Sms: FC = () => {
   const ref = useRef(null);
   const [elIndex, setElIndex] = useState<number>();
 
@@ -64,4 +64,4 @@ const Favorite: FC = () => {
   );
 };
 
-export default Favorite;
+export default Sms;

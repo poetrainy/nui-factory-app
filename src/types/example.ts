@@ -15,3 +15,16 @@ export type categoryType = {
   path: string;
   heading: string;
 };
+
+export type historyType = {
+  id: number;
+  date: {
+    yyyy: number;
+    mm: number;
+    dd: number;
+  };
+  productId: number[];
+  address: string;
+  pay: string;
+  order: string;
+};
