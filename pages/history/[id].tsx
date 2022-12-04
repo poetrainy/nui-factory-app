@@ -23,14 +23,13 @@ const historyDate: NextPage = () => {
   );
 };
 
-// export default historyDate;
+export default historyDate;
 
 // export const getStaticPaths = async () => {
 //   const response = await fetch(`${orderApi}`);
 //   const data = await response.json();
 //   const paths = data.map((item: historyType) => ({ params: { id: item.id } }));
 
-//   console.log(data);
 //   return {
 //     paths,
 //     fallback: false,

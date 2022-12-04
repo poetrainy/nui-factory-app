@@ -1,11 +1,8 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
 import Navigation from '../../../src/components/Navigation';
-import Heading from '../../../src/components/Heading';
 import { category } from '../../../src/libs/category';
 import { goodsType } from '../../../src/types/goods';
-import { categoryType } from '../../../src/types/example';
 import OriginalSpacer from '../../../src/components/OriginalSpacer';
 import EcCategory from '../../../src/components/EcCategory';
 import { goodsApi } from '../../../src/libs/api';
@@ -114,8 +111,6 @@ export const getStaticPaths = async () => {
       });
     });
   });
-
-  console.log(paths);
 
   return {
     paths,

@@ -18,10 +18,10 @@ export default function goods(
           furigana: 'カイ',
         },
       },
-      phone: [080, 0o0000, 0o0000],
+      phone: ["080", "0000", "0000"],
       email: 'mayuzumi@kai.com',
       address: {
-        postCode: [530, 0o0015],
+        postCode: ["530", "0015"],
         text: '大阪府大阪市北区中崎西２丁目３−３５',
       },
     },

@@ -8,10 +8,10 @@ export type userType = {
     last: userNameType;
     first: userNameType;
   };
-  phone: number[];
+  phone: string[];
   email: string;
   address: {
-    postCode: number[];
+    postCode: string[];
     text: string;
   };
 };

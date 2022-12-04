@@ -33,8 +33,6 @@ export default CategoryTop;
 export const getStaticPaths = () => {
   const paths = category.map((item) => ({ params: { category: item.path } }));
 
-  console.log(paths);
-
   return {
     paths,
     fallback: false,
