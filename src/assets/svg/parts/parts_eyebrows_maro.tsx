@@ -1,4 +1,8 @@
-function SvgComponent(props: any) {
+import { SVGProps } from "react";
+
+function SvgComponent(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       data-name="\u30EC\u30A4\u30E4\u30FC 2"
@@ -16,7 +20,7 @@ function SvgComponent(props: any) {
         data-name="\u30EC\u30A4\u30E4\u30FC 1"
       />
     </svg>
-  )
+  );
 }
 
-export default SvgComponent
+export default SvgComponent;

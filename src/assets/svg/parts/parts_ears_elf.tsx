@@ -1,3 +1,5 @@
+import { SVGProps } from "react";
+
 function SvgComponent(props:any) {
   return (
     <svg

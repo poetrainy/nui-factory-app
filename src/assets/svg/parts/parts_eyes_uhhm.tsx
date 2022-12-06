@@ -1,4 +1,8 @@
-function SvgComponent(props: any) {
+import { SVGProps } from "react";
+
+function SvgComponent(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       id="_\u30EC\u30A4\u30E4\u30FC_2"
@@ -8,7 +12,7 @@ function SvgComponent(props: any) {
       {...props}
     >
       <defs>
-        <style>{".cls-3{fill:#212121}"}</style>
+        <style>{'.cls-3{fill:#212121}'}</style>
       </defs>
       <g
         id="_\u30EC\u30A4\u30E4\u30FC_1-2"
@@ -32,7 +36,7 @@ function SvgComponent(props: any) {
         />
       </g>
     </svg>
-  )
+  );
 }
 
-export default SvgComponent
+export default SvgComponent;
