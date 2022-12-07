@@ -1,8 +1,4 @@
-import { SVGProps } from "react";
-
-function SvgComponent(
-  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
-) {
+function SvgComponent(props: any) {
   return (
     <svg
       id="_\u30EC\u30A4\u30E4\u30FC_2"

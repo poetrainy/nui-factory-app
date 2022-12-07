@@ -66,7 +66,7 @@ import accessory01Pierce01 from '../../src/assets/svg/parts/parts_accessory-01_p
 import accessory02Eyelashes from '../../src/assets/svg/parts/parts_accessory-02_eyelashes';
 import accessory02Pierce02 from '../../src/assets/svg/parts/parts_accessory-02_pierce-02';
 
-
+import clothesTShirt from '../../src/assets/svg/parts/parts_clothes_t-shirt';
 
 export default function goods(
   req: NextApiRequest,
@@ -80,6 +80,7 @@ export default function goods(
       color: ['#ffe2cc', '#fff0e6', '#ecc09b'],
       svg: [outlineNormal],
       symmetry: false,
+      colorPicker: false,
     },
     {
       titleJa: 'め',
@@ -87,6 +88,7 @@ export default function goods(
       color: [''],
       svg: [eyesNormal, eyesDown, eyesUp, eyesUhhm, eyesFun, eyesParallel],
       symmetry: true,
+      colorPicker: true,
     },
     {
       titleJa: 'まゆ',
@@ -101,6 +103,7 @@ export default function goods(
         eyebrowsParallel,
       ],
       symmetry: true,
+      colorPicker: true,
     },
     {
       titleJa: 'みみ',
@@ -108,6 +111,7 @@ export default function goods(
       color: ['#ffe2cc', '#fff0e6', '#ecc09b'],
       svg: [earsNormal, earsElf],
       symmetry: true,
+      colorPicker: false,
     },
     {
       titleJa: 'はな',
@@ -115,6 +119,7 @@ export default function goods(
       color: ['#212121'],
       svg: [noseNormal],
       symmetry: false,
+      colorPicker: false,
     },
     {
       titleJa: 'ほほ',
@@ -122,6 +127,7 @@ export default function goods(
       color: ['#ffdfc0', '#ffdee1'],
       svg: [cheeksCircle, cheeksLine],
       symmetry: true,
+      colorPicker: false,
     },
     {
       titleJa: 'くち',
@@ -138,6 +144,7 @@ export default function goods(
         mouthOh,
       ],
       symmetry: false,
+      colorPicker: false,
     },
     {
       titleJa: 'まえがみ',
@@ -157,6 +164,7 @@ export default function goods(
         bangShortRight,
       ],
       symmetry: false,
+      colorPicker: true,
     },
     {
       titleJa: 'うしろがみ',
@@ -164,6 +172,7 @@ export default function goods(
       color: [''],
       svg: [backHairBob, backHairShort, backHairLong, backHairHalfUp],
       symmetry: false,
+      colorPicker: true,
     },
     {
       titleJa: 'オプション',
@@ -176,6 +185,7 @@ export default function goods(
         hairOptionStupidBottom,
       ],
       symmetry: false,
+      colorPicker: true,
     },
     {
       titleJa: 'こもの1',
@@ -189,6 +199,7 @@ export default function goods(
         accessory01Pierce01,
       ],
       symmetry: false,
+      colorPicker: false,
     },
     {
       titleJa: 'こもの2',
@@ -196,13 +207,15 @@ export default function goods(
       color: ['#212121'],
       svg: [accessory02Eyelashes, accessory02Pierce02],
       symmetry: true,
+      colorPicker: false,
     },
     {
       titleJa: 'ふく',
       titleEn: 'clothes',
       color: ['#ffffff'],
-      svg: ['t-shirt'],
+      svg: [clothesTShirt],
       symmetry: false,
+      colorPicker: false,
     },
     // 色味本はいくつか作って、カラーコードの指定もできるようにする
   ]);
