@@ -1,6 +1,4 @@
-function SvgComponent(
-  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
-) {
+function SvgComponent(props: any) {
   return (
     <svg
       width={20}
