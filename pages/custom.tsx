@@ -18,9 +18,8 @@ const Custom: NextPage<Props> = ({ data }) => {
   const colorPickerParts = data.filter((item, i) => item.colorPicker === true);
   const [tab, setTab] = useState<number>(0);
   const [selectColor, setSelectColor] = useState<number[]>([
-    0, 7, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0,
+    0, 7, 0, 0, 0, 0, 0, 14, 14, 14, 0, 0, 0,
   ]);
-  console.log(colorPickerParts);
 
   const [selectPickUpColor, setSelectPickUpColor] = useState<string[][]>([
     ['#000000'],
@@ -392,6 +391,9 @@ const Custom: NextPage<Props> = ({ data }) => {
                     h="100%"
                     objectFit="contain"
                     sx={{
+                      '.colorChange': {
+                        transition: 'fill 0.2s',
+                      },
                       ...(item.color !== undefined && {
                         // ...selectColor[i] === -1
                         '.colorChange': {
@@ -646,9 +648,9 @@ const Custom: NextPage<Props> = ({ data }) => {
                               <Center
                                 as="input"
                                 type="color"
-                                // defaultValue={colorPicker}
+                                defaultValue={colorPicker}
                                 value={colorPicker}
-                                onClick={(e) => pickUpColorSave(e, i1)}
+                                onChange={(e) => pickUpColorSave(e, i1)}
                                 w="120%"
                                 h="120%"
                                 pos="absolute"
@@ -673,9 +675,9 @@ const Custom: NextPage<Props> = ({ data }) => {
                                 as="input"
                                 type="text"
                                 value={colorPicker}
-                                // defaultValue={colorPicker}
+                                defaultValue={colorPicker}
                                 onChange={(e) => pickUpColorSave(e, i1)}
-                                placeholder="000000"
+                                placeholder="#000000"
                                 w="100%"
                                 h="100%"
                                 p="0 32px"
