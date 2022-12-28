@@ -34,7 +34,7 @@ export default function goods(
       titleEn: 'eyebrows',
       color: undefined,
       symmetry: true,
-      colorPicker: true,
+      colorPicker: false,
       multiple: false,
     },
     {
@@ -104,7 +104,7 @@ export default function goods(
     {
       titleJa: 'ふく',
       titleEn: 'clothes',
-      color: partsColor,
+      color: undefined,
       symmetry: false,
       colorPicker: false,
       multiple: false,

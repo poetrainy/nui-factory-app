@@ -2,11 +2,10 @@ import { AbsoluteCenter, Box, Center, Flex, Text } from '@chakra-ui/react';
 import { log } from 'console';
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import Button from '../src/components/Button';
+import { isStringObject } from 'util/types';
 import Navigation from '../src/components/Navigation';
 import { partsApi } from '../src/libs/api';
 import { partsSvgArray } from '../src/libs/partsArray';
-import { nuiPartsType } from '../src/types/apiType';
 import { partsType } from '../src/types/apiType';
 
 type Props = {
@@ -15,9 +14,19 @@ type Props = {
 
 const Custom: NextPage<Props> = ({ data }) => {
   const [parts, setParts] = useState<any>();
+  // 色を編集する可能性のあるパーツの配列
+  const colorPickerParts = data.filter((item, i) => item.colorPicker === true);
   const [tab, setTab] = useState<number>(0);
   const [selectColor, setSelectColor] = useState<number[]>([
     0, 7, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0,
+  ]);
+  console.log(colorPickerParts);
+
+  const [selectPickUpColor, setSelectPickUpColor] = useState<string[][]>([
+    ['#000000'],
+    ['#000000'],
+    ['#000000'],
+    ['#000000', '#000000', '#000000', '#000000'],
   ]);
   const [selectParts, setSelectParts] = useState<number[][]>([
     [0],
@@ -30,18 +39,25 @@ const Custom: NextPage<Props> = ({ data }) => {
     [0],
     [0],
     [0],
-    [2],
+    [6],
     [0],
     [0],
   ]);
-  const [colorModal, setColorModal] = useState<boolean>(false);
+  const [colorModalFlag, setColorModalFlag] = useState<boolean>(false);
+  const [colorPicker, setColorPicker] = useState<string>('');
   let updateParts: any = [];
   let updateSelectColor: any = [];
   let updateSelectParts: any = [];
   let skinColor: number = 0;
 
   const colorChange = () => {
-    setColorModal(!colorModal);
+    setColorModalFlag(!colorModalFlag);
+  };
+
+  const pickUpColorSave = (e: any, i1: number) => {
+    console.log(String(e.target.value));
+    setColorPicker(String(e.target.value));
+    selectColorFunc(i1, -1);
   };
 
   const tabChange = (i: number) => {
@@ -49,7 +65,7 @@ const Custom: NextPage<Props> = ({ data }) => {
   };
 
   // 色を格納する配列
-  const selectColorFunc = ([i1, i2]: number[]) => {
+  const selectColorFunc = (i1: number, i2: number) => {
     updateSelectColor = [];
     // 肌の時だけ分岐
     if (data[i1].multiple === true) {
@@ -75,7 +91,7 @@ const Custom: NextPage<Props> = ({ data }) => {
   };
 
   // パーツを格納する配列
-  const selectPartsFunc = ([i1, i2]: number[]) => {
+  const selectPartsFunc = (i1: number, i2: number) => {
     updateSelectParts = [];
     for (let i = 0; i < data.length; i++) {
       if (i === 9 || i === 10 || i === 11) {
@@ -185,24 +201,37 @@ const Custom: NextPage<Props> = ({ data }) => {
               width: '30px',
               inset: '43px 0 auto 0',
               margin: 'auto',
+              position: 'absolute',
               path: {
                 fill: '#d39667',
               },
-              position: 'absolute',
             },
             '.parts_accessory_pierce-01': {
               width: '20px',
-              inset: '32px 0 auto 200px',
               position: 'absolute',
+              inset: '32px 0 auto 200px',
             },
             '.parts_accessory_pierce-02': {
-              width: '10px',
-              inset: '147px 0 auto 198px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '194px',
+              height: '10px',
               position: 'absolute',
+              inset: '147px auto auto auto',
+              svg: {
+                width: '10px',
+              },
             },
             '.parts_accessory_eyelashes': {
-              width: '8px',
-              inset: '155px 0 auto 54px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '112px',
+              height: '7px',
+              position: 'absolute',
+              inset: '154px auto auto auto',
+              svg: {
+                width: '8.5px',
+              },
             },
           }}
         >
@@ -316,6 +345,8 @@ const Custom: NextPage<Props> = ({ data }) => {
                   }),
                   // アクセサリー
                   ...(i === 10 && {
+                    display: 'flex',
+                    justifyContent: 'center',
                     width: '220px',
                     height: '220px',
                     inset: '4px 0 auto 0',
@@ -323,6 +354,11 @@ const Custom: NextPage<Props> = ({ data }) => {
                     div: {
                       width: '100%',
                       height: '100%',
+                      svg: {
+                        '&:nth-of-type(2)': {
+                          transform: 'scale(-1, 1)',
+                        },
+                      },
                     },
                   }),
                   // 服
@@ -357,6 +393,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                     objectFit="contain"
                     sx={{
                       ...(item.color !== undefined && {
+                        // ...selectColor[i] === -1
                         '.colorChange': {
                           fill: item.color[selectColor[i]],
                         },
@@ -390,7 +427,7 @@ const Custom: NextPage<Props> = ({ data }) => {
             タブ
         ---------------------------------- */}
         <Box w="100vw" bg="white" overflowX="scroll" pos="relative" zIndex="20">
-          <Flex flexWrap="wrap" w={`calc(${data.length} * 21vw)`}>
+          <Flex flexWrap="wrap" w={`calc(${data.length - 2} * 21vw)`}>
             {data.map((item: partsType, i: number) => (
               <Center
                 key={item.titleEn + i}
@@ -399,8 +436,11 @@ const Custom: NextPage<Props> = ({ data }) => {
                 h="56px"
                 opacity={1}
                 filter="none"
-                transform="filter 1s, opacity 1s"
+                transition="filter 0.2s, opacity 0.2s"
                 sx={{
+                  ...(i > data.length - 3 && {
+                    display: 'none',
+                  }),
                   ...(i !== tab && {
                     filter: 'grayscale(100%)',
                     opacity: 0.2,
@@ -454,7 +494,7 @@ const Custom: NextPage<Props> = ({ data }) => {
           >
             {data.map((item: partsType, i1: number) => (
               <Flex as="li" key={item.titleEn + i1}>
-                {!colorModal ? (
+                {!colorModalFlag ? (
                   // パーツ選択
                   <>
                     {partsSvgArray[i1].map((svg: any, i2: number) => (
@@ -466,7 +506,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                         pos="relative"
                         borderRadius="16px"
                         overflow="hidden"
-                        onClick={() => selectPartsFunc([i1, i2])}
+                        onClick={() => selectPartsFunc(i1, i2)}
                         sx={{
                           '>div': {
                             display: 'flex',
@@ -551,13 +591,13 @@ const Custom: NextPage<Props> = ({ data }) => {
                     ))}
                   </>
                 ) : (
-                  // 色選択
                   <>
                     {item.color !== undefined ? (
+                      // デフォルトの中から色選択
                       <>
                         {item.color.map((color, i2) => (
                           <Box
-                            onClick={() => selectColorFunc([i1, i2])}
+                            onClick={() => selectColorFunc(i1, i2)}
                             key={color + i2}
                             bg={color}
                             w="calc((100% - 8px * 4) / 5)"
@@ -580,8 +620,85 @@ const Custom: NextPage<Props> = ({ data }) => {
                             }}
                           />
                         ))}
+                        {item.colorPicker && (
+                          // カラーピッカー
+                          <Flex gap="8px" w="100%" mt="16px">
+                            <Center
+                              w="calc((100% - 8px * 4) / 5)"
+                              pos="relative"
+                              borderColor="white"
+                              borderWidth="5px"
+                              borderStyle="solid"
+                              borderRadius="9999px"
+                              overflow="hidden"
+                              sx={{
+                                ...(selectColor[i1] === -1 && {
+                                  borderColor: 'primary500',
+                                }),
+                                '&:before': {
+                                  content: "''",
+                                  display: 'block',
+                                  width: '100%',
+                                  paddingTop: '100%',
+                                },
+                              }}
+                            >
+                              <Center
+                                as="input"
+                                type="color"
+                                // defaultValue={colorPicker}
+                                value={colorPicker}
+                                onClick={(e) => pickUpColorSave(e, i1)}
+                                w="120%"
+                                h="120%"
+                                pos="absolute"
+                              />
+                              <Box
+                                as="img"
+                                src="./img/icon_spuit.svg"
+                                w="60%"
+                                h="60%"
+                                objectFit="contain"
+                                pos="absolute"
+                                pointerEvents="none"
+                              />
+                            </Center>
+                            <Center
+                              w="calc(100% - 8px - (100% - 8px * 4) / 5)"
+                              h="100%"
+                              pos="relative"
+                              fontSize="2.5rem"
+                            >
+                              <Box
+                                as="input"
+                                type="text"
+                                value={colorPicker}
+                                // defaultValue={colorPicker}
+                                onChange={(e) => pickUpColorSave(e, i1)}
+                                placeholder="000000"
+                                w="100%"
+                                h="100%"
+                                p="0 32px"
+                                borderRadius="9999px"
+                                sx={{
+                                  ...(selectColor[i1] === -1 &&
+                                    colorPicker.length !== 7 && {
+                                      background: 'tomato',
+                                    }),
+                                  '&::placeholder': {
+                                    color: 'black200',
+                                  },
+                                }}
+                              />
+                              {/* <Text pos="absolute" inset="auto auto auto 28px">
+                                #
+                              </Text> */}
+                            </Center>
+                          </Flex>
+                        )}
                       </>
                     ) : (
+                      // 色がない
                       <Center
                         bg="black200"
                         w="calc((100% - 8px * 4) / 5)"
@@ -623,26 +740,33 @@ const Custom: NextPage<Props> = ({ data }) => {
         <Center
           as="button"
           onClick={() => colorChange()}
-          w="72px"
-          h="72px"
+          w="64px"
+          h="64px"
           bg="primary500"
           borderRadius="9999px"
           pos="absolute"
-          inset="180px 24px auto auto"
+          inset="190px 20px auto auto"
           zIndex="30"
           transition="background 0.2s"
           sx={{
-            ...(colorModal && {
+            ...(colorModalFlag && {
               background: 'secondary500',
             }),
           }}
         >
           <Box
             as="img"
-            src="./img/icon_spuit.svg"
-            w="40%"
-            h="40%"
+            src={
+              !colorModalFlag
+                ? './img/icon_palette.svg'
+                : './img/icon_nocolor.svg'
+            }
             objectFit="contain"
+            sx={{
+              ...(!colorModalFlag
+                ? { width: '55%', height: '55%' }
+                : { width: '40%', height: '40%' }),
+            }}
           />
         </Center>
         {/* ----------------------------------
