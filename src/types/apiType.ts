@@ -62,4 +62,5 @@ export type partsType = {
   symmetry: boolean;
   colorPicker: boolean;
   multiple: boolean;
+  reversal: boolean;
 };

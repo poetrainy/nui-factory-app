@@ -20,6 +20,7 @@ export default function goods(
       symmetry: false,
       colorPicker: false,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'め',
@@ -28,6 +29,7 @@ export default function goods(
       symmetry: true,
       colorPicker: true,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'まゆ',
@@ -36,6 +38,7 @@ export default function goods(
       symmetry: true,
       colorPicker: false,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'みみ',
@@ -44,6 +47,7 @@ export default function goods(
       symmetry: true,
       colorPicker: false,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'はな',
@@ -52,14 +56,16 @@ export default function goods(
       symmetry: false,
       colorPicker: false,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'ほほ',
       titleEn: 'cheeks',
-      color: ['#ffdfc0', '#ffdee1'],
+      color: ['#ff8b1b5c', '#ff8a947d'],
       symmetry: true,
       colorPicker: false,
       multiple: false,
+      reversal: false,
     },
     {
       titleJa: 'くち',
@@ -68,6 +74,7 @@ export default function goods(
       symmetry: false,
       colorPicker: false,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'まえがみ',
@@ -76,6 +83,7 @@ export default function goods(
       symmetry: false,
       colorPicker: true,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'うしろがみ',
@@ -84,6 +92,7 @@ export default function goods(
       symmetry: false,
       colorPicker: true,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'かみのオプション',
@@ -92,6 +101,7 @@ export default function goods(
       symmetry: false,
       colorPicker: true,
       multiple: true,
+      reversal: true,
     },
     {
       titleJa: 'こもの1',
@@ -100,6 +110,7 @@ export default function goods(
       symmetry: false,
       colorPicker: false,
       multiple: true,
+      reversal: true,
     },
     {
       titleJa: 'ふく',
@@ -108,6 +119,7 @@ export default function goods(
       symmetry: false,
       colorPicker: false,
       multiple: false,
+      reversal: true,
     },
     {
       titleJa: 'からだ',
@@ -116,7 +128,7 @@ export default function goods(
       symmetry: false,
       colorPicker: false,
       multiple: false,
+      reversal: true,
     },
-    // 色味本はいくつか作って、カラーコードの指定もできるようにする
   ]);
 }

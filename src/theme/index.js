@@ -75,6 +75,20 @@ const textStyles = {
       outlineColor: 'primary500',
     },
   },
+  hoge: {
+    '&::before': {
+      content: "''",
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      inset: '0 0 auto auto',
+      borderRadius: '16px',
+      borderWidth: '5px',
+      borderStyle: 'solid',
+      borderColor: 'primary500',
+    },
+  },
 };
 
 const theme = extendTheme({

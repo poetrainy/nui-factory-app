@@ -33,12 +33,12 @@ const Custom: NextPage<Props> = ({ data }) => {
     [0],
     [0],
     [0],
+    [1],
     [0],
     [0],
     [0],
     [0],
-    [0],
-    [6],
+    [4],
     [0],
     [0],
   ]);
@@ -395,7 +395,6 @@ const Custom: NextPage<Props> = ({ data }) => {
                         transition: 'fill 0.2s',
                       },
                       ...(item.color !== undefined && {
-                        // ...selectColor[i] === -1
                         '.colorChange': {
                           fill: item.color[selectColor[i]],
                         },
@@ -409,8 +408,10 @@ const Custom: NextPage<Props> = ({ data }) => {
                       h="100%"
                       objectFit="contain"
                       inset="0 0 auto auto"
-                      transform="scale(-1, 1)"
                       sx={{
+                        ...(item.reversal && {
+                          transform: 'scale(-1, 1)',
+                        }),
                         ...(item.color !== undefined && {
                           '.colorChange': {
                             // @ts-ignore
@@ -499,6 +500,23 @@ const Custom: NextPage<Props> = ({ data }) => {
                 {!colorModalFlag ? (
                   // パーツ選択
                   <>
+                    {item.multiple && (
+                      <Center
+                        w="20vw"
+                        h="20vw"
+                        bg="black200"
+                        pos="relative"
+                        borderRadius="16px"
+                        overflow="hidden"
+                      >
+                        <Box
+                          as="img"
+                          src="./img/icon_nocolor.svg"
+                          w="55%"
+                          h="55%"
+                        />
+                      </Center>
+                    )}
                     {partsSvgArray[i1].map((svg: any, i2: number) => (
                       <Center
                         key={i2 + 'parts'}
@@ -518,60 +536,25 @@ const Custom: NextPage<Props> = ({ data }) => {
                             height: '100%',
                           },
                           ...(i2 === selectParts[i1][0] && {
-                            '&::before': {
-                              content: "''",
-                              display: 'block',
-                              width: '100%',
-                              height: '100%',
-                              position: 'absolute',
-                              inset: '0 0 auto auto',
-                              borderRadius: '16px',
-                              borderWidth: '5px',
-                              borderStyle: 'solid',
-                              borderColor: 'primary500',
-                            },
+                            textStyle: 'hoge',
                           }),
                           ...(i2 === selectParts[i1][1] && {
-                            '&::before': {
-                              content: "''",
-                              display: 'block',
-                              width: '100%',
-                              height: '100%',
-                              position: 'absolute',
-                              inset: '0 0 auto auto',
-                              borderRadius: '16px',
-                              borderWidth: '5px',
-                              borderStyle: 'solid',
-                              borderColor: 'primary500',
-                            },
+                            textStyle: 'hoge',
                           }),
                           ...(i2 === selectParts[i1][2] && {
-                            '&::before': {
-                              content: "''",
-                              display: 'block',
-                              width: '100%',
-                              height: '100%',
-                              position: 'absolute',
-                              inset: '0 0 auto auto',
-                              borderRadius: '16px',
-                              borderWidth: '5px',
-                              borderStyle: 'solid',
-                              borderColor: 'primary500',
-                            },
+                            textStyle: 'hoge',
                           }),
                           ...(i2 === selectParts[i1][3] && {
-                            '&::before': {
-                              content: "''",
-                              display: 'block',
-                              width: '100%',
-                              height: '100%',
-                              position: 'absolute',
-                              inset: '0 0 auto auto',
-                              borderRadius: '16px',
-                              borderWidth: '5px',
-                              borderStyle: 'solid',
-                              borderColor: 'primary500',
-                            },
+                            textStyle: 'hoge',
+                          }),
+                          ...(i2 === selectParts[i1][4] && {
+                            textStyle: 'hoge',
+                          }),
+                          ...(i2 === selectParts[i1][5] && {
+                            textStyle: 'hoge',
+                          }),
+                          ...(i2 === selectParts[i1][6] && {
+                            textStyle: 'hoge',
                           }),
                         }}
                       >
@@ -579,7 +562,6 @@ const Custom: NextPage<Props> = ({ data }) => {
                           as={svg}
                           w="70%"
                           h="70%"
-                          // objectFit="contain"
                           sx={{
                             ...(item.color !== undefined && {
                               '.colorChange': {
@@ -593,6 +575,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                     ))}
                   </>
                 ) : (
+                  // 色選択
                   <>
                     {item.color !== undefined ? (
                       // デフォルトの中から色選択
