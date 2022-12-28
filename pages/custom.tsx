@@ -7,7 +7,7 @@ import Navigation from '../src/components/Navigation';
 import { partsApi } from '../src/libs/api';
 import { partsSvgArray } from '../src/libs/partsArray';
 import { nuiPartsType } from '../src/types/apiType';
-import { partsType } from '../src/types/parts';
+import { partsType } from '../src/types/apiType';
 
 type Props = {
   data: partsType[];
@@ -15,8 +15,9 @@ type Props = {
 
 const Custom: NextPage<Props> = ({ data }) => {
   const [parts, setParts] = useState<any>();
+  const [tab, setTab] = useState<number>(0);
   const [selectColor, setSelectColor] = useState<number[]>([
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 7, 0, 0, 0, 0, 0, 9, 9, 9, 0, 0, 0,
   ]);
   const [selectParts, setSelectParts] = useState<number[][]>([
     [0],
@@ -29,8 +30,7 @@ const Custom: NextPage<Props> = ({ data }) => {
     [0],
     [0],
     [0],
-    [0],
-    [0],
+    [2],
     [0],
     [0],
   ]);
@@ -44,11 +44,15 @@ const Custom: NextPage<Props> = ({ data }) => {
     setColorModal(!colorModal);
   };
 
+  const tabChange = (i: number) => {
+    setTab(i);
+  };
+
   // 色を格納する配列
-  const colorSelect = ([i1, i2]: number[]) => {
+  const selectColorFunc = ([i1, i2]: number[]) => {
     updateSelectColor = [];
     // 肌の時だけ分岐
-    if (i1 === 0 || i1 === 3 || i1 === 13) {
+    if (data[i1].multiple === true) {
       skinColor = i2;
       for (let i = 0; i < data.length; i++) {
         if (i === 0 || i === 3 || i === 13) {
@@ -71,13 +75,32 @@ const Custom: NextPage<Props> = ({ data }) => {
   };
 
   // パーツを格納する配列
-  const partsSelect = ([i1, i2]: number[]) => {
+  const selectPartsFunc = ([i1, i2]: number[]) => {
     updateSelectParts = [];
     for (let i = 0; i < data.length; i++) {
-      if (i === i1) {
-        updateSelectParts.push([i2]);
+      if (i === 9 || i === 10 || i === 11) {
+        if (i === i1) {
+          let array: number[] = selectParts[i];
+          let arrayLength = selectParts[i].length;
+          for (let i3 = 0; i3 < selectParts[i].length; i3++) {
+            if (selectParts[i][i3] === i2) {
+              selectParts[i].splice(i3, 1);
+              break;
+            }
+          }
+          if (array.length === arrayLength) {
+            array.push(i2);
+          }
+          updateSelectParts.push(array);
+        } else {
+          updateSelectParts.push(selectParts[i]);
+        }
       } else {
-        updateSelectParts.push(selectParts[i]);
+        if (i === i1) {
+          updateSelectParts.push([i2]);
+        } else {
+          updateSelectParts.push(selectParts[i]);
+        }
       }
     }
     setSelectParts(updateSelectParts);
@@ -97,7 +120,6 @@ const Custom: NextPage<Props> = ({ data }) => {
       });
     }
     setParts(updateParts);
-    console.log(updateParts);
   };
 
   return (
@@ -117,38 +139,68 @@ const Custom: NextPage<Props> = ({ data }) => {
           h="280px"
           pos="relative"
           sx={{
-            '.parts_accessory-01_mole-leftEye': {
+            '.parts_hair-option_side': {
+              width: '40px',
+              height: '100px',
+              inset: '96px 0 auto 44px',
+              position: 'absolute',
+            },
+            '.parts_hair-option_mesh': {
+              // width: '40px',
+              // height: '100px',
+              // inset: '96px 0 auto 44px',
+              position: 'absolute',
+            },
+            '.parts_hair-option_stupid-top': {
+              width: '28px',
+              height: '100px',
+              inset: '-60px 0 auto 106px',
+              position: 'absolute',
+            },
+            '.parts_hair-option_stupid-bottom': {
+              width: '31px',
+              height: '100px',
+              inset: '-1px 0 auto 108px',
+              position: 'absolute',
+            },
+            '.parts_accessory_mole-leftEye': {
               width: '3px',
               height: '3px',
               inset: '160px 0 auto 163px',
+              position: 'absolute',
             },
-            '.parts_accessory-01_mole-rightEye': {
+            '.parts_accessory_mole-rightEye': {
               width: '3px',
               height: '3px',
               inset: '160px 0 auto 55px',
+              position: 'absolute',
             },
-            '.parts_accessory-01_mole-free': {
+            '.parts_accessory_mole-free': {
               width: '3px',
               height: '3px',
-              inset: '10px 0 auto 163px',
+              inset: '166px 0 auto 136px',
+              position: 'absolute',
             },
-            '.parts_accessory-01_freckles': {
+            '.parts_accessory_freckles': {
               width: '30px',
-              inset: '150px 0 auto 0',
+              inset: '43px 0 auto 0',
               margin: 'auto',
               path: {
                 fill: '#d39667',
               },
+              position: 'absolute',
             },
-            '.parts_accessory-01_pierce-01': {
+            '.parts_accessory_pierce-01': {
               width: '20px',
-              inset: '124px 0 auto 200px',
+              inset: '32px 0 auto 200px',
+              position: 'absolute',
             },
-            '.parts_accessory-02_pierce-02': {
+            '.parts_accessory_pierce-02': {
               width: '10px',
               inset: '147px 0 auto 198px',
+              position: 'absolute',
             },
-            '.parts_accessory-02_eyelashes': {
+            '.parts_accessory_eyelashes': {
               width: '8px',
               inset: '155px 0 auto 54px',
             },
@@ -157,6 +209,9 @@ const Custom: NextPage<Props> = ({ data }) => {
           {data.map((item: partsType, i) => (
             <Box
               key={item.titleEn + i}
+              w="280px"
+              h="280px"
+              pos="absolute"
               sx={{
                 '>div': {
                   // 1. 後ろ髪, 服
@@ -192,7 +247,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                   }),
                   // 耳
                   ...(i === 3 && {
-                    width: '212px',
+                    width: '215px',
                     height: '48px',
                     inset: '120px 0 auto 0',
                     zIndex: 2,
@@ -249,36 +304,36 @@ const Custom: NextPage<Props> = ({ data }) => {
                     },
                   }),
                   // 髪オプション
-                  ...(i === 9 && {}),
-                  // アクセサリー1
+                  ...(i === 9 && {
+                    width: '100%',
+                    height: '100%',
+                    inset: '4px 0 auto 0',
+                    zIndex: 5,
+                    div: {
+                      width: '100%',
+                      height: '100%',
+                    },
+                  }),
+                  // アクセサリー
                   ...(i === 10 && {
                     width: '220px',
                     height: '220px',
                     inset: '4px 0 auto 0',
                     zIndex: 3,
-                    svg: {
-                      position: 'absolute',
-                    },
-                  }),
-                  // アクセサリー2
-                  ...(i === 11 && {
-                    width: '220px',
-                    height: '220px',
-                    inset: '4px 0 auto 0',
-                    zIndex: 3,
-                    svg: {
-                      position: 'absolute',
+                    div: {
+                      width: '100%',
+                      height: '100%',
                     },
                   }),
                   // 服
-                  ...(i === 12 && {
+                  ...(i === 11 && {
                     width: '220px',
                     height: '220px',
                     inset: '160px 0 auto 0',
                     zIndex: 2,
                   }),
                   // からだ
-                  ...(i === 13 && {
+                  ...(i === 12 && {
                     width: '258px',
                     height: '213px',
                     inset: '198px 0 auto 0',
@@ -287,16 +342,16 @@ const Custom: NextPage<Props> = ({ data }) => {
                 },
               }}
             >
-              {selectParts[i].map((svg: number, i2) => (
+              {selectParts[i].map((svgIndex: number, i2) => (
                 <Box
                   display="flex"
                   justifyContent="space-between"
                   margin="auto"
                   position="absolute"
-                  key={svg + i2 + ''}
+                  key={i2 + 'preview'}
                 >
                   <Box
-                    as={partsSvgArray[i][svg]}
+                    as={partsSvgArray[i][svgIndex]}
                     w="100%"
                     h="100%"
                     objectFit="contain"
@@ -310,7 +365,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                   />
                   {item.symmetry && (
                     <Box
-                      as={partsSvgArray[i][svg]}
+                      as={partsSvgArray[i][svgIndex]}
                       w="100%"
                       h="100%"
                       objectFit="contain"
@@ -334,30 +389,28 @@ const Custom: NextPage<Props> = ({ data }) => {
         {/* ----------------------------------
             タブ
         ---------------------------------- */}
-        <Box w="100vw" overflow="scroll" pos="relative" zIndex="20">
-          <Flex flexWrap="wrap" w={`calc(3 * 100vw)`}>
+        <Box w="100vw" bg="white" overflowX="scroll" pos="relative" zIndex="20">
+          <Flex flexWrap="wrap" w={`calc(${data.length} * 21vw)`}>
             {data.map((item: partsType, i: number) => (
               <Center
+                key={item.titleEn + i}
+                onClick={() => tabChange(i)}
                 w="21vw"
                 h="56px"
-                key={item.titleEn + i}
-                bg="white"
-                borderLeftWidth="5px"
-                borderLeftStyle="solid"
-                borderLeftColor="black200"
-                borderTopWidth="5px"
-                borderTopStyle="solid"
-                borderTopColor="black200"
-                borderRightWidth="5px"
-                borderRightStyle="solid"
-                borderRightColor="black200"
-                borderRadius="16px 16px 0 0"
-                transform={`translateX(-${8 * i}px)`}
+                opacity={1}
+                filter="none"
+                transform="filter 1s, opacity 1s"
+                sx={{
+                  ...(i !== tab && {
+                    filter: 'grayscale(100%)',
+                    opacity: 0.2,
+                  }),
+                }}
               >
                 <Box
                   as={partsSvgArray[i][selectParts[i][0]]}
-                  w="70%"
-                  h="70%"
+                  w="55%"
+                  h="55%"
                   objectFit="contain"
                   sx={{
                     ...(item.color !== undefined && {
@@ -378,7 +431,7 @@ const Custom: NextPage<Props> = ({ data }) => {
           w="100vw"
           h="55vh"
           bg="black100"
-          overflow="scroll"
+          overflow="hidden"
           pos="relative"
           zIndex="20"
         >
@@ -387,6 +440,8 @@ const Custom: NextPage<Props> = ({ data }) => {
             w={`calc(${data.length} * 100vw)`}
             h="fit-content"
             p="40px 0"
+            transform={`translateX(calc(-${tab} * 100vw))`}
+            transition="transform 0.3s"
             sx={{
               li: {
                 flexWrap: 'wrap',
@@ -404,16 +459,65 @@ const Custom: NextPage<Props> = ({ data }) => {
                   <>
                     {partsSvgArray[i1].map((svg: any, i2: number) => (
                       <Center
-                        key={i2 + svg + ''}
+                        key={i2 + 'parts'}
                         w="20vw"
                         h="20vw"
                         bg="white"
                         pos="relative"
                         borderRadius="16px"
                         overflow="hidden"
-                        onClick={() => partsSelect([i1, i2])}
+                        onClick={() => selectPartsFunc([i1, i2])}
                         sx={{
+                          '>div': {
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            width: '100%',
+                            height: '100%',
+                          },
                           ...(i2 === selectParts[i1][0] && {
+                            '&::before': {
+                              content: "''",
+                              display: 'block',
+                              width: '100%',
+                              height: '100%',
+                              position: 'absolute',
+                              inset: '0 0 auto auto',
+                              borderRadius: '16px',
+                              borderWidth: '5px',
+                              borderStyle: 'solid',
+                              borderColor: 'primary500',
+                            },
+                          }),
+                          ...(i2 === selectParts[i1][1] && {
+                            '&::before': {
+                              content: "''",
+                              display: 'block',
+                              width: '100%',
+                              height: '100%',
+                              position: 'absolute',
+                              inset: '0 0 auto auto',
+                              borderRadius: '16px',
+                              borderWidth: '5px',
+                              borderStyle: 'solid',
+                              borderColor: 'primary500',
+                            },
+                          }),
+                          ...(i2 === selectParts[i1][2] && {
+                            '&::before': {
+                              content: "''",
+                              display: 'block',
+                              width: '100%',
+                              height: '100%',
+                              position: 'absolute',
+                              inset: '0 0 auto auto',
+                              borderRadius: '16px',
+                              borderWidth: '5px',
+                              borderStyle: 'solid',
+                              borderColor: 'primary500',
+                            },
+                          }),
+                          ...(i2 === selectParts[i1][3] && {
                             '&::before': {
                               content: "''",
                               display: 'block',
@@ -433,6 +537,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                           as={svg}
                           w="70%"
                           h="70%"
+                          // objectFit="contain"
                           sx={{
                             ...(item.color !== undefined && {
                               '.colorChange': {
@@ -448,11 +553,11 @@ const Custom: NextPage<Props> = ({ data }) => {
                 ) : (
                   // 色選択
                   <>
-                    {item.color !== undefined && (
+                    {item.color !== undefined ? (
                       <>
                         {item.color.map((color, i2) => (
                           <Box
-                            onClick={() => colorSelect([i1, i2])}
+                            onClick={() => selectColorFunc([i1, i2])}
                             key={color + i2}
                             bg={color}
                             w="calc((100% - 8px * 4) / 5)"
@@ -476,6 +581,35 @@ const Custom: NextPage<Props> = ({ data }) => {
                           />
                         ))}
                       </>
+                    ) : (
+                      <Center
+                        bg="black200"
+                        w="calc((100% - 8px * 4) / 5)"
+                        h="auto"
+                        borderColor="white"
+                        borderWidth="5px"
+                        borderStyle="solid"
+                        borderRadius="9999px"
+                        overflow="hidden"
+                        pos="relative"
+                        sx={{
+                          '&::before': {
+                            content: "''",
+                            display: 'block',
+                            width: '100%',
+                            paddingTop: '100%',
+                          },
+                          '&::after': {
+                            content: "''",
+                            display: 'block',
+                            width: '50%',
+                            height: '50%',
+                            background:
+                              "url('./img/icon_nocolor.svg') no-repeat",
+                            position: 'absolute',
+                          },
+                        }}
+                      />
                     )}
                   </>
                 )}

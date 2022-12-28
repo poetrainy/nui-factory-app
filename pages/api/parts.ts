@@ -102,14 +102,6 @@ export default function goods(
       multiple: true,
     },
     {
-      titleJa: 'こもの2',
-      titleEn: 'accessory-02',
-      color: undefined,
-      symmetry: true,
-      colorPicker: false,
-      multiple: true,
-    },
-    {
       titleJa: 'ふく',
       titleEn: 'clothes',
       color: partsColor,

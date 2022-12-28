@@ -54,14 +54,14 @@ import hairOptionMesh from '../../src/assets/parts/parts_hair-option_mesh';
 import hairOptionStupidTop from '../../src/assets/parts/parts_hair-option_stupid-top';
 import hairOptionStupidBottom from '../../src/assets/parts/parts_hair-option_stupid-bottom';
 
-import accessory01MoleLeftEye from '../../src/assets/parts/parts_accessory-01_mole-leftEye';
-import accessory01MoleRightEye from '../../src/assets/parts/parts_accessory-01_mole-rightEye';
-import accessory01MoleFree from '../../src/assets/parts/parts_accessory-01_mole-free';
-import accessory01Freckles from '../../src/assets/parts/parts_accessory-01_freckles';
-import accessory01Pierce01 from '../../src/assets/parts/parts_accessory-01_pierce-01';
+import accessoryMoleLeftEye from '../assets/parts/parts_accessory_mole-leftEye';
+import accessoryMoleRightEye from '../assets/parts/parts_accessory_mole-rightEye';
+import accessoryMoleFree from '../assets/parts/parts_accessory_mole-free';
+import accessoryFreckles from '../assets/parts/parts_accessory_freckles';
+import accessoryPierce01 from '../assets/parts/parts_accessory_pierce-01';
 
-import accessory02Eyelashes from '../../src/assets/parts/parts_accessory-02_eyelashes';
-import accessory02Pierce02 from '../../src/assets/parts/parts_accessory-02_pierce-02';
+import accessoryEyelashes from '../assets/parts/parts_accessory_eyelashes';
+import accessoryPierce02 from '../assets/parts/parts_accessory_pierce-02';
 
 import clothesTShirt from '../../src/assets/parts/parts_clothes_t-shirt';
 
@@ -130,13 +130,14 @@ export const partsSvgArray: any[][] = [
   ],
   [hairOptionSide, hairOptionMesh, hairOptionStupidTop, hairOptionStupidBottom],
   [
-    accessory01MoleLeftEye,
-    accessory01MoleRightEye,
-    accessory01MoleFree,
-    accessory01Freckles,
-    accessory01Pierce01,
+    accessoryMoleLeftEye,
+    accessoryMoleRightEye,
+    accessoryMoleFree,
+    accessoryFreckles,
+    accessoryPierce01,
+    accessoryEyelashes,
+    accessoryPierce02,
   ],
-  [accessory02Eyelashes, accessory02Pierce02],
   [clothesTShirt],
   [bodyNormal],
 ];
