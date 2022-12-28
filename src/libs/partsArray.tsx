@@ -77,6 +77,7 @@ export const partsColor: string[] = [
   '#0246cc',
   '#74c8d6',
   '#eeeeee',
+  '#404040',
 ];
 
 export const partsSkinColor: string[] = ['#ffe2cc', '#fff0e6', '#ecc09b'];
