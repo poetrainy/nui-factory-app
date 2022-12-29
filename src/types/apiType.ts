@@ -56,11 +56,13 @@ export type nuiApiType = {
 };
 
 export type partsType = {
-  titleJa: string;
-  titleEn: string;
-  color?: string[];
-  symmetry: boolean;
-  colorPicker: boolean;
-  multiple: boolean;
-  reversal: boolean;
+  titleJa: string; // タイトル
+  titleEn: string; // タイトル 英語
+  color: string[] | undefined; // 色及び選択の可否
+  symmetry: boolean; // 左右対称に配置するか
+  colorPicker: boolean; // 色を自由に選択できるようにするか
+  multiple: boolean; // 複数同時に選択できるようにするか
+  reversal: boolean; // 左右対称に配置したとき反転するか
+  noselected: boolean; // 選択しない ボタンを表示するか
+  skin: boolean; // 肌であるか（色の統一）
 };

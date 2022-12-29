@@ -15,7 +15,7 @@ type Props = {
 const Custom: NextPage<Props> = ({ data }) => {
   const [parts, setParts] = useState<any>();
   // 色を編集する可能性のあるパーツの配列
-  const colorPickerParts = data.filter((item, i) => item.colorPicker === true);
+  const colorPickerParts = data.filter((item, i) => item.colorPicker);
   const [tab, setTab] = useState<number>(0);
   const [selectColor, setSelectColor] = useState<number[]>([
     0, 7, 0, 0, 0, 0, 0, 14, 14, 14, 0, 0, 0,
@@ -64,13 +64,13 @@ const Custom: NextPage<Props> = ({ data }) => {
   };
 
   // 色を格納する配列
-  const selectColorFunc = (i1: number, i2: number) => {
+  const selectColorFunc = (i1: number, i2: number | undefined) => {
     updateSelectColor = [];
     // 肌の時だけ分岐
-    if (data[i1].multiple === true) {
+    if (data[i1].skin && i2 !== undefined) {
       skinColor = i2;
       for (let i = 0; i < data.length; i++) {
-        if (i === 0 || i === 3 || i === 13) {
+        if (i === 0 || i === 3 || i === 12) {
           updateSelectColor.push(skinColor);
         } else {
           updateSelectColor.push(selectColor[i]);
@@ -90,10 +90,10 @@ const Custom: NextPage<Props> = ({ data }) => {
   };
 
   // パーツを格納する配列
-  const selectPartsFunc = (i1: number, i2: number) => {
+  const selectPartsFunc = (i1: number, i2: number | undefined) => {
     updateSelectParts = [];
     for (let i = 0; i < data.length; i++) {
-      if (i === 9 || i === 10 || i === 11) {
+      if (data[i1].multiple && i2 !== undefined) {
         if (i === i1) {
           let array: number[] = selectParts[i];
           let arrayLength = selectParts[i].length;
@@ -500,14 +500,21 @@ const Custom: NextPage<Props> = ({ data }) => {
                 {!colorModalFlag ? (
                   // パーツ選択
                   <>
-                    {item.multiple && (
+                    {/* 選択しない */}
+                    {item.noselected && (
                       <Center
+                        onClick={() => selectPartsFunc(i1, undefined)}
                         w="20vw"
                         h="20vw"
                         bg="black200"
                         pos="relative"
                         borderRadius="16px"
                         overflow="hidden"
+                        sx={{
+                          ...(selectParts[i1][0] === undefined && {
+                            textStyle: 'hoge',
+                          }),
+                        }}
                       >
                         <Box
                           as="img"
@@ -517,6 +524,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                         />
                       </Center>
                     )}
+                    {/* 選択する */}
                     {partsSvgArray[i1].map((svg: any, i2: number) => (
                       <Center
                         key={i2 + 'parts'}

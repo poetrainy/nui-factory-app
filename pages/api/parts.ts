@@ -21,6 +21,8 @@ export default function goods(
       colorPicker: false,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: true,
     },
     {
       titleJa: 'め',
@@ -30,6 +32,8 @@ export default function goods(
       colorPicker: true,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: false,
     },
     {
       titleJa: 'まゆ',
@@ -39,6 +43,8 @@ export default function goods(
       colorPicker: false,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: false,
     },
     {
       titleJa: 'みみ',
@@ -48,6 +54,8 @@ export default function goods(
       colorPicker: false,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: true,
     },
     {
       titleJa: 'はな',
@@ -57,6 +65,8 @@ export default function goods(
       colorPicker: false,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: false,
     },
     {
       titleJa: 'ほほ',
@@ -66,6 +76,8 @@ export default function goods(
       colorPicker: false,
       multiple: false,
       reversal: false,
+      noselected: true,
+      skin: false,
     },
     {
       titleJa: 'くち',
@@ -75,6 +87,8 @@ export default function goods(
       colorPicker: false,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: false,
     },
     {
       titleJa: 'まえがみ',
@@ -84,6 +98,8 @@ export default function goods(
       colorPicker: true,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: false,
     },
     {
       titleJa: 'うしろがみ',
@@ -93,6 +109,8 @@ export default function goods(
       colorPicker: true,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: false,
     },
     {
       titleJa: 'かみのオプション',
@@ -102,6 +120,8 @@ export default function goods(
       colorPicker: true,
       multiple: true,
       reversal: true,
+      noselected: true,
+      skin: false,
     },
     {
       titleJa: 'こもの1',
@@ -111,6 +131,8 @@ export default function goods(
       colorPicker: false,
       multiple: true,
       reversal: true,
+      noselected: true,
+      skin: false,
     },
     {
       titleJa: 'ふく',
@@ -120,6 +142,8 @@ export default function goods(
       colorPicker: false,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: false,
     },
     {
       titleJa: 'からだ',
@@ -129,6 +153,8 @@ export default function goods(
       colorPicker: false,
       multiple: false,
       reversal: true,
+      noselected: false,
+      skin: true,
     },
   ]);
 }
