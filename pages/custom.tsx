@@ -1,8 +1,6 @@
-import { AbsoluteCenter, Box, Center, Flex, Text } from '@chakra-ui/react';
-import { log } from 'console';
+import {  Box, Center, Flex } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import { isStringObject } from 'util/types';
 import Navigation from '../src/components/Navigation';
 import { partsApi } from '../src/libs/api';
 import { partsSvgArray } from '../src/libs/partsArray';
@@ -15,7 +13,7 @@ type Props = {
 const Custom: NextPage<Props> = ({ data }) => {
   const [parts, setParts] = useState<any>();
   // 色を編集する可能性のあるパーツの配列
-  const colorPickerParts = data.filter((item, i) => item.colorPicker);
+  const colorPickerParts = data.filter((item) => item.colorPicker);
   const [tab, setTab] = useState<number>(0);
   const [selectColor, setSelectColor] = useState<number[]>([
     0, 7, 0, 0, 0, 0, 0, 14, 14, 14, 0, 0, 0,
@@ -49,16 +47,19 @@ const Custom: NextPage<Props> = ({ data }) => {
   let updateSelectParts: any = [];
   let skinColor: number = 0;
 
+  // 色選択モードに変更する
   const colorChange = () => {
     setColorModalFlag(!colorModalFlag);
   };
 
+  // カラーピッカーで色を保存する
   const pickUpColorSave = (e: any, i1: number) => {
     console.log(String(e.target.value));
     setColorPicker(String(e.target.value));
     selectColorFunc(i1, -1);
   };
 
+  // タブを押すとパーツを選択できる
   const tabChange = (i: number) => {
     setTab(i);
   };
@@ -135,6 +136,8 @@ const Custom: NextPage<Props> = ({ data }) => {
       });
     }
     setParts(updateParts);
+    console.log("Firestoreに送信完了");
+    
   };
 
   return (
