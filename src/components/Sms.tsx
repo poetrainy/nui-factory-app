@@ -17,16 +17,6 @@ const Sms: FC = () => {
     e.target.value = e.target.value.replace(/[^0-9]+/i, '');
     if (e.target.value !== '') {
       setElIndex(Number(e.currentTarget.dataset.number));
-      // console.log(e.currentTarget.dataset.number);
-      // if (window !== undefined) {
-      // console.log(ref);
-      // if (window.document.getElementById('test') !== null) {
-      //   console.log(window.document.getElementById('test'));
-      // }
-
-      // console.log(window.document.body.dataset.number);
-      // `${setElIndex + 1}`
-      // }
     }
   };
 

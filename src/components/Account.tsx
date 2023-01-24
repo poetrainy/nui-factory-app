@@ -7,50 +7,49 @@ type Props = {
   data?: string;
 };
 
-const accountLink = [
-  [
-    {
-      text: '下書き',
-      path: '',
-    },
-    {
-      text: '過去に読み込んだレシピ',
-      path: '',
-    },
-    {
-      text: 'レシピを読み込む',
-      path: '',
-    },
-  ],
-  [
-    {
-      text: '注文履歴',
-      path: 'order-history',
-    },
-    {
-      text: 'クーポン一覧',
-      path: 'coupon',
-    },
-  ],
-  [
-    {
-      text: 'ユーザー情報変更',
-      path: 'setting',
-    },
-  ],
-  [
-    {
-      text: '困ったときは',
-      path: 'help',
-    },
-    {
-      text: 'お問い合わせ',
-      path: 'contact',
-    },
-  ],
-];
-
 const Account: FC<Props> = ({ data }) => {
+  const accountLink = [
+    [
+      {
+        text: '下書き',
+        path: '',
+      },
+      {
+        text: '過去に読み込んだレシピ',
+        path: '',
+      },
+      {
+        text: 'レシピを読み込む',
+        path: '',
+      },
+    ],
+    [
+      {
+        text: '注文履歴',
+        path: 'order-history',
+      },
+      {
+        text: 'クーポン一覧',
+        path: 'coupon',
+      },
+    ],
+    [
+      {
+        text: 'ユーザー情報変更',
+        path: 'setting',
+      },
+    ],
+    [
+      {
+        text: '困ったときは',
+        path: 'help',
+      },
+      {
+        text: 'お問い合わせ',
+        path: 'contact',
+      },
+    ],
+  ];
   return (
     <Box
       w="80vw"

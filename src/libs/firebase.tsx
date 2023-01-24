@@ -1,4 +1,5 @@
 import { getApp, getApps, initializeApp } from 'firebase/app';
+import { initializeFirestore } from 'firebase/firestore';
 
 export const TARGET_COLLECTION_NAME = 'order';
 
@@ -14,6 +15,10 @@ const firebaseConfig = {
   }.firebaseio.com`,
 };
 
-export const firebaseApp = !getApps().length
-  ? initializeApp(firebaseConfig)
-  : getApp();
+const firebase = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
+initializeFirestore(firebase, {
+  ignoreUndefinedProperties: true,
+});
+
+export const firebaseApp = firebase;

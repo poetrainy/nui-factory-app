@@ -16,7 +16,7 @@ export default function goods(
       id: 1,
       serial: '9283-3294-3478',
       name: 'かっこいいタキシード',
-      category: ['tops', 'bottoms'],
+      category: ['setup'],
       color: ['navy', 'white', 'black'],
       price: 2400,
       img: ['', '', '', '', ''],

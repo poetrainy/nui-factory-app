@@ -1,14 +1,32 @@
-import {  Box, Center, Flex } from '@chakra-ui/react';
+import { Box, Center, Flex } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import Navigation from '../src/components/Navigation';
 import { partsApi } from '../src/libs/api';
 import { partsSvgArray } from '../src/libs/partsArray';
 import { partsType } from '../src/types/apiType';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { firebaseApp } from '../src/libs/firebase';
 
 type Props = {
   data: partsType[];
 };
+
+const partsTitle = [
+  'outline',
+  'eyes',
+  'eyebrows',
+  'ears',
+  'nose',
+  'cheeks',
+  'mouth',
+  'bang',
+  'backHair',
+  'hairOption',
+  'accessory',
+  'clothes',
+  'body',
+];
 
 const Custom: NextPage<Props> = ({ data }) => {
   const [parts, setParts] = useState<any>();
@@ -119,11 +137,12 @@ const Custom: NextPage<Props> = ({ data }) => {
         }
       }
     }
+    console.log(updateSelectParts);
     setSelectParts(updateSelectParts);
   };
 
   // Firestoreに入れる形式に整える
-  const orderCheck = () => {
+  const orderCheck = async () => {
     updateParts = [];
     for (let i = 0; i < data.length; i++) {
       updateParts.push({
@@ -135,9 +154,12 @@ const Custom: NextPage<Props> = ({ data }) => {
         },
       });
     }
-    setParts(updateParts);
-    console.log("Firestoreに送信完了");
-    
+    const db = getFirestore(firebaseApp);
+    const col = collection(db, 'order');
+    console.log(updateParts);
+
+    await addDoc(col, { data: updateParts });
+    console.log('Firestoreに送信完了');
   };
 
   return (

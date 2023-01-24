@@ -45,8 +45,6 @@ const Button: FC<Props> = ({ data, textIndex, path, policy }) => {
         </>
       )}
       <Flex
-        // as="button"
-        // type="submit"
         as="a"
         href={`${path}`}
         display="flex"

@@ -9,7 +9,6 @@ const Cart: NextPage = () => {
   return (
     <>
       <Navigation />
-      <Account />
       <Box as="section" textStyle="bodyWidth">
         <Heading data="カート" />
         <Card />
