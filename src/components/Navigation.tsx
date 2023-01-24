@@ -1,10 +1,7 @@
 import { FC, useState } from 'react';
 import NextLink from 'next/link';
 import { Box, Center, Flex, Heading, Text } from '@chakra-ui/react';
-// import CartIcon from '../assets/icon-cart';
-// import FavIcon from '../assets/icon-fav';
 import OriginalSpacer from './OriginalSpacer';
-// import Account from './Account';
 
 const nav = ['cart', 'fav'];
 
