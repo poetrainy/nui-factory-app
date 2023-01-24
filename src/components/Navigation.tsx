@@ -1,15 +1,12 @@
 import { FC, useState } from 'react';
 import NextLink from 'next/link';
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import CartIcon from '../assets/icon-cart';
-import FavIcon from '../assets/icon-fav';
+import { Box, Center, Flex, Heading, Text } from '@chakra-ui/react';
+// import CartIcon from '../assets/icon-cart';
+// import FavIcon from '../assets/icon-fav';
 import OriginalSpacer from './OriginalSpacer';
 // import Account from './Account';
 
-const nav = [
-  { icon: CartIcon, path: 'cart' },
-  { icon: FavIcon, path: 'fav' },
-];
+const nav = ['cart', 'fav'];
 
 const Navigation: FC = () => {
   const [accountFlag, setAccountFlag] = useState<boolean>(false);
@@ -125,30 +122,29 @@ const Navigation: FC = () => {
       <Flex
         justifyContent="space-between"
         alignItems="center"
-        h="48px"
+        h="64px"
         p="0 5vw"
         pos="relative"
       >
-        <Flex
-          justifyContent="center"
-          alignContent="center"
+        <Center
           w="20px"
-          h="20px"
+          h="16px"
           pos="relative"
           sx={{
             span: {
               width: '100%',
-              height: '3px',
+              height: '2px',
               background: 'black500',
               position: 'absolute',
+              borderRadius: '1px',
             },
           }}
           onClick={() => accountModal()}
         >
           <Box as="span" inset="0 0 auto auto" />
-          <Box as="span" m="0 auto" />
-          <Box as="span" inset="auto 0 0 auto " />
-        </Flex>
+          <Box as="span" />
+          <Box as="span" inset="auto 0 0 auto" />
+        </Center>
         <Heading
           as="h1"
           w="fit-content"
@@ -164,15 +160,20 @@ const Navigation: FC = () => {
           }}
         >
           <NextLink href="/" passHref>
-            ぬいふぁく！
+            <Box as="img" src="../img/logo.svg" alt="ぬいふぁく！" w="112px" />
           </NextLink>
         </Heading>
         <Flex as="ul" gap="8px">
           {nav.map((item) => (
-            <Box as="li" key={item.path}>
-              <NextLink href={`/${item.path}`} passHref>
+            <Box as="li" key={item}>
+              <NextLink href={`/${item}`} passHref>
                 <Box as="span">
-                  <Box as={item.icon} w="20px" height="20px" />
+                  <Box
+                    as="img"
+                    src={'../img/icon_' + item + '.svg'}
+                    w="22px"
+                    height="22px"
+                  />
                 </Box>
               </NextLink>
             </Box>
