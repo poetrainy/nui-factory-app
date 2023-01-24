@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Flex, Text, Box, Center } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import OriginalSpacer from './OriginalSpacer';
 import DummyButton from './DummyButton';
 

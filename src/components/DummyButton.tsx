@@ -31,15 +31,17 @@ const DummyButton: FC<Props> = ({ data, inline, fixed }) => {
             maxWidth: '400px',
           }),
         }),
-        ...(inline
-          ? {
-              width: 'fit-content',
-              padding: '0 56px',
-            }
-          : {
-              width: '100%',
-              maxWidth: '400px',
-            }),
+        ...(!fixed && {
+          ...(inline
+            ? {
+                width: 'fit-content',
+                padding: '0 56px',
+              }
+            : {
+                width: '100%',
+                maxWidth: '400px',
+              }),
+        }),
       }}
     >
       {data}

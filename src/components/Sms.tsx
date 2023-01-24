@@ -1,11 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { FC, useRef, useState } from 'react';
-import type { NextPage } from 'next';
-import Heading from './Heading';
-import Textarea from './Textarea';
-import Button from './Button';
-import Navigation from './Navigation';
-import OriginalSpacer from './OriginalSpacer';
 
 const smsForm = [0, 1, 2, 3];
 

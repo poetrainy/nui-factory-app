@@ -28,12 +28,6 @@ const styles = {
         listStyleType: 'none',
       },
     },
-    '::selection': {
-      background: 'tomato',
-    },
-    '::-moz-selection': {
-      background: 'tomato',
-    },
   },
 };
 const fonts = {

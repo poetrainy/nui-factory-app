@@ -3,10 +3,10 @@ import NextLink from 'next/link';
 import { Box, Center, Flex, Heading, Text } from '@chakra-ui/react';
 import OriginalSpacer from './OriginalSpacer';
 
-const nav = ['cart', 'fav'];
-
 const Navigation: FC = () => {
   const [accountFlag, setAccountFlag] = useState<boolean>(false);
+
+  const nav = ['cart', 'fav'];
 
   const accountModal = () => {
     setAccountFlag(!accountFlag);
@@ -14,6 +14,22 @@ const Navigation: FC = () => {
 
   const Account = () => {
     const accountLink = [
+      [
+        {
+          text: 'トップページ',
+          path: '',
+        },
+      ],
+      [
+        {
+          text: '新規会員登録',
+          path: 'signup',
+        },
+        {
+          text: 'ログイン',
+          path: 'signin',
+        },
+      ],
       [
         {
           text: '下書き',
@@ -82,7 +98,7 @@ const Navigation: FC = () => {
           <OriginalSpacer size="40px" />
           <Flex flexDirection="column" gap="32px" fontSize="1.3rem">
             {accountLink.map((list, i) => (
-              <Flex flexDirection="column" gap="16px" key={i}>
+              <Flex flexDirection="column" gap="12px" key={i}>
                 {list.map((item, i) => (
                   <NextLink href={`/${item.path}`} passHref key={item.path + i}>
                     {item.text}

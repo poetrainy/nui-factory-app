@@ -1,14 +1,4 @@
-// import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-// import Heading from '../../src/components/Heading';
-// import Navigation from '../../src/components/Navigation';
-// import { goodsApi, orderApi } from '../../src/libs/api';
-// import { historyType } from '../../src/types/example';
-// import { goodsType } from '../../src/types/goods';
-
-// type Props = {
-//   id: string;
-// };
 
 const historyDate: NextPage = () => {
   // const historyDate: NextPage<Props> = ({ id }) => {
@@ -24,14 +14,3 @@ const historyDate: NextPage = () => {
 };
 
 export default historyDate;
-
-// export const getStaticPaths = async () => {
-//   const response = await fetch(`${orderApi}`);
-//   const data = await response.json();
-//   const paths = data.map((item: historyType) => ({ params: { id: item.id } }));
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };

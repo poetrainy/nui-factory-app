@@ -1,37 +1,12 @@
-import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Heading from '../../src/components/Heading';
-import Navigation from '../../src/components/Navigation';
+import Content from '../../src/components/Content';
 import Product from '../../src/components/Product';
-import { goodsApi } from '../../src/libs/api';
-import { category } from '../../src/libs/category';
-import { goodsType } from '../../src/types/goods';
+import { goodsApi } from '../../src/libs/goods';
 
-type Props = {
-  data: goodsType[];
-};
-
-const Favorite: NextPage<Props> = ({ data }) => {
+const Goods: NextPage = () => {
   return (
-    <>
-      <Navigation />
-      <Box as="section" textStyle="bodyWidth">
-        <Heading data="服を着せる" />
-        <Product data={data} />
-      </Box>
-    </>
+    <Content head="服を着せる" component={<Product data={goodsApi} />} isFoot />
   );
 };
 
-export default Favorite;
-
-export const getStaticProps = async ({}) => {
-  const response = await fetch(`${goodsApi}`);
-  const data = await response.json();
-
-  return {
-    props: {
-      data: data,
-    },
-  };
-};
+export default Goods;

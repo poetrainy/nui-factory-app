@@ -85,9 +85,6 @@ export const getStaticPaths = async () => {
   const response = await fetch(`${goodsApi}`);
   const data = await response.json();
 
-  // const paths = data.map((item: goodsType) => ({
-  //   params: { id: item.id },
-  // }));
   let categoryPath: string[] = [];
   for (let i = 0; i < category.length; i++) {
     categoryPath.push(category[i].path);

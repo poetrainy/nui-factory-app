@@ -1,16 +1,12 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
+import Content from '../src/components/Content';
 import EditButton from '../src/components/EditButton';
-import Heading from '../src/components/Heading';
-import Navigation from '../src/components/Navigation';
-import { userApi } from '../src/libs/api';
+import { userApi } from '../src/libs/user';
 import { userType } from '../src/types/user';
 
-type Props = {
-  data: userType;
-};
-
-const Setting: NextPage<Props> = ({ data }) => {
+const Setting: NextPage = () => {
+  const data: userType = userApi[0];
   const userData: { heading: string; text: string }[] = [
     {
       heading: '姓・名',
@@ -31,42 +27,27 @@ ${data.address.text}`,
     },
   ];
 
-  return (
-    <>
-      <Navigation />
-      <Box as="section" textStyle="bodyWidth">
-        <Heading data="ユーザー情報" />
-        <Flex as="ul" flexDirection="column" gap="32px">
-          {userData.map((item, i) => (
-            <Flex
-              as="li"
-              key={item.heading + i}
-              flexDirection="column"
-              gap="12px"
-              fontSize="1.3rem"
-            >
-              <Flex justifyContent="space-between" alignItems="center">
-                <Text fontWeight="bold">{item.heading}</Text>
-                <EditButton data="修正" path="/" />
-              </Flex>
-              <Box>{item.text}</Box>
-            </Flex>
-          ))}
+  const Component = () => (
+    <Flex as="ul" flexDirection="column" gap="32px">
+      {userData.map((item, i) => (
+        <Flex
+          as="li"
+          key={item.heading + i}
+          flexDirection="column"
+          gap="12px"
+          fontSize="1.3rem"
+        >
+          <Flex justifyContent="space-between" alignItems="center">
+            <Text fontWeight="bold">{item.heading}</Text>
+            <EditButton data="修正" path="/" />
+          </Flex>
+          <Box>{item.text}</Box>
         </Flex>
-      </Box>
-    </>
+      ))}
+    </Flex>
   );
+
+  return <Content head="ユーザー情報" component={<Component />} />;
 };
 
 export default Setting;
-
-export const getStaticProps = async () => {
-  const response = await fetch(`${userApi}`);
-  const data = await response.json();
-
-  return {
-    props: {
-      data: data[0],
-    },
-  };
-};

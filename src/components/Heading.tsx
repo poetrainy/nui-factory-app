@@ -18,7 +18,6 @@ const Heading: FC<Props> = ({ data, back }) => {
 
   return (
     <>
-      <OriginalSpacer size="32px" />
       {back !== undefined && (
         <>
           <Text

@@ -1,12 +1,10 @@
-import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Navigation from '../../../src/components/Navigation';
-import Heading from '../../../src/components/Heading';
 import { category } from '../../../src/libs/category';
 import { goodsType } from '../../../src/types/goods';
 import { categoryType } from '../../../src/types/example';
+import { goodsApi } from '../../../src/libs/goods';
 import Product from '../../../src/components/Product';
-import { goodsApi } from '../../../src/libs/api';
+import Content from '../../../src/components/Content';
 
 type Props = {
   id: string;
@@ -18,13 +16,12 @@ const CategoryTop: NextPage<Props> = ({ id, data }) => {
     .heading;
 
   return (
-    <>
-      <Navigation />
-      <Box as="section" textStyle="bodyWidth">
-        <Heading data={heading} back="服を着せる" />
-        <Product data={data} />
-      </Box>
-    </>
+    <Content
+      head={heading}
+      back="服を着せる"
+      component={<Product data={data} />}
+      isFoot
+    />
   );
 };
 
@@ -44,9 +41,7 @@ export const getStaticProps = async ({
 }: {
   params: { category: string };
 }) => {
-  const response = await fetch(`${goodsApi}`);
-  const data = await response.json();
-  const categoryOfData = data.filter(
+  const categoryOfData = goodsApi.filter(
     (item: goodsType) => item.category[0] === params.category
   );
 
