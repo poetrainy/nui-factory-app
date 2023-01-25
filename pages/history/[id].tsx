@@ -1,16 +1,11 @@
 import type { NextPage } from 'next';
+import Content from '../../src/components/Content';
 
 const historyDate: NextPage = () => {
   // const historyDate: NextPage<Props> = ({ id }) => {
-  return (
-    <>
-      {/* <Navigation />
-      <Box as="section" textStyle="bodyWidth">
-        <Heading data="ああああ" back="注文履歴" />
-        {id}
-      </Box> */}
-    </>
-  );
+  const Component = () => <></>;
+
+  return <Content head="注文履歴" component={<Component />} />;
 };
 
 export default historyDate;

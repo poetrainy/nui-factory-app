@@ -55,13 +55,6 @@ const textStyles = {
       background: 'secondary',
     },
   },
-  bodyWidth: {
-    width: {
-      base: '90vw',
-      sm: '80vw',
-    },
-    mx: 'auto',
-  },
   focus: {
     '&:focus': {
       outlineWidth: '3px',

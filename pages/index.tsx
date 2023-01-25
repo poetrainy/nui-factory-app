@@ -12,12 +12,17 @@ const Home: NextPage = () => {
       <Box>下書きから選ぶ</Box>
       <Box>レシピを読み込む</Box>
       <Box>ぬいふぁくってなに？</Box>
-      <Box w="95%" m="auto">
+      <Box w="85%" m="auto">
         <Text as="h2" fontSize="2rem" fontWeight="bold">
           服を買う
         </Text>
         <OriginalSpacer size="16px" />
-        <Flex as="ul" justifyContent="space-between" flexWrap="wrap" gap="16px 0">
+        <Flex
+          as="ul"
+          justifyContent="space-between"
+          flexWrap="wrap"
+          gap="16px 0"
+        >
           {category.map((item, i) => (
             <Box
               as="li"
@@ -59,7 +64,7 @@ const Home: NextPage = () => {
     </>
   );
 
-  return <Content component={<Component />} isFoot />;
+  return <Content component={<Component />} index isFoot />;
 };
 
 export default Home;

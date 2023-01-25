@@ -9,15 +9,28 @@ type Props = {
   head?: string;
   back?: string;
   component: JSX.Element;
+  index?: boolean;
   isFoot?: boolean;
 };
 
-const Content: FC<Props> = ({ head, back, component, isFoot }) => {
+const Content: FC<Props> = ({ head, back, component, index, isFoot }) => {
   return (
     <>
       <Navigation />
       <OriginalSpacer size="32px" />
-      <Box as="main" textStyle="bodyWidth">
+      <Box
+        as="main"
+        m="auto"
+        sx={{
+          ...(index
+            ? {
+                width: '100vw',
+              }
+            : {
+                width: '90vw',
+              }),
+        }}
+      >
         {head && <Heading data={head} back={back} />}
         {component}
       </Box>

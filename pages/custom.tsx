@@ -1,4 +1,4 @@
-import { Box, Center, Flex } from '@chakra-ui/react';
+import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import Navigation from '../src/components/Navigation';
@@ -7,6 +7,7 @@ import { partsSvgArray } from '../src/libs/partsArray';
 import { partsType } from '../src/types/apiType';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { firebaseApp } from '../src/libs/firebase';
+import NextLink from 'next/link';
 
 type Props = {
   data: partsType[];
@@ -60,6 +61,8 @@ const Custom: NextPage<Props> = ({ data }) => {
   ]);
   const [colorModalFlag, setColorModalFlag] = useState<boolean>(false);
   const [colorPicker, setColorPicker] = useState<string>('');
+  const [isModal, setIsModal] = useState<boolean>(false);
+
   let updateParts: any = [];
   let updateSelectColor: any = [];
   let updateSelectParts: any = [];
@@ -162,8 +165,42 @@ const Custom: NextPage<Props> = ({ data }) => {
     console.log('Firestoreに送信完了');
   };
 
+  // 下書きを読み込むモーダル
+  const LoadModal = () => {
+    type loadArrayType = {
+      text: string;
+      path: string;
+    };
+    const loadArray: loadArrayType[] = [
+      { text: '下書きから選ぶ', path: 'draft' },
+      { text: 'レシピを読み込む', path: 'read' },
+    ];
+
+    return (
+      <Flex justifyContent="space-between" w="100%">
+        {loadArray.map((item: loadArrayType, i: number) => (
+          <NextLink href={item.path} passHref key={i + item.path}>
+            <Center
+              flexDirection="column"
+              gap="8px"
+              w="160px"
+              p="32px 0"
+              fontSize="1.6rem"
+              fontWeight="bold"
+              boxShadow="0 0 10px rgba(0, 0, 0, 0.2)"
+              borderRadius="24px"
+            >
+              <Box as="img" src={`./img/icon_load_${item.path}.svg`} />
+              <Text>{item.text}</Text>
+            </Center>
+          </NextLink>
+        ))}
+      </Flex>
+    );
+  };
+
   return (
-    <Flex flexDirection="column" justifyContent="space-between" h="100vh">
+    <Flex flexDirection="column" h="100vh">
       <Navigation />
       <Flex
         as="section"
@@ -454,7 +491,14 @@ const Custom: NextPage<Props> = ({ data }) => {
         {/* ----------------------------------
             タブ
         ---------------------------------- */}
-        <Box w="100vw" bg="white" overflowX="scroll" pos="relative" zIndex="20">
+        <Box
+          w="100vw"
+          h="56px"
+          bg="white"
+          overflowX="scroll"
+          pos="relative"
+          zIndex="20"
+        >
           <Flex flexWrap="wrap" w={`calc(${data.length - 2} * 21vw)`}>
             {data.map((item: partsType, i: number) => (
               <Center
@@ -497,7 +541,7 @@ const Custom: NextPage<Props> = ({ data }) => {
         ---------------------------------- */}
         <Box
           w="100vw"
-          h="55vh"
+          h="calc(100vh - 56px - 280px - 64px)"
           bg="black100"
           overflow="hidden"
           pos="relative"
@@ -763,7 +807,7 @@ const Custom: NextPage<Props> = ({ data }) => {
           bg="primary500"
           borderRadius="9999px"
           pos="absolute"
-          inset="190px 20px auto auto"
+          inset="200px 28px auto auto"
           zIndex="30"
           transition="background 0.2s"
           sx={{
@@ -787,6 +831,42 @@ const Custom: NextPage<Props> = ({ data }) => {
             }}
           />
         </Center>
+        {/* ----------------------------------
+            下書き読み込みボタン
+        ---------------------------------- */}
+        <Center
+          as="button"
+          onClick={() => setIsModal(!isModal)}
+          w="64px"
+          h="64px"
+          bg="primary500"
+          borderRadius="9999px"
+          pos="absolute"
+          inset="160px 28px auto auto"
+          zIndex="30"
+          transition="background 0.2s"
+          sx={{
+            ...(colorModalFlag && {
+              background: 'secondary500',
+            }),
+          }}
+        >
+          <Box
+            as="img"
+            src={
+              !colorModalFlag
+                ? './img/icon_palette.svg'
+                : './img/icon_nocolor.svg'
+            }
+            objectFit="contain"
+            sx={{
+              ...(!colorModalFlag
+                ? { width: '55%', height: '55%' }
+                : { width: '40%', height: '40%' }),
+            }}
+          />
+        </Center>
+        {isModal && <LoadModal />}
         {/* ----------------------------------
             確認ボタン
         ---------------------------------- */}

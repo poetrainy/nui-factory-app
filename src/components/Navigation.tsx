@@ -33,15 +33,11 @@ const Navigation: FC = () => {
       [
         {
           text: '下書き',
-          path: 'load/draft',
+          path: 'draft',
         },
         {
           text: '過去に読み込んだレシピ',
-          path: 'load/already',
-        },
-        {
-          text: 'レシピを読み込む',
-          path: 'load',
+          path: 'read',
         },
       ],
       [
@@ -72,7 +68,7 @@ const Navigation: FC = () => {
       ],
     ];
     return (
-      <Box pos="relative" zIndex="30">
+      <Box pos="relative">
         <Box
           w="80vw"
           h="100vh"
@@ -80,10 +76,10 @@ const Navigation: FC = () => {
           p="64px 0 0 10vw"
           pos="fixed"
           inset="0 auto auto 0"
-          zIndex="30"
+          zIndex="50"
+          transform="translateX(-100%)"
+          transition="transform 0.3s"
           sx={{
-            transform: 'translateX(-100%)',
-            transition: 'transform 0.3s',
             ...(accountFlag && {
               transform: 'translateX(0)',
             }),
@@ -114,14 +110,16 @@ const Navigation: FC = () => {
           pos="absolute"
           inset="0 0 0 0"
           bg="rgba(0, 0, 0, 0.2)"
-          transition="opacity 0.2s"
-          opacity="0"
+          opacity={0}
           pointerEvents="none"
+          zIndex={0}
+          transition="opacity 0.2s"
           onClick={() => accountModal()}
           sx={{
             ...(accountFlag && {
               opacity: '1',
               pointerEvents: 'auto',
+              zIndex: '40',
             }),
           }}
         />

@@ -1,7 +1,7 @@
 import { Center } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Content from '../../src/components/Content';
-import DummyButton from '../../src/components/DummyButton';
+import Content from '../src/components/Content';
+import DummyButton from '../src/components/DummyButton';
 
 const Draft: NextPage = () => {
   const Component = () => (
