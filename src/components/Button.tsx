@@ -70,10 +70,10 @@ const Button: FC<Props> = ({ data, textIndex, path, policy }) => {
                 color="black300"
                 fontSize="1.3rem"
                 textAlign="center"
-                textDecoration="underline"
+                textDecor="underline"
                 _hover={{
                   cursor: 'pointer',
-                  textDecoration: 'none',
+                  textDecor: 'none',
                 }}
               >
                 {text[item].text}

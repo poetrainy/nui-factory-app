@@ -11,13 +11,7 @@ const Draft: NextPage = () => {
     </Center>
   );
 
-  return (
-    <Content
-      head="下書きから選ぶ"
-      back="既にあるデザインから作る"
-      component={<Component />}
-    />
-  );
+  return <Content head="下書きから選ぶ" component={<Component />} />;
 };
 
 export default Draft;

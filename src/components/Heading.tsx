@@ -35,7 +35,6 @@ const Heading: FC<Props> = ({ data, back }) => {
       <Text as="h2" fontSize="2rem" fontWeight="bold">
         {data}
       </Text>
-      <OriginalSpacer size="24px" />
     </>
   );
 };

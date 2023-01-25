@@ -76,7 +76,7 @@ const Navigation: FC = () => {
           p="64px 0 0 10vw"
           pos="fixed"
           inset="0 auto auto 0"
-          zIndex="50"
+          zIndex="20"
           transform="translateX(-100%)"
           transition="transform 0.3s"
           sx={{
@@ -119,7 +119,7 @@ const Navigation: FC = () => {
             ...(accountFlag && {
               opacity: '1',
               pointerEvents: 'auto',
-              zIndex: '40',
+              zIndex: '15',
             }),
           }}
         />

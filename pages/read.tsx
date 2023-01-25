@@ -55,13 +55,7 @@ const Read: NextPage = () => {
     </Box>
   );
 
-  return (
-    <Content
-      head="レシピを読み込む"
-      back="既にあるデザインから作る"
-      component={<Component />}
-    />
-  );
+  return <Content head="レシピを読み込む" component={<Component />} />;
 };
 
 export default Read;

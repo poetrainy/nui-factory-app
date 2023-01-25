@@ -31,7 +31,12 @@ const Content: FC<Props> = ({ head, back, component, index, isFoot }) => {
               }),
         }}
       >
-        {head && <Heading data={head} back={back} />}
+        {head && (
+          <>
+            <Heading data={head} back={back} />
+            <OriginalSpacer size="24px" />
+          </>
+        )}
         {component}
       </Box>
       {isFoot && (
