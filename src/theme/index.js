@@ -4,6 +4,7 @@ const colors = {
   primary500: '#DD705E',
   primary300: '#F6B7AA',
   secondary500: '#0E536D',
+  yellow300: '#FAE06A',
   black900: '#000000',
   black500: '#2B2B2B',
   black300: '#636363',

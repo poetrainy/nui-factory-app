@@ -2,6 +2,7 @@ import { Center } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Content from '../src/components/Content';
 import DummyButton from '../src/components/DummyButton';
+import { nuiMakeArray } from '../src/libs/nuiMakeArray';
 
 const Draft: NextPage = () => {
   const Component = () => (
@@ -11,7 +12,7 @@ const Draft: NextPage = () => {
     </Center>
   );
 
-  return <Content head="下書きから選ぶ" component={<Component />} />;
+  return <Content head={nuiMakeArray[0].text} component={<Component />} />;
 };
 
 export default Draft;

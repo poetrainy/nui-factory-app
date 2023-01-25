@@ -2,6 +2,7 @@ import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Content from '../src/components/Content';
 import OriginalSpacer from '../src/components/OriginalSpacer';
+import { nuiMakeArray } from '../src/libs/nuiMakeArray';
 
 const Read: NextPage = () => {
   type readArrayType = {
@@ -55,7 +56,7 @@ const Read: NextPage = () => {
     </Box>
   );
 
-  return <Content head="レシピを読み込む" component={<Component />} />;
+  return <Content head={nuiMakeArray[1].text} component={<Component />} />;
 };
 
 export default Read;

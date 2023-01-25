@@ -10,6 +10,8 @@ import { firebaseApp } from '../src/libs/firebase';
 import NextLink from 'next/link';
 import Heading from '../src/components/Heading';
 import OriginalSpacer from '../src/components/OriginalSpacer';
+import { nuiMakeArray } from '../src/libs/nuiMakeArray';
+import { nuiMakeArrayType } from '../src/types/nuiMake';
 
 type Props = {
   data: partsType[];
@@ -782,16 +784,6 @@ const Custom: NextPage<Props> = ({ data }) => {
   );
   // 下書きを読み込むモーダル
   const LoadModal = () => {
-    type loadArrayType = {
-      text: string;
-      path: string;
-      q: string;
-    };
-    const loadArray: loadArrayType[] = [
-      { text: '下書きから選ぶ', path: 'draft', q: '下書きから選びますか？' },
-      { text: 'レシピを読み込む', path: 'read', q: 'レシピを読み込みますか？' },
-    ];
-
     return (
       <Box
         w="100vw"
@@ -812,7 +804,7 @@ const Custom: NextPage<Props> = ({ data }) => {
         <Heading data="既にあるデザインから選ぶ" />
         <OriginalSpacer size="15vh" />
         <Flex justifyContent="space-between">
-          {loadArray.map((item: loadArrayType, i: number) => (
+          {nuiMakeArray.map((item: nuiMakeArrayType, i: number) => (
             <NextLink href={item.path} passHref key={i + item.path}>
               <Center
                 flexDirection="column"
@@ -825,7 +817,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.2)"
                 borderRadius="24px"
               >
-                <Box as="img" src={`./img/icon_load_${item.path}.svg`} />
+                <Box as="img" src={`./img/icon_make_${item.path}.svg`} />
                 <Text>{item.text}</Text>
               </Center>
             </NextLink>
