@@ -23,7 +23,7 @@ const Content: FC<Props> = ({ head, back, component, isFoot }) => {
       </Box>
       {isFoot && (
         <>
-          <OriginalSpacer size="24px" />
+          <OriginalSpacer size="40px" />
           <Foot />
           <OriginalSpacer size="40px" />
         </>

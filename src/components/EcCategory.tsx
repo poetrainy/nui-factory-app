@@ -1,15 +1,24 @@
 import { Flex, Text } from '@chakra-ui/react';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { category } from '../libs/category';
+import { goodsApi } from '../libs/goods';
 
 type Props = {
-  data: string[];
+  data: string;
 };
 
-const EcCategory: FC<Props> = ({ data }) => (
-  <Flex gap="6px" transform="traslateY(-1px)">
-    {data.map((item, i) => (
+const EcCategory: FC<Props> = ({ data }) => {
+  const [categoryText, setCategoryText] = useState<string>();
+  useEffect(() => {
+    let categoryTextKeep: any = category.filter(
+      (item, i) => item.path === data
+    );
+    setCategoryText(categoryTextKeep[0].heading);
+  }, []);
+
+  return (
+    <Flex gap="6px" transform="traslateY(-1px)">
       <Text
-        key={item + i + ''}
         w="fit-content"
         color="white"
         bg="secondary500"
@@ -18,10 +27,10 @@ const EcCategory: FC<Props> = ({ data }) => (
         fontWeight="bold"
         borderRadius="9999px"
       >
-        {item}
+        {categoryText}
       </Text>
-    ))}
-  </Flex>
-);
+    </Flex>
+  );
+};
 
 export default EcCategory;

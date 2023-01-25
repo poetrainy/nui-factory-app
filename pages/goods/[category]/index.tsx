@@ -42,7 +42,7 @@ export const getStaticProps = async ({
   params: { category: string };
 }) => {
   const categoryOfData = goodsApi.filter(
-    (item: goodsType) => item.category[0] === params.category
+    (item: goodsType) => item.category === params.category
   );
 
   return {

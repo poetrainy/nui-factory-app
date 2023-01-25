@@ -4,19 +4,19 @@ export const userApi: userType[] = [
   {
     name: {
       last: {
-        kanji: '黛',
-        furigana: 'マユズミ',
+        kanji: '田中',
+        furigana: 'タナカ',
       },
       first: {
-        kanji: '灰',
-        furigana: 'カイ',
+        kanji: '明夫',
+        furigana: 'アキオ',
       },
     },
     phone: ['080', '0000', '0000'],
-    email: 'mayuzumi@kai.com',
+    email: 'tanaka@akio.com',
     address: {
       postCode: ['530', '0015'],
-      text: '大阪府大阪市北区中崎西２丁目３−３５',
+      text: '大阪府大阪市北区中崎西2丁目3-35',
     },
   },
 ];

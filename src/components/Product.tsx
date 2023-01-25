@@ -12,7 +12,7 @@ type Props = {
 const Product: FC<Props> = ({ data }) => {
   return (
     <Flex as="ul" flexDirection="column" gap="16px" w="100%">
-      {data.map((item) => (
+      {data.map((item: goodsType, i: number) => (
         <Flex
           as="li"
           key={item.name + item.id}

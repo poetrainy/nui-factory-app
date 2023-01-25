@@ -5,7 +5,8 @@ import { category } from '../../../src/libs/category';
 import { goodsType } from '../../../src/types/goods';
 import OriginalSpacer from '../../../src/components/OriginalSpacer';
 import EcCategory from '../../../src/components/EcCategory';
-import { goodsApi } from '../../../src/libs/api';
+import { goodsApi } from '../../../src/libs/goods';
+// import { goodsApi } from '../../../src/libs/api';
 
 type Props = {
   id: string;
@@ -82,8 +83,8 @@ const CategoryTop: NextPage<Props> = ({ id, data }) => {
 export default CategoryTop;
 
 export const getStaticPaths = async () => {
-  const response = await fetch(`${goodsApi}`);
-  const data = await response.json();
+  // const response = await fetch(`${goodsApi}`);
+  const data = goodsApi;
 
   let categoryPath: string[] = [];
   for (let i = 0; i < category.length; i++) {
@@ -97,7 +98,7 @@ export const getStaticPaths = async () => {
     let idPath: number[] = [];
 
     for (let i = 0; i < data.length; i++) {
-      if (data[i].category[0] === category) {
+      if (data[i].category === category) {
         idPath.push(data[i].id);
       }
     }
@@ -123,8 +124,8 @@ export const getStaticProps = async ({
 }: {
   params: { id: string };
 }) => {
-  const response = await fetch(`${goodsApi}`);
-  const data = await response.json();
+  // const response = await fetch(`${goodsApi}`);
+  const data = goodsApi;
   const productData = data.filter(
     (item: goodsType) => item.id === Number(params.id)
   );
