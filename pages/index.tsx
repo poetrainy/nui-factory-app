@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             '>div': {
               gap: '16px',
               width: '100%',
-              borderRadius: '36px',
+              borderRadius: '8px',
             },
           }}
         >
@@ -50,10 +50,14 @@ const Home: NextPage = () => {
             </Flex>
           ))}
         </Flex>
-        <Box>ぬいふぁくってなに？</Box>
+        <OriginalSpacer size="24px" />
+        <Box w="100vw" h="144px" bg="primary500">
+          ぬいふぁくってなに？
+        </Box>
+        <OriginalSpacer size="40px" />
         <Box w="85vw" m="auto">
           <Text as="h2" fontSize="2rem" fontWeight="bold">
-            ぬい服を着せよう！
+            ぬい服を着せる
           </Text>
           <OriginalSpacer size="16px" />
           <Flex

@@ -17,7 +17,6 @@ const Content: FC<Props> = ({ head, back, component, index, isFoot }) => {
   return (
     <>
       <Navigation />
-      <OriginalSpacer size="32px" />
       <Box
         as="main"
         m="auto"
@@ -33,6 +32,7 @@ const Content: FC<Props> = ({ head, back, component, index, isFoot }) => {
       >
         {head && (
           <>
+            <OriginalSpacer size="32px" />
             <Heading data={head} back={back} />
             <OriginalSpacer size="24px" />
           </>
@@ -41,7 +41,7 @@ const Content: FC<Props> = ({ head, back, component, index, isFoot }) => {
       </Box>
       {isFoot && (
         <>
-          <OriginalSpacer size="40px" />
+          <OriginalSpacer size="72px" />
           <Foot />
           <OriginalSpacer size="40px" />
         </>

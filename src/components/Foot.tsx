@@ -14,6 +14,9 @@ const Foot: FC = () => {
       w="fit-content"
       fontSize="1.2rem"
       m="auto"
+      borderTopColor="black100"
+      borderTopWidth="1px"
+      borderTopStyle="solid"
     >
       <Flex gap="8px">
         {footLinkArray.map((item: string, i: number) => (
