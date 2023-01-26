@@ -1,34 +1,42 @@
-import { Flex, Text } from '@chakra-ui/react';
-import { FC, useEffect, useState } from 'react';
+import { Box, Center, Flex, Text } from '@chakra-ui/react';
+import { FC } from 'react';
 import { category } from '../libs/category';
-import { goodsApi } from '../libs/goods';
+import NextLink from 'next/link';
 
-type Props = {
-  data: string;
-};
-
-const EcCategory: FC<Props> = ({ data }) => {
-  const [categoryText, setCategoryText] = useState<string>();
-  useEffect(() => {
-    let categoryTextKeep: any = category.filter(
-      (item, i) => item.path === data
-    );
-    setCategoryText(categoryTextKeep[0].heading);
-  }, []);
-
+const EcCategory: FC = () => {
   return (
-    <Flex gap="6px" transform="traslateY(-1px)">
-      <Text
-        w="fit-content"
-        color="white"
-        bg="secondary500"
-        p="3px 12px"
-        fontSize="1.1rem"
-        fontWeight="bold"
-        borderRadius="9999px"
-      >
-        {categoryText}
-      </Text>
+    <Flex as="ul" justifyContent="space-between" flexWrap="wrap" gap="16px 0">
+      {category.map((item, i) => (
+        <Box
+          as="li"
+          w="48%"
+          key={item.path + i}
+          sx={{
+            '>a': {
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              gap: '8px',
+              width: '100%',
+            },
+          }}
+        >
+          <NextLink href={'/goods/' + item.path} passHref>
+            <Center w="48px" h="48px" bg="secondary500" borderRadius="9999px">
+              <Box
+                as="img"
+                src={'/img/icon_category_' + item.path + '.svg'}
+                w="28px"
+                h="28px"
+                objectFit="contain"
+              />
+            </Center>
+            <Text as="span">
+              {item.heading}
+            </Text>
+          </NextLink>
+        </Box>
+      ))}
     </Flex>
   );
 };

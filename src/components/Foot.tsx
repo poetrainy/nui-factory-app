@@ -1,19 +1,18 @@
 import { FC } from 'react';
-import { Box, Flex, Text } from '@chakra-ui/react';
-import OriginalSpacer from './OriginalSpacer';
+import { Center, Flex, Text } from '@chakra-ui/react';
 
 const Foot: FC = () => {
   const footLinkArray: string[] = ['会社概要', '個人情報保護方針', '運営会社'];
 
   return (
-    <Flex
+    <Center
       as="footer"
-      alignItems="center"
       flexDirection="column"
-      gap="12px"
-      w="fit-content"
+      gap="8px"
+      w="90vw"
       fontSize="1.2rem"
       m="auto"
+      pt="24px"
       borderTopColor="black100"
       borderTopWidth="1px"
       borderTopStyle="solid"
@@ -26,7 +25,7 @@ const Foot: FC = () => {
       <Text as="small" w="fit-content">
         &copy; 2022-2023 nui-factory
       </Text>
-    </Flex>
+    </Center>
   );
 };
 

@@ -171,7 +171,7 @@ const Navigation: FC = () => {
           }}
         >
           <NextLink href="/" passHref>
-            <Box as="img" src="../img/logo.svg" alt="ぬいふぁく！" w="112px" />
+            <Box as="img" src="/img/logo.svg" alt="ぬいふぁく！" w="112px" />
           </NextLink>
         </Heading>
         <Flex as="ul" gap="8px">
@@ -181,7 +181,7 @@ const Navigation: FC = () => {
                 <Box as="span">
                   <Box
                     as="img"
-                    src={'../img/icon_' + item + '.svg'}
+                    src={'/img/icon_' + item + '.svg'}
                     w="22px"
                     height="22px"
                   />

@@ -541,7 +541,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                   >
                     <Box
                       as="img"
-                      src="./img/icon_nocolor.svg"
+                      src="/img/icon_nocolor.svg"
                       w="55%"
                       h="55%"
                     />
@@ -671,7 +671,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                           />
                           <Box
                             as="img"
-                            src="./img/icon_spuit.svg"
+                            src="/img/icon_spuit.svg"
                             w="60%"
                             h="60%"
                             objectFit="contain"
@@ -737,7 +737,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                         display: 'block',
                         width: '50%',
                         height: '50%',
-                        background: "url('./img/icon_nocolor.svg') no-repeat",
+                        background: "url('/img/icon_nocolor.svg') no-repeat",
                         position: 'absolute',
                       },
                     }}
@@ -771,7 +771,7 @@ const Custom: NextPage<Props> = ({ data }) => {
       <Box
         as="img"
         src={
-          !isColorModal ? './img/icon_palette.svg' : './img/icon_nocolor.svg'
+          !isColorModal ? '/img/icon_palette.svg' : '/img/icon_nocolor.svg'
         }
         objectFit="contain"
         sx={{
@@ -817,7 +817,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                 boxShadow="0 0 10px rgba(0, 0, 0, 0.2)"
                 borderRadius="24px"
               >
-                <Box as="img" src={`./img/icon_make_${item.path}.svg`} />
+                <Box as="img" src={`/img/icon_make_${item.path}.svg`} />
                 <Text>{item.text}</Text>
               </Center>
             </NextLink>
@@ -873,8 +873,8 @@ const Custom: NextPage<Props> = ({ data }) => {
             as="img"
             src={
               !isColorModal
-                ? './img/icon_palette.svg'
-                : './img/icon_nocolor.svg'
+                ? '/img/icon_palette.svg'
+                : '/img/icon_nocolor.svg'
             }
             objectFit="contain"
             sx={{

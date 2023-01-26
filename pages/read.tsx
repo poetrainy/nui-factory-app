@@ -32,7 +32,7 @@ const Read: NextPage = () => {
               boxShadow="0 0 10px rgba(0, 0, 0, 0.2)"
               borderRadius="9999px"
             >
-              <Box as="img" src={'../img/icon_read_' + item.icon + '.svg'} />
+              <Box as="img" src={'/img/icon_read_' + item.icon + '.svg'} />
             </Center>
             <Text>{item.text}</Text>
           </Flex>

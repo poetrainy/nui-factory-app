@@ -19,6 +19,7 @@ const CategoryTop: NextPage<Props> = ({ id, data }) => {
     <Content
       head={heading}
       back="服を着せる"
+      backPath="/goods"
       component={<Product data={data} />}
       isFoot
     />

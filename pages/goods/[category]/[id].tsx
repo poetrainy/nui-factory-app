@@ -1,23 +1,23 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Navigation from '../../../src/components/Navigation';
-import { category } from '../../../src/libs/category';
-import { goodsType } from '../../../src/types/goods';
-import OriginalSpacer from '../../../src/components/OriginalSpacer';
-import EcCategory from '../../../src/components/EcCategory';
-import { goodsApi } from '../../../src/libs/goods';
-// import { goodsApi } from '../../../src/libs/api';
+import Navigation from 'src/components/Navigation';
+import { category } from 'src/libs/category';
+import { goodsType } from 'src/types/goods';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import EcCategoryText from 'src/components/EcCategoryText';
+import { goodsApi } from 'src/libs/goods';
+import DummyButton from 'src/components/DummyButton';
 
 type Props = {
   id: string;
   data: goodsType;
 };
 
-const CategoryTop: NextPage<Props> = ({ id, data }) => {
+const CategoryItem: NextPage<Props> = ({ id, data }) => {
   return (
     <>
       <Navigation />
-      <Box as="section" w="80vw" mx="auto">
+      <Box as="main" w="80vw" mx="auto">
         <OriginalSpacer size="40px" />
         <Box>
           <Box w="100%" pt="100%" bg="black100" />
@@ -32,7 +32,7 @@ const CategoryTop: NextPage<Props> = ({ id, data }) => {
         </Box>
         <OriginalSpacer size="32px" />
         <Flex justifyContent="space-between" alignItems="center">
-          <EcCategory data={data.category} />
+          <EcCategoryText data={data.category} />
           <Flex as="ul" gap="6px">
             {data.color.map((item, i) => (
               <Box
@@ -76,16 +76,14 @@ const CategoryTop: NextPage<Props> = ({ id, data }) => {
           </Text>
         </Box>
       </Box>
+      <DummyButton data="色を選択" fixed fav />
     </>
   );
 };
 
-export default CategoryTop;
+export default CategoryItem;
 
 export const getStaticPaths = async () => {
-  // const response = await fetch(`${goodsApi}`);
-  const data = goodsApi;
-
   let categoryPath: string[] = [];
   for (let i = 0; i < category.length; i++) {
     categoryPath.push(category[i].path);
@@ -96,13 +94,11 @@ export const getStaticPaths = async () => {
   }[] = [];
   categoryPath.forEach((category) => {
     let idPath: number[] = [];
-
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].category === category) {
-        idPath.push(data[i].id);
+    for (let i = 0; i < goodsApi.length; i++) {
+      if (goodsApi[i].category === category) {
+        idPath.push(goodsApi[i].id);
       }
     }
-
     idPath.forEach((i) => {
       paths.push({
         params: {
@@ -124,9 +120,7 @@ export const getStaticProps = async ({
 }: {
   params: { id: string };
 }) => {
-  // const response = await fetch(`${goodsApi}`);
-  const data = goodsApi;
-  const productData = data.filter(
+  const productData = goodsApi.filter(
     (item: goodsType) => item.id === Number(params.id)
   );
 

@@ -7,9 +7,10 @@ import OriginalSpacer from './OriginalSpacer';
 type Props = {
   data: string;
   back?: string;
+  backPath?: string;
 };
 
-const Heading: FC<Props> = ({ data, back }) => {
+const Heading: FC<Props> = ({ data, back, backPath }) => {
   const router = useRouter();
 
   const backLink = () => {
@@ -20,15 +21,28 @@ const Heading: FC<Props> = ({ data, back }) => {
     <>
       {back !== undefined && (
         <>
-          <Text
-            as="button"
-            onClick={() => backLink()}
-            color="black200"
-            fontSize="1.2rem"
-            fontWeight="bold"
-          >
-            &lt; {back}
-          </Text>
+          {backPath ? (
+            <NextLink href={backPath} passHref>
+              <Text
+                as="span"
+                color="black200"
+                fontSize="1.2rem"
+                fontWeight="bold"
+              >
+                &lt; {back}
+              </Text>
+            </NextLink>
+          ) : (
+            <Text
+              as="button"
+              onClick={() => backLink()}
+              color="black200"
+              fontSize="1.2rem"
+              fontWeight="bold"
+            >
+              &lt; {back}
+            </Text>
+          )}
           <OriginalSpacer size="2px" />
         </>
       )}

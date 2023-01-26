@@ -8,12 +8,20 @@ import Foot from './Foot';
 type Props = {
   head?: string;
   back?: string;
+  backPath?: string;
   component: JSX.Element;
   index?: boolean;
   isFoot?: boolean;
 };
 
-const Content: FC<Props> = ({ head, back, component, index, isFoot }) => {
+const Content: FC<Props> = ({
+  head,
+  back,
+  backPath,
+  component,
+  index,
+  isFoot,
+}) => {
   return (
     <>
       <Navigation />
@@ -33,7 +41,7 @@ const Content: FC<Props> = ({ head, back, component, index, isFoot }) => {
         {head && (
           <>
             <OriginalSpacer size="32px" />
-            <Heading data={head} back={back} />
+            <Heading data={head} back={back} backPath={backPath} />
             <OriginalSpacer size="24px" />
           </>
         )}
@@ -41,7 +49,7 @@ const Content: FC<Props> = ({ head, back, component, index, isFoot }) => {
       </Box>
       {isFoot && (
         <>
-          <OriginalSpacer size="72px" />
+          <OriginalSpacer size="48px" />
           <Foot />
           <OriginalSpacer size="40px" />
         </>
