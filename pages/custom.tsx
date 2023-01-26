@@ -1,17 +1,17 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import Navigation from '../src/components/Navigation';
-import { partsApi } from '../src/libs/api';
-import { partsSvgArray } from '../src/libs/partsArray';
-import { partsType } from '../src/types/apiType';
+import Navigation from 'src/components/Navigation';
+import { partsApi } from 'src/libs/api';
+import { partsSvgArray } from 'src/libs/partsArray';
+import { partsType } from 'src/types/apiType';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
-import { firebaseApp } from '../src/libs/firebase';
+import { firebaseApp } from 'src/libs/firebase';
 import NextLink from 'next/link';
-import Heading from '../src/components/Heading';
-import OriginalSpacer from '../src/components/OriginalSpacer';
-import { nuiMakeArray } from '../src/libs/nuiMakeArray';
-import { nuiMakeArrayType } from '../src/types/nuiMake';
+import Heading from 'src/components/Heading';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import { nuiMakeArray } from 'src/libs/nuiMakeArray';
+import { nuiMakeArrayType } from 'src/types/nuiMake';
 
 type Props = {
   data: partsType[];
@@ -539,12 +539,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                       }),
                     }}
                   >
-                    <Box
-                      as="img"
-                      src="/img/icon_nocolor.svg"
-                      w="55%"
-                      h="55%"
-                    />
+                    <Box as="img" src="/img/icon_nocolor.svg" w="55%" h="55%" />
                   </Center>
                 )}
                 {/* 選択する */}
@@ -770,9 +765,7 @@ const Custom: NextPage<Props> = ({ data }) => {
     >
       <Box
         as="img"
-        src={
-          !isColorModal ? '/img/icon_palette.svg' : '/img/icon_nocolor.svg'
-        }
+        src={!isColorModal ? '/img/icon_palette.svg' : '/img/icon_nocolor.svg'}
         objectFit="contain"
         sx={{
           ...(!isColorModal
@@ -872,9 +865,7 @@ const Custom: NextPage<Props> = ({ data }) => {
           <Box
             as="img"
             src={
-              !isColorModal
-                ? '/img/icon_palette.svg'
-                : '/img/icon_nocolor.svg'
+              !isColorModal ? '/img/icon_palette.svg' : '/img/icon_nocolor.svg'
             }
             objectFit="contain"
             sx={{

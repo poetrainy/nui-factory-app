@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Box } from '@chakra-ui/react';
-import Navigation from './Navigation';
-import Heading from './Heading';
-import OriginalSpacer from './OriginalSpacer';
-import Foot from './Foot';
+import Navigation from 'src/components/Navigation';
+import Heading from 'src/components/Heading';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import Foot from 'src/components/Foot';
 
 type Props = {
   head?: string;

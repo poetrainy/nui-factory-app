@@ -1,9 +1,9 @@
 import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Button from '../../src/components/Button';
-import Content from '../../src/components/Content';
-import OriginalSpacer from '../../src/components/OriginalSpacer';
-import Sms from '../../src/components/Sms';
+import Button from 'src/components/Button';
+import Content from 'src/components/Content';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import Sms from 'src/components/Sms';
 
 const SignupSms: NextPage = () => {
   const Component = () => (

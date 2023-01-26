@@ -1,12 +1,12 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import OriginalSpacer from '../../src/components/OriginalSpacer';
-import Product from '../../src/components/Product';
-import { historyType } from '../../src/types/example';
-import EditButton from '../../src/components/EditButton';
-import Content from '../../src/components/Content';
-import { historyApi } from '../../src/libs/history';
-import { goodsApi } from '../../src/libs/goods';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import Product from 'src/components/Product';
+import { historyType } from 'src/types/example';
+import EditButton from 'src/components/EditButton';
+import Content from 'src/components/Content';
+import { historyApi } from 'src/libs/history';
+import { goodsApi } from 'src/libs/goods';
 
 const History: NextPage = () => {
   const Component = () => (

@@ -1,8 +1,8 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { FC } from 'react';
-import OriginalSpacer from './OriginalSpacer';
-import EcCategoryText from './EcCategoryText';
-import { goodsType } from '../types/goods';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import EcCategoryText from 'src/components/EcCategoryText';
+import { goodsType } from 'src/types/goods';
 import NextLink from 'next/link';
 
 type Props = {

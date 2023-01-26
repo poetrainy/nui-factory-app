@@ -1,8 +1,8 @@
 import { Center } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Content from '../src/components/Content';
-import DummyButton from '../src/components/DummyButton';
-import { nuiMakeArray } from '../src/libs/nuiMakeArray';
+import Content from 'src/components/Content';
+import DummyButton from 'src/components/DummyButton';
+import { nuiMakeArray } from 'src/libs/nuiMakeArray';
 
 const Draft: NextPage = () => {
   const Component = () => (

@@ -1,9 +1,9 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Content from '../src/components/Content';
-import EditButton from '../src/components/EditButton';
-import { userApi } from '../src/libs/user';
-import { userType } from '../src/types/user';
+import Content from 'src/components/Content';
+import EditButton from 'src/components/EditButton';
+import { userApi } from 'src/libs/user';
+import { userType } from 'src/types/user';
 
 const Setting: NextPage = () => {
   const data: userType = userApi[0];

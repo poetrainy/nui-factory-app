@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
-import { category } from '../../../src/libs/category';
-import { goodsType } from '../../../src/types/goods';
-import { categoryType } from '../../../src/types/example';
-import { goodsApi } from '../../../src/libs/goods';
-import Product from '../../../src/components/Product';
-import Content from '../../../src/components/Content';
+import { category } from 'src/libs/category';
+import { goodsType } from 'src/types/goods';
+import { categoryType } from 'src/types/example';
+import { goodsApi } from 'src/libs/goods';
+import Product from 'src/components/Product';
+import Content from 'src/components/Content';
 
 type Props = {
   id: string;

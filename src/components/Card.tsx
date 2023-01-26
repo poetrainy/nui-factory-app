@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
-import OriginalSpacer from './OriginalSpacer';
-import DummyButton from './DummyButton';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import DummyButton from 'src/components/DummyButton';
 
 const test = [1, 2, 3];
 

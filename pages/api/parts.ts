@@ -1,12 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { partsType } from '../../src/types/apiType';
+import { partsType } from 'src/types/apiType';
 
 import {
   partsColor,
   partsLineColor,
   partsSkinColor,
-} from '../../src/libs/partsArray';
+} from 'src/libs/partsArray';
 
 export default function goods(
   req: NextApiRequest,

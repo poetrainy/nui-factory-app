@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react';
 import { FC, useEffect, useState } from 'react';
-import { category } from '../libs/category';
+import { category } from 'src/libs/category';
 
 type Props = {
   data: string;

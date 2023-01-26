@@ -1,9 +1,9 @@
 import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Textarea from '../../src/components/Textarea';
-import Button from '../../src/components/Button';
-import OriginalSpacer from '../../src/components/OriginalSpacer';
-import Content from '../../src/components/Content';
+import Textarea from 'src/components/Textarea';
+import Button from 'src/components/Button';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import Content from 'src/components/Content';
 
 const Signin: NextPage = () => {
   const Component = () => (

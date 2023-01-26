@@ -1,12 +1,12 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Content from '../src/components/Content';
-import { category } from '../src/libs/category';
+import Content from 'src/components/Content';
+import { category } from 'src/libs/category';
 import NextLink from 'next/link';
-import OriginalSpacer from '../src/components/OriginalSpacer';
-import { nuiMakeArray } from '../src/libs/nuiMakeArray';
-import { nuiMakeArrayType } from '../src/types/nuiMake';
-import EcCategory from '../src/components/EcCategory';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import { nuiMakeArray } from 'src/libs/nuiMakeArray';
+import { nuiMakeArrayType } from 'src/types/nuiMake';
+import EcCategory from 'src/components/EcCategory';
 
 const Home: NextPage = () => {
   const Component = () => {

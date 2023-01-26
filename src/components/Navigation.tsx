@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import NextLink from 'next/link';
 import { Box, Center, Flex, Heading, Text } from '@chakra-ui/react';
-import OriginalSpacer from './OriginalSpacer';
+import OriginalSpacer from 'src/components/OriginalSpacer';
 
 const Navigation: FC = () => {
   const [accountFlag, setAccountFlag] = useState<boolean>(false);
@@ -32,11 +32,11 @@ const Navigation: FC = () => {
       ],
       [
         {
-          text: '下書き',
+          text: '下書きから選ぶ',
           path: 'draft',
         },
         {
-          text: '過去に読み込んだレシピ',
+          text: 'レシピを読み込む',
           path: 'read',
         },
       ],

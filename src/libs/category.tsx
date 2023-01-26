@@ -1,4 +1,4 @@
-import { categoryType } from '../types/example';
+import { categoryType } from 'src/types/example';
 
 export const category: categoryType[] = [
   { path: 'tops', heading: 'トップス' },

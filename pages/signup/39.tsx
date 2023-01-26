@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Button from '../../src/components/Button';
-import Content from '../../src/components/Content';
+import Button from 'src/components/Button';
+import Content from 'src/components/Content';
 
 const Signup39: NextPage = () => {
   const Component = () => (

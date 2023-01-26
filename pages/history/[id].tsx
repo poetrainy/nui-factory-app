@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Content from '../../src/components/Content';
+import Content from 'src/components/Content';
 
 const historyDate: NextPage = () => {
   // const historyDate: NextPage<Props> = ({ id }) => {

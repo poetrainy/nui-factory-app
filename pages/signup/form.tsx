@@ -1,8 +1,8 @@
 import { Box, Flex } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Button from '../../src/components/Button';
-import Content from '../../src/components/Content';
-import Textarea from '../../src/components/Textarea';
+import Button from 'src/components/Button';
+import Content from 'src/components/Content';
+import Textarea from 'src/components/Textarea';
 
 const data: {
   title: string;

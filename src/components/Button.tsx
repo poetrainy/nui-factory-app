@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import OriginalSpacer from './OriginalSpacer';
+import OriginalSpacer from 'src/components/OriginalSpacer';
 
 const text = [
   {

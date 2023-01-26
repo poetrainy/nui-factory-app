@@ -1,8 +1,8 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Content from '../src/components/Content';
-import OriginalSpacer from '../src/components/OriginalSpacer';
-import { nuiMakeArray } from '../src/libs/nuiMakeArray';
+import Content from 'src/components/Content';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import { nuiMakeArray } from 'src/libs/nuiMakeArray';
 
 const Read: NextPage = () => {
   type readArrayType = {

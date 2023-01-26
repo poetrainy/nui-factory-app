@@ -1,4 +1,4 @@
-import { userType } from '../types/user';
+import { userType } from 'src/types/user';
 
 export const userApi: userType[] = [
   {

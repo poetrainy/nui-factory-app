@@ -1,4 +1,4 @@
-import { historyType } from '../types/example';
+import { historyType } from 'src/types/example';
 
 export const historyApi: historyType[] = [
   {

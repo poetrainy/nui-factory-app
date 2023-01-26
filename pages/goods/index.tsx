@@ -1,10 +1,10 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Content from '../../src/components/Content';
-import EcCategory from '../../src/components/EcCategory';
-import OriginalSpacer from '../../src/components/OriginalSpacer';
-import Product from '../../src/components/Product';
-import { goodsApi } from '../../src/libs/goods';
+import Content from 'src/components/Content';
+import EcCategory from 'src/components/EcCategory';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import Product from 'src/components/Product';
+import { goodsApi } from 'src/libs/goods';
 
 const Goods: NextPage = () => {
   type GoodsContentsArrayType = {

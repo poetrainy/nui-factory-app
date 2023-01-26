@@ -1,4 +1,4 @@
-import { goodsType } from '../types/goods';
+import { goodsType } from 'src/types/goods';
 
 export const goodsApi: goodsType[] = [
   {

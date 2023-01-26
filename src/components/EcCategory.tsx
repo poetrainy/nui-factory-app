@@ -1,6 +1,6 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import { FC } from 'react';
-import { category } from '../libs/category';
+import { category } from 'src/libs/category';
 import NextLink from 'next/link';
 
 const EcCategory: FC = () => {
@@ -31,9 +31,7 @@ const EcCategory: FC = () => {
                 objectFit="contain"
               />
             </Center>
-            <Text as="span">
-              {item.heading}
-            </Text>
+            <Text as="span">{item.heading}</Text>
           </NextLink>
         </Box>
       ))}

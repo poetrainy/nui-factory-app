@@ -1,9 +1,9 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Content from '../src/components/Content';
-import OriginalSpacer from '../src/components/OriginalSpacer';
-import { getDay } from '../src/libs/getDay';
-import { CouponType } from '../src/types/example';
+import Content from 'src/components/Content';
+import OriginalSpacer from 'src/components/OriginalSpacer';
+import { getDay } from 'src/libs/getDay';
+import { CouponType } from 'src/types/example';
 
 const Coupon: NextPage = () => {
   const today = getDay();
