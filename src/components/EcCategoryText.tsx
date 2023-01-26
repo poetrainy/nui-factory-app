@@ -16,15 +16,15 @@ const EcCategoryText: FC<Props> = ({ data }) => {
   }, []);
 
   return (
-    <Flex gap="6px" transform="traslateY(-1px)">
+    <Flex gap={'6px'} transform={'traslateY(-1px)'}>
       <Text
-        w="fit-content"
-        color="white"
-        bg="secondary500"
-        p="3px 12px"
-        fontSize="1.1rem"
-        fontWeight="bold"
-        borderRadius="9999px"
+        w={'fit-content'}
+        color={'white'}
+        bg={'secondary500'}
+        p={'3px 12px'}
+        fontSize={'1.1rem'}
+        fontWeight={'bold'}
+        borderRadius={'9999px'}
       >
         {categoryText}
       </Text>

@@ -34,17 +34,17 @@ const DummyButton: FC<Props> = ({ data, inline, fixed, fav, policy }) => {
       {policy && (
         <>
           <Flex>
-            <Box as="input" type="checkbox" />
+            <Box as={'input'} type={'checkbox'} />
             <Text>
-              <Text as="span">利用規約</Text>と
-              <Text as="span">プライバシーポリシー</Text>に同意
+              <Text as={'span'}>利用規約</Text>と
+              <Text as={'span'}>プライバシーポリシー</Text>に同意
             </Text>
           </Flex>
-          <OriginalSpacer size="20px" />
+          <OriginalSpacer size={'20px'} />
         </>
       )}
       <Center
-        gap="16px"
+        gap={'16px'}
         sx={{
           ...(fixed && {
             position: 'fixed',
@@ -57,14 +57,14 @@ const DummyButton: FC<Props> = ({ data, inline, fixed, fav, policy }) => {
         }}
       >
         <Center
-          h="56px"
-          color="white"
-          bg="primary500"
-          fontSize="1.6rem"
-          fontWeight="bold"
-          borderRadius="9999px"
-          opacity="1"
-          transition="opacity 0.2s"
+          h={'56px'}
+          color={'white'}
+          bg={'primary500'}
+          fontSize={'1.6rem'}
+          fontWeight={'bold'}
+          borderRadius={'9999px'}
+          opacity={'1'}
+          transition={'opacity 0.2s'}
           _hover={{
             opacity: '0.7',
             cursor: 'pointer',
@@ -87,9 +87,9 @@ const DummyButton: FC<Props> = ({ data, inline, fixed, fav, policy }) => {
         </Center>
         {fav && (
           <Center
-            w="56px"
-            h="56px"
-            borderRadius="9999px"
+            w={'56px'}
+            h={'56px'}
+            borderRadius={'9999px'}
             sx={{
               '>svg': {
                 '>fill': {
@@ -98,7 +98,7 @@ const DummyButton: FC<Props> = ({ data, inline, fixed, fav, policy }) => {
               },
             }}
           >
-            <Box as="img" src="/img/icon_fav.svg" />
+            <Box as={'img'} src={'/img/icon_fav.svg'} />
           </Center>
         )}
       </Center>

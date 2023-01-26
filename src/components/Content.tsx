@@ -26,8 +26,8 @@ const Content: FC<Props> = ({
     <>
       <Navigation />
       <Box
-        as="main"
-        m="auto"
+        as={'main'}
+        m={'auto'}
         sx={{
           ...(index
             ? {
@@ -40,18 +40,18 @@ const Content: FC<Props> = ({
       >
         {head && (
           <>
-            <OriginalSpacer size="32px" />
+            <OriginalSpacer size={'32px'} />
             <Heading data={head} back={back} backPath={backPath} />
-            <OriginalSpacer size="24px" />
+            <OriginalSpacer size={'24px'} />
           </>
         )}
         {component}
       </Box>
       {isFoot && (
         <>
-          <OriginalSpacer size="48px" />
+          <OriginalSpacer size={'48px'} />
           <Foot />
-          <OriginalSpacer size="40px" />
+          <OriginalSpacer size={'40px'} />
         </>
       )}
     </>

@@ -24,29 +24,29 @@ const Heading: FC<Props> = ({ data, back, backPath }) => {
           {backPath ? (
             <NextLink href={backPath} passHref>
               <Text
-                as="span"
-                color="black200"
-                fontSize="1.2rem"
-                fontWeight="bold"
+                as={'span'}
+                color={'black200'}
+                fontSize={'1.2rem'}
+                fontWeight={'bold'}
               >
                 &lt; {back}
               </Text>
             </NextLink>
           ) : (
             <Text
-              as="button"
+              as={'button'}
               onClick={() => backLink()}
-              color="black200"
-              fontSize="1.2rem"
-              fontWeight="bold"
+              color={'black200'}
+              fontSize={'1.2rem'}
+              fontWeight={'bold'}
             >
               &lt; {back}
             </Text>
           )}
-          <OriginalSpacer size="2px" />
+          <OriginalSpacer size={'2px'} />
         </>
       )}
-      <Text as="h2" fontSize="2rem" fontWeight="bold">
+      <Text as={'h2'} fontSize={'2rem'} fontWeight={'bold'}>
         {data}
       </Text>
     </>

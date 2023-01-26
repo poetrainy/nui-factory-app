@@ -17,29 +17,34 @@ const CategoryItem: NextPage<Props> = ({ id, data }) => {
   return (
     <>
       <Navigation />
-      <Box as="main" w="80vw" mx="auto">
-        <OriginalSpacer size="40px" />
+      <Box as={'main'} w={'80vw'} mx={'auto'}>
+        <OriginalSpacer size={'40px'} />
         <Box>
-          <Box w="100%" pt="100%" bg="black100" />
-          <OriginalSpacer size="16px" />
-          <Flex as="ul" gap="8px">
+          <Box w={'100%'} pt={'100%'} bg={'black100'} />
+          <OriginalSpacer size={'16px'} />
+          <Flex as={'ul'} gap={'8px'}>
             {data.img.map((item, i) => (
-              <Box as="li" key={item + i} w="56px" h="56px">
-                <Box w="100%" h="100%" bg="black100" objectFit="cover" />
+              <Box as={'li'} key={item + i} w={'56px'} h={'56px'}>
+                <Box
+                  w={'100%'}
+                  h={'100%'}
+                  bg={'black100'}
+                  objectFit={'cover'}
+                />
               </Box>
             ))}
           </Flex>
         </Box>
-        <OriginalSpacer size="32px" />
-        <Flex justifyContent="space-between" alignItems="center">
+        <OriginalSpacer size={'32px'} />
+        <Flex justifyContent={'space-between'} alignItems={'center'}>
           <EcCategoryText data={data.category} />
-          <Flex as="ul" gap="6px">
+          <Flex as={'ul'} gap={'6px'}>
             {data.color.map((item, i) => (
               <Box
                 key={item + i}
-                w="20px"
-                h="20px"
-                borderRadius="9999px"
+                w={'20px'}
+                h={'20px'}
+                borderRadius={'9999px'}
                 bg={item}
                 sx={{
                   ...(String(item) === 'white' && {
@@ -52,23 +57,23 @@ const CategoryItem: NextPage<Props> = ({ id, data }) => {
             ))}
           </Flex>
         </Flex>
-        <OriginalSpacer size="12px" />
-        <Text color="black300" fontSize="1.1rem">
+        <OriginalSpacer size={'12px'} />
+        <Text color={'black300'} fontSize={'1.1rem'}>
           商品番号：{data.serial}
         </Text>
-        <Text fontSize="2rem" fontWeight="bold">
+        <Text fontSize={'2rem'} fontWeight={'bold'}>
           {data.name}
         </Text>
-        <OriginalSpacer size="16px" />
+        <OriginalSpacer size={'16px'} />
         <Box
-          color="black300"
-          bg="#F1F1F1"
-          p="18px 12px"
-          fontSize="1rem"
-          borderRadius="12px"
+          color={'black300'}
+          bg={'#F1F1F1'}
+          p={'18px 12px'}
+          fontSize={'1rem'}
+          borderRadius={'12px'}
         >
-          <Text fontWeight="bold">商品詳細</Text>
-          <OriginalSpacer size="4px" />
+          <Text fontWeight={'bold'}>商品詳細</Text>
+          <OriginalSpacer size={'4px'} />
           <Text>
             素材：ポリエステル100%
             <br />
@@ -76,7 +81,7 @@ const CategoryItem: NextPage<Props> = ({ id, data }) => {
           </Text>
         </Box>
       </Box>
-      <DummyButton data="色を選択" fixed fav />
+      <DummyButton data={'色を選択'} fixed fav />
     </>
   );
 };

@@ -11,9 +11,9 @@ type Props = {
 
 const Product: FC<Props> = ({ data }) => {
   return (
-    <Flex as="ul" flexDirection="column" gap="16px" w="100%">
+    <Flex as={'ul'} flexDirection={'column'} gap={'16px'} w={'100%'}>
       {data.length === 0 ? (
-        <Text m="5vh 0 2vh">
+        <Text m={'5vh 0 2vh'}>
           お探しのアイテムはありませんでした…。
           <br />
         </Text>
@@ -21,10 +21,10 @@ const Product: FC<Props> = ({ data }) => {
         <>
           {data.map((item: goodsType, i: number) => (
             <Flex
-              as="li"
+              as={'li'}
               key={item.name + item.id}
-              justifyContent="space-between"
-              w="100%"
+              justifyContent={'space-between'}
+              w={'100%'}
               sx={{
                 '>a': {
                   display: 'flex',
@@ -38,23 +38,23 @@ const Product: FC<Props> = ({ data }) => {
                 passHref
               >
                 <Flex
-                  justifyContent="center"
-                  flexDirection="column"
-                  w="calc(100% - 120px)"
+                  justifyContent={'center'}
+                  flexDirection={'column'}
+                  w={'calc(100% - 120px)'}
                 >
                   <EcCategoryText data={item.category} />
-                  <OriginalSpacer size="4px" />
-                  <Text fontSize="1.7rem" fontWeight="bold">
+                  <OriginalSpacer size={'4px'} />
+                  <Text fontSize={'1.7rem'} fontWeight={'bold'}>
                     {item.name}
                   </Text>
-                  <OriginalSpacer size="4px" />
-                  <Flex as="ul" gap="4px">
+                  <OriginalSpacer size={'4px'} />
+                  <Flex as={'ul'} gap={'4px'}>
                     {item.color.map((color: string, i: number) => (
                       <Box
                         key={color + i}
-                        w="12px"
-                        h="12px"
-                        borderRadius="9999px"
+                        w={'12px'}
+                        h={'12px'}
+                        borderRadius={'9999px'}
                         bg={color}
                         sx={{
                           ...(String(color) === 'white' && {
@@ -66,22 +66,22 @@ const Product: FC<Props> = ({ data }) => {
                       />
                     ))}
                   </Flex>
-                  <OriginalSpacer size="12px" />
+                  <OriginalSpacer size={'12px'} />
                   <Text>
-                    <Text as="span" fontSize="2rem" fontWeight="bold">
+                    <Text as={'span'} fontSize={'2rem'} fontWeight={'bold'}>
                       ¥{item.price}
                     </Text>
                     <Text
-                      as="span"
-                      color="black200"
-                      fontSize="1.3rem"
-                      fontWeight="bold"
+                      as={'span'}
+                      color={'black200'}
+                      fontSize={'1.3rem'}
+                      fontWeight={'bold'}
                     >
                       （税込）
                     </Text>
                   </Text>
                 </Flex>
-                <Box w="120px" h="120px" bg="black200" />
+                <Box w={'120px'} h={'120px'} bg={'black200'} />
               </NextLink>
             </Flex>
           ))}

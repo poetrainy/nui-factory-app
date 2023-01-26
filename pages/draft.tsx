@@ -6,9 +6,9 @@ import { nuiMakeArray } from 'src/libs/nuiMakeArray';
 
 const Draft: NextPage = () => {
   const Component = () => (
-    <Center flexDirection="column" gap="40px" mt="160px">
+    <Center flexDirection={'column'} gap={'40px'} mt={'160px'}>
       下書きはまだありません
-      <DummyButton data="新しく作る！" inline />
+      <DummyButton data={'新しく作る！'} inline />
     </Center>
   );
 

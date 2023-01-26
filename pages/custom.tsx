@@ -175,10 +175,10 @@ const Custom: NextPage<Props> = ({ data }) => {
 
   const Preview = () => (
     <Box
-      w="280px"
-      h="280px"
-      pos="relative"
-      overflow="hidden"
+      w={'280px'}
+      h={'280px'}
+      pos={'relative'}
+      overflow={'hidden'}
       sx={{
         '.parts_hair-option_side': {
           width: '40px',
@@ -263,9 +263,9 @@ const Custom: NextPage<Props> = ({ data }) => {
       {data.map((item: partsType, i) => (
         <Box
           key={item.titleEn + i}
-          w="280px"
-          h="280px"
-          pos="absolute"
+          w={'280px'}
+          h={'280px'}
+          pos={'absolute'}
           sx={{
             '>div': {
               // 1. 後ろ髪, 服
@@ -405,17 +405,17 @@ const Custom: NextPage<Props> = ({ data }) => {
         >
           {selectParts[i].map((svgIndex: number, i2) => (
             <Box
-              display="flex"
-              justifyContent="space-between"
-              margin="auto"
-              position="absolute"
+              display={'flex'}
+              justifyContent={'space-between'}
+              margin={'auto'}
+              position={'absolute'}
               key={i2 + 'preview'}
             >
               <Box
                 as={partsSvgArray[i][svgIndex]}
-                w="100%"
-                h="100%"
-                objectFit="contain"
+                w={'100%'}
+                h={'100%'}
+                objectFit={'contain'}
                 sx={{
                   '.colorChange': {
                     transition: 'fill 0.2s',
@@ -430,10 +430,10 @@ const Custom: NextPage<Props> = ({ data }) => {
               {item.symmetry && (
                 <Box
                   as={partsSvgArray[i][svgIndex]}
-                  w="100%"
-                  h="100%"
-                  objectFit="contain"
-                  inset="0 0 auto auto"
+                  w={'100%'}
+                  h={'100%'}
+                  objectFit={'contain'}
+                  inset={'0 0 auto auto'}
                   sx={{
                     ...(item.reversal && {
                       transform: 'scale(-1, 1)',
@@ -453,61 +453,21 @@ const Custom: NextPage<Props> = ({ data }) => {
       ))}
     </Box>
   );
-  const Tab = () => (
-    <Box w="100vw" h="56px" bg="white" overflowX="scroll" pos="relative">
-      <Flex flexWrap="wrap" w={`calc(${data.length - 2} * 21vw)`}>
-        {data.map((item: partsType, i: number) => (
-          <Center
-            key={item.titleEn + i}
-            onClick={() => tabChange(i)}
-            w="21vw"
-            h="56px"
-            opacity={1}
-            filter="none"
-            transition="filter 0.2s, opacity 0.2s"
-            sx={{
-              ...(i > data.length - 3 && {
-                display: 'none',
-              }),
-              ...(i !== tab && {
-                filter: 'grayscale(100%)',
-                opacity: 0.2,
-              }),
-            }}
-          >
-            <Box
-              as={partsSvgArray[i][selectParts[i][0]]}
-              w="55%"
-              h="55%"
-              objectFit="contain"
-              sx={{
-                ...(item.color !== undefined && {
-                  '.colorChange': {
-                    fill: item.color[selectColor[i]],
-                  },
-                }),
-              }}
-            />
-          </Center>
-        ))}
-      </Flex>
-    </Box>
-  );
   const Select = () => (
     <Box
-      w="100vw"
-      h="calc(100vh - 56px - 280px - 64px)"
-      bg="black100"
-      overflow="hidden"
-      pos="relative"
+      w={'100vw'}
+      h={'calc(100vh - 56px - 280px - 64px)'}
+      bg={'black100'}
+      overflow={'hidden'}
+      pos={'relative'}
     >
       <Flex
-        as="ul"
+        as={'ul'}
         w={`calc(${data.length} * 100vw)`}
-        h="fit-content"
-        p="40px 0"
+        h={'fit-content'}
+        p={'40px 0'}
         transform={`translateX(calc(-${tab} * 100vw))`}
-        transition="transform 0.3s"
+        transition={'transform 0.3s'}
         sx={{
           li: {
             flexWrap: 'wrap',
@@ -519,7 +479,7 @@ const Custom: NextPage<Props> = ({ data }) => {
         }}
       >
         {data.map((item: partsType, i1: number) => (
-          <Flex as="li" key={item.titleEn + i1}>
+          <Flex as={'li'} key={item.titleEn + i1}>
             {!isColorModal ? (
               // パーツ選択
               <>
@@ -527,31 +487,36 @@ const Custom: NextPage<Props> = ({ data }) => {
                 {item.noselected && (
                   <Center
                     onClick={() => selectPartsFunc(i1, undefined)}
-                    w="20vw"
-                    h="20vw"
-                    bg="black200"
-                    pos="relative"
-                    borderRadius="16px"
-                    overflow="hidden"
+                    w={'20vw'}
+                    h={'20vw'}
+                    bg={'black200'}
+                    pos={'relative'}
+                    borderRadius={'16px'}
+                    overflow={'hidden'}
                     sx={{
                       ...(selectParts[i1][0] === undefined && {
                         textStyle: 'hoge',
                       }),
                     }}
                   >
-                    <Box as="img" src="/img/icon_nocolor.svg" w="55%" h="55%" />
+                    <Box
+                      as={'img'}
+                      src={'/img/icon_nocolor.svg'}
+                      w={'55%'}
+                      h={'55%'}
+                    />
                   </Center>
                 )}
                 {/* 選択する */}
                 {partsSvgArray[i1].map((svg: any, i2: number) => (
                   <Center
                     key={i2 + 'parts'}
-                    w="20vw"
-                    h="20vw"
-                    bg="white"
-                    pos="relative"
-                    borderRadius="16px"
-                    overflow="hidden"
+                    w={'20vw'}
+                    h={'20vw'}
+                    bg={'white'}
+                    pos={'relative'}
+                    borderRadius={'16px'}
+                    overflow={'hidden'}
                     onClick={() => selectPartsFunc(i1, i2)}
                     sx={{
                       '>div': {
@@ -586,8 +551,8 @@ const Custom: NextPage<Props> = ({ data }) => {
                   >
                     <Box
                       as={svg}
-                      w="70%"
-                      h="70%"
+                      w={'70%'}
+                      h={'70%'}
                       sx={{
                         ...(item.color !== undefined && {
                           '.colorChange': {
@@ -611,13 +576,13 @@ const Custom: NextPage<Props> = ({ data }) => {
                         onClick={() => selectColorFunc(i1, i2)}
                         key={color + i2}
                         bg={color}
-                        w="calc((100% - 8px * 4) / 5)"
-                        h="auto"
-                        borderColor="white"
-                        borderWidth="5px"
-                        borderStyle="solid"
-                        borderRadius="9999px"
-                        overflow="hidden"
+                        w={'calc((100% - 8px * 4) / 5)'}
+                        h={'auto'}
+                        borderColor={'white'}
+                        borderWidth={'5px'}
+                        borderStyle={'solid'}
+                        borderRadius={'9999px'}
+                        overflow={'hidden'}
                         sx={{
                           ...(selectColor[i1] === i2 && {
                             borderColor: 'primary500',
@@ -633,21 +598,21 @@ const Custom: NextPage<Props> = ({ data }) => {
                     ))}
                     {item.colorPicker && (
                       // カラーピッカー
-                      <Flex gap="8px" w="100%" mt="16px">
+                      <Flex gap={'8px'} w={'100%'} mt={'16px'}>
                         <Center
-                          w="calc((100% - 8px * 4) / 5)"
-                          pos="relative"
-                          borderColor="white"
-                          borderWidth="5px"
-                          borderStyle="solid"
-                          borderRadius="9999px"
-                          overflow="hidden"
+                          w={'calc((100% - 8px * 4) / 5)'}
+                          pos={'relative'}
+                          borderColor={'white'}
+                          borderWidth={'5px'}
+                          borderStyle={'solid'}
+                          borderRadius={'9999px'}
+                          overflow={'hidden'}
                           sx={{
                             ...(selectColor[i1] === -1 && {
                               borderColor: 'primary500',
                             }),
                             '&:before': {
-                              content: "''",
+                              content: '""',
                               display: 'block',
                               width: '100%',
                               paddingTop: '100%',
@@ -655,42 +620,42 @@ const Custom: NextPage<Props> = ({ data }) => {
                           }}
                         >
                           <Center
-                            as="input"
-                            type="color"
+                            as={'input'}
+                            type={'color'}
                             defaultValue={colorPicker}
                             value={colorPicker}
                             onChange={(e) => pickUpColorSave(e, i1)}
-                            w="120%"
-                            h="120%"
-                            pos="absolute"
+                            w={'120%'}
+                            h={'120%'}
+                            pos={'absolute'}
                           />
                           <Box
-                            as="img"
-                            src="/img/icon_spuit.svg"
-                            w="60%"
-                            h="60%"
-                            objectFit="contain"
-                            pos="absolute"
-                            pointerEvents="none"
+                            as={'img'}
+                            src={'/img/icon_spuit.svg'}
+                            w={'60%'}
+                            h={'60%'}
+                            objectFit={'contain'}
+                            pos={'absolute'}
+                            pointerEvents={'none'}
                           />
                         </Center>
                         <Center
-                          w="calc(100% - 8px - (100% - 8px * 4) / 5)"
-                          h="100%"
-                          pos="relative"
-                          fontSize="2.5rem"
+                          w={'calc(100% - 8px - (100% - 8px * 4) / 5)'}
+                          h={'100%'}
+                          pos={'relative'}
+                          fontSize={'2.5rem'}
                         >
                           <Box
-                            as="input"
-                            type="text"
+                            as={'input'}
+                            type={'text'}
                             value={colorPicker}
                             defaultValue={colorPicker}
                             onChange={(e) => pickUpColorSave(e, i1)}
-                            placeholder="#000000"
-                            w="100%"
-                            h="100%"
-                            p="0 32px"
-                            borderRadius="9999px"
+                            placeholder={'#000000'}
+                            w={'100%'}
+                            h={'100%'}
+                            p={'0 32px'}
+                            borderRadius={'9999px'}
                             sx={{
                               ...(selectColor[i1] === -1 &&
                                 colorPicker.length !== 7 && {
@@ -701,7 +666,7 @@ const Custom: NextPage<Props> = ({ data }) => {
                               },
                             }}
                           />
-                          {/* <Text pos="absolute" inset="auto auto auto 28px">
+                          {/* <Text pos={'absolute'}inset={'auto auto auto 28px'}>
                           #
                         </Text> */}
                         </Center>
@@ -711,15 +676,15 @@ const Custom: NextPage<Props> = ({ data }) => {
                 ) : (
                   // 色がない
                   <Center
-                    bg="black200"
-                    w="calc((100% - 8px * 4) / 5)"
-                    h="auto"
-                    borderColor="white"
-                    borderWidth="5px"
-                    borderStyle="solid"
-                    borderRadius="9999px"
-                    overflow="hidden"
-                    pos="relative"
+                    bg={'black200'}
+                    w={'calc((100% - 8px * 4) / 5)'}
+                    h={'auto'}
+                    borderColor={'white'}
+                    borderWidth={'5px'}
+                    borderStyle={'solid'}
+                    borderRadius={'9999px'}
+                    overflow={'hidden'}
+                    pos={'relative'}
                     sx={{
                       '&::before': {
                         content: "''",
@@ -747,16 +712,16 @@ const Custom: NextPage<Props> = ({ data }) => {
   );
   const ColorSelect = () => (
     <Center
-      as="button"
+      as={'button'}
       onClick={() => colorChange()}
-      w="64px"
-      h="64px"
-      bg="primary500"
-      borderRadius="9999px"
-      pos="absolute"
-      inset="200px 28px auto auto"
-      zIndex="10"
-      transition="background 0.2s"
+      w={'64px'}
+      h={'64px'}
+      bg={'primary500'}
+      borderRadius={'9999px'}
+      pos={'absolute'}
+      inset={'200px 28px auto auto'}
+      zIndex={'10'}
+      transition={'background 0.2s'}
       sx={{
         ...(isColorModal && {
           background: 'secondary500',
@@ -764,9 +729,9 @@ const Custom: NextPage<Props> = ({ data }) => {
       }}
     >
       <Box
-        as="img"
+        as={'img'}
         src={!isColorModal ? '/img/icon_palette.svg' : '/img/icon_nocolor.svg'}
-        objectFit="contain"
+        objectFit={'contain'}
         sx={{
           ...(!isColorModal
             ? { width: '55%', height: '55%' }
@@ -779,48 +744,48 @@ const Custom: NextPage<Props> = ({ data }) => {
   const LoadModal = () => {
     return (
       <Box
-        w="100vw"
-        h="calc(100vh - 64px)"
-        bg="white"
-        p="32px 5vw 0"
-        pos="fixed"
-        inset="64px 0 auto auto"
-        zIndex="30"
-        transform="translateY(100%)"
-        transition="transform 0.3s"
+        w={'100vw'}
+        h={'calc(100vh - 64px)'}
+        bg={'white'}
+        p={'32px 5vw 0'}
+        pos={'fixed'}
+        inset={'64px 0 auto auto'}
+        zIndex={'30'}
+        transform={'translateY(100%)'}
+        transition={'transform 0.3s'}
         sx={{
           ...(isLoadModal && {
             transform: 'translateY(0)',
           }),
         }}
       >
-        <Heading data="既にあるデザインから選ぶ" />
-        <OriginalSpacer size="15vh" />
-        <Flex justifyContent="space-between">
+        <Heading data={'既にあるデザインから選ぶ'} />
+        <OriginalSpacer size={'15vh'} />
+        <Flex justifyContent={'space-between'}>
           {nuiMakeArray.map((item: nuiMakeArrayType, i: number) => (
             <NextLink href={item.path} passHref key={i + item.path}>
               <Center
-                flexDirection="column"
-                gap="8px"
-                w="160px"
-                p="32px 0"
-                bg="white"
-                fontSize="1.6rem"
-                fontWeight="bold"
-                boxShadow="0 0 10px rgba(0, 0, 0, 0.2)"
-                borderRadius="24px"
+                flexDirection={'column'}
+                gap={'8px'}
+                w={'160px'}
+                p={'32px 0'}
+                bg={'white'}
+                fontSize={'1.6rem'}
+                fontWeight={'bold'}
+                boxShadow={'0 0 10px rgba(0, 0, 0, 0.2)'}
+                borderRadius={'24px'}
               >
-                <Box as="img" src={`/img/icon_make_${item.path}.svg`} />
+                <Box as={'img'} src={`/img/icon_make_${item.path}.svg`} />
                 <Text>{item.text}</Text>
               </Center>
             </NextLink>
           ))}
         </Flex>
-        <OriginalSpacer size="24px" />
+        <OriginalSpacer size={'24px'} />
         <Text
-          w="fit-content"
-          m="auto"
-          textDecor="underline"
+          w={'fit-content'}
+          m={'auto'}
+          textDecor={'underline'}
           onClick={() => loadChange()}
         >
           カスタマイズに戻る
@@ -830,32 +795,76 @@ const Custom: NextPage<Props> = ({ data }) => {
   };
 
   return (
-    <Flex flexDirection="column" h="100vh">
+    <Flex flexDirection={'column'} h={'100vh'}>
       <Navigation />
       <Flex
-        as="section"
-        flexDirection="column"
-        alignItems="center"
-        pos="relative"
+        as={'section'}
+        flexDirection={'column'}
+        alignItems={'center'}
+        pos={'relative'}
       >
         <Preview />
-        <Tab />
+        {/* Tab */}
+        <Box
+          w={'100vw'}
+          h={'56px'}
+          bg={'white'}
+          overflowX={'scroll'}
+          pos={'relative'}
+        >
+          <Flex flexWrap={'wrap'} w={`calc(${data.length - 2} * 21vw)`}>
+            {data.map((item: partsType, i: number) => (
+              <Center
+                key={item.titleEn + i}
+                onClick={() => tabChange(i)}
+                w={'21vw'}
+                h={'56px'}
+                opacity={1}
+                filter={'none'}
+                transition={'filter 0.2s, opacity 0.2s'}
+                sx={{
+                  ...(i > data.length - 3 && {
+                    display: 'none',
+                  }),
+                  ...(i !== tab && {
+                    filter: 'grayscale(100%)',
+                    opacity: 0.2,
+                  }),
+                }}
+              >
+                <Box
+                  as={partsSvgArray[i][selectParts[i][0]]}
+                  w={'55%'}
+                  h={'55%'}
+                  objectFit={'contain'}
+                  sx={{
+                    ...(item.color !== undefined && {
+                      '.colorChange': {
+                        fill: item.color[selectColor[i]],
+                      },
+                    }),
+                  }}
+                />
+              </Center>
+            ))}
+          </Flex>
+        </Box>
         <Select />
         <ColorSelect />
         {/* ----------------------------------
             下書き読み込みボタン
         ---------------------------------- */}
         <Center
-          as="button"
+          as={'button'}
           onClick={() => loadChange()}
-          w="64px"
-          h="64px"
-          bg="primary500"
-          borderRadius="9999px"
-          pos="absolute"
-          inset="160px 28px auto auto"
-          zIndex="10"
-          transition="background 0.2s"
+          w={'64px'}
+          h={'64px'}
+          bg={'primary500'}
+          borderRadius={'9999px'}
+          pos={'absolute'}
+          inset={'160px 28px auto auto'}
+          zIndex={'10'}
+          transition={'background 0.2s'}
           sx={{
             ...(isColorModal && {
               background: 'secondary500',
@@ -863,11 +872,11 @@ const Custom: NextPage<Props> = ({ data }) => {
           }}
         >
           <Box
-            as="img"
+            as={'img'}
             src={
               !isColorModal ? '/img/icon_palette.svg' : '/img/icon_nocolor.svg'
             }
-            objectFit="contain"
+            objectFit={'contain'}
             sx={{
               ...(!isColorModal
                 ? { width: '55%', height: '55%' }
@@ -880,11 +889,11 @@ const Custom: NextPage<Props> = ({ data }) => {
             確認ボタン
         ---------------------------------- */}
         <Center
-          as="button"
+          as={'button'}
           onClick={() => orderCheck()}
-          pos="absolute"
-          inset="auto auto 40px auto"
-          zIndex="10"
+          pos={'absolute'}
+          inset={'auto auto 40px auto'}
+          zIndex={'10'}
         >
           確認
         </Center>

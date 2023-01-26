@@ -13,19 +13,19 @@ const History: NextPage = () => {
     <>
       {historyApi.map((item: historyType, i: number) => (
         <Box key={i}>
-          <Flex justifyContent="space-between" alignItems="center">
-            <Text fontSize="1.2rem">
+          <Flex justifyContent={'space-between'} alignItems={'center'}>
+            <Text fontSize={'1.2rem'}>
               注文日：{item.date.yyyy}年{item.date.mm}月{item.date.dd}日
             </Text>
-            <EditButton data="確認" path={`/order-history/${item.id}`} />
+            <EditButton data={'確認'} path={`/order-history/${item.id}`} />
           </Flex>
-          <OriginalSpacer size="12px" />
+          <OriginalSpacer size={'12px'} />
           {item.productId.map((id) => (
             <Product data={[goodsApi[id]]} />
           ))}
           {/* item.productIdを配列に入れ込むもっといい方法考える */}
-          <OriginalSpacer size="16px" />
-          <Text w="fit-content" ml="auto" fontSize="1.2rem">
+          <OriginalSpacer size={'16px'} />
+          <Text w={'fit-content'} ml={'auto'} fontSize={'1.2rem'}>
             注文番号：{item.order}
           </Text>
         </Box>
@@ -33,7 +33,7 @@ const History: NextPage = () => {
     </>
   );
 
-  return <Content head="注文履歴" component={<Component />} />;
+  return <Content head={'注文履歴'} component={<Component />} />;
 };
 
 export default History;

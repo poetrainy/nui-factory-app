@@ -18,8 +18,8 @@ const CategoryTop: NextPage<Props> = ({ id, data }) => {
   return (
     <Content
       head={heading}
-      back="服を着せる"
-      backPath="/goods"
+      back={'服を着せる'}
+      backPath={'/goods'}
       component={<Product data={data} />}
       isFoot
     />

@@ -31,46 +31,46 @@ type Props = {
 const Button: FC<Props> = ({ data, textIndex, path, policy }) => {
   return (
     <>
-      <OriginalSpacer size="48px" />
+      <OriginalSpacer size={'48px'} />
       {policy && (
         <>
           <Flex>
-            <Box as="input" type="checkbox" />
+            <Box as={'input'} type={'checkbox'} />
             <Text>
-              <Text as="span">利用規約</Text>と
-              <Text as="span">プライバシーポリシー</Text>に同意
+              <Text as={'span'}>利用規約</Text>と
+              <Text as={'span'}>プライバシーポリシー</Text>に同意
             </Text>
           </Flex>
-          <OriginalSpacer size="20px" />
+          <OriginalSpacer size={'20px'} />
         </>
       )}
       <Flex
-        as="a"
+        as={'a'}
         href={`${path}`}
-        display="flex"
-        alignItems="center"
-        w="fit-content"
-        h="48px"
-        color="white"
-        bg="primary500"
-        m="0 auto"
-        p="0 32px"
-        borderRadius="9999px"
-        fontWeight="bold"
+        display={'flex'}
+        alignItems={'center'}
+        w={'fit-content'}
+        h={'48px'}
+        color={'white'}
+        bg={'primary500'}
+        m={'0 auto'}
+        p={'0 32px'}
+        borderRadius={'9999px'}
+        fontWeight={'bold'}
       >
         {data}
       </Flex>
       {textIndex !== undefined && (
         <>
-          <OriginalSpacer size="20px" />
-          <Flex flexDirection="column" gap="6px">
+          <OriginalSpacer size={'20px'} />
+          <Flex flexDirection={'column'} gap={'6px'}>
             {textIndex.map((item, i) => (
               <Text
                 key={text[item].id}
-                color="black300"
-                fontSize="1.3rem"
-                textAlign="center"
-                textDecor="underline"
+                color={'black300'}
+                fontSize={'1.3rem'}
+                textAlign={'center'}
+                textDecor={'underline'}
                 _hover={{
                   cursor: 'pointer',
                   textDecor: 'none',

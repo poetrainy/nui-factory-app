@@ -11,14 +11,14 @@ const EditButton: FC<Props> = ({ data, path }) => {
   return (
     <NextLink href={path} passHref>
       <Flex
-        as="span"
-        display="block"
-        justifyContent="space-between"
-        alignItems="center"
-        p="8px 16px"
-        border="1px solid #E8E8E8"
-        borderRadius="4px"
-        fontSize="1.3rem"
+        as={'span'}
+        display={'block'}
+        justifyContent={'space-between'}
+        alignItems={'center'}
+        p={'8px 16px'}
+        border={'1px solid #E8E8E8'}
+        borderRadius={'4px'}
+        fontSize={'1.3rem'}
       >
         {data}
       </Flex>

@@ -28,18 +28,18 @@ ${data.address.text}`,
   ];
 
   const Component = () => (
-    <Flex as="ul" flexDirection="column" gap="32px">
+    <Flex as={'ul'} flexDirection={'column'} gap={'32px'}>
       {userData.map((item, i) => (
         <Flex
-          as="li"
+          as={'li'}
           key={item.heading + i}
-          flexDirection="column"
-          gap="12px"
-          fontSize="1.3rem"
+          flexDirection={'column'}
+          gap={'12px'}
+          fontSize={'1.3rem'}
         >
-          <Flex justifyContent="space-between" alignItems="center">
-            <Text fontWeight="bold">{item.heading}</Text>
-            <EditButton data="修正" path="/" />
+          <Flex justifyContent={'space-between'} alignItems={'center'}>
+            <Text fontWeight={'bold'}>{item.heading}</Text>
+            <EditButton data={'修正'} path={'/'} />
           </Flex>
           <Box>{item.text}</Box>
         </Flex>
@@ -47,7 +47,7 @@ ${data.address.text}`,
     </Flex>
   );
 
-  return <Content head="ユーザー情報" component={<Component />} />;
+  return <Content head={'ユーザー情報'} component={<Component />} />;
 };
 
 export default Setting;

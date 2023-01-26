@@ -25,21 +25,21 @@ const data: {
 
 const SignupForm: NextPage = () => {
   const Component = () => (
-    <Box as="form">
-      <Flex flexDirection="column" gap="16px">
+    <Box as={'form'}>
+      <Flex flexDirection={'column'} gap={'16px'}>
         {data.map((item) => (
-          <Flex w="100%">
+          <Flex w={'100%'}>
             {item.map((input) => (
               <Textarea title={input.title} example={input.example} />
             ))}
           </Flex>
         ))}
       </Flex>
-      <Button data="登録" textIndex={[1]} path="/signup/39" />
+      <Button data={'登録'} textIndex={[1]} path={'/signup/39'} />
     </Box>
   );
 
-  return <Content head="新規会員情報入力" component={<Component />} />;
+  return <Content head={'新規会員情報入力'} component={<Component />} />;
 };
 
 export default SignupForm;

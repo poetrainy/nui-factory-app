@@ -5,7 +5,7 @@ const historyDate: NextPage = () => {
   // const historyDate: NextPage<Props> = ({ id }) => {
   const Component = () => <></>;
 
-  return <Content head="注文履歴" component={<Component />} />;
+  return <Content head={'注文履歴'} component={<Component />} />;
 };
 
 export default historyDate;

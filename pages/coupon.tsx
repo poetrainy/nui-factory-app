@@ -23,10 +23,10 @@ const Coupon: NextPage = () => {
   ];
 
   const Component = () => (
-    <Flex as="ul" flexDirection="column" gap="20px" p="0 2vw">
+    <Flex as={'ul'} flexDirection={'column'} gap={'20px'} p={'0 2vw'}>
       {coupons.map((item: CouponType, i: number) => (
         <Box
-          as="li"
+          as={'li'}
           key={item.name + i}
           sx={{
             '&::after': {
@@ -39,12 +39,12 @@ const Coupon: NextPage = () => {
             },
           }}
         >
-          <Flex alignItems="center" gap="8px" fontSize="1.2rem">
+          <Flex alignItems={'center'} gap={'8px'} fontSize={'1.2rem'}>
             <Box
-              bg="primary500"
-              p="4px 16px"
-              borderRadius="9999px"
-              fontWeight="bold"
+              bg={'primary500'}
+              p={'4px 16px'}
+              borderRadius={'9999px'}
+              fontWeight={'bold'}
             >
               {(today.yy > item.start.yy ||
                 (today.yy === item.start.yy && today.mm > item.start.mm) ||
@@ -61,7 +61,7 @@ const Coupon: NextPage = () => {
             </Box>
             <Text>
               <Text
-                as="span"
+                as={'span'}
                 sx={{
                   '&::after': {
                     content: "'/'",
@@ -71,7 +71,7 @@ const Coupon: NextPage = () => {
                 {item.start.yy}
               </Text>
               <Text
-                as="span"
+                as={'span'}
                 sx={{
                   '&::after': {
                     content: "'/'",
@@ -81,7 +81,7 @@ const Coupon: NextPage = () => {
                 {item.start.mm}
               </Text>
               <Text
-                as="span"
+                as={'span'}
                 sx={{
                   '&::after': {
                     content: "'〜'",
@@ -91,7 +91,7 @@ const Coupon: NextPage = () => {
                 {item.start.dd}
               </Text>
               <Text
-                as="span"
+                as={'span'}
                 sx={{
                   '&::after': {
                     content: "'/'",
@@ -101,7 +101,7 @@ const Coupon: NextPage = () => {
                 {item.end.yy}
               </Text>
               <Text
-                as="span"
+                as={'span'}
                 sx={{
                   '&::after': {
                     content: "'/'",
@@ -110,16 +110,16 @@ const Coupon: NextPage = () => {
               >
                 {item.end.mm}
               </Text>
-              <Text as="span">{item.end.dd}</Text>
+              <Text as={'span'}>{item.end.dd}</Text>
             </Text>
           </Flex>
-          <OriginalSpacer size="16px" />
-          <Text fontWeight="bold">{item.name}</Text>
-          <Text color="important" fontWeight="bold">
-            <Text as="span" fontSize="3rem">
+          <OriginalSpacer size={'16px'} />
+          <Text fontWeight={'bold'}>{item.name}</Text>
+          <Text color={'important'} fontWeight={'bold'}>
+            <Text as={'span'} fontSize={'3rem'}>
               {item.percent}
             </Text>
-            <Text as="span" fontSize="2rem">
+            <Text as={'span'} fontSize={'2rem'}>
               %OFF
             </Text>
           </Text>
@@ -128,7 +128,7 @@ const Coupon: NextPage = () => {
     </Flex>
   );
 
-  return <Content head="クーポン一覧" component={<Component />} />;
+  return <Content head={'クーポン一覧'} component={<Component />} />;
 };
 
 export default Coupon;

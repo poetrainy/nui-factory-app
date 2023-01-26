@@ -24,20 +24,20 @@ const Goods: NextPage = () => {
   ];
 
   const Component = () => (
-    <Flex flexDirection="column" gap="32px">
+    <Flex flexDirection={'column'} gap={'32px'}>
       {GoodsContentsArray.map((item: GoodsContentsArrayType, i: number) => (
         <Box key={item.text + i}>
-          <Text fontWeight="bold" fontSize="1.5rem">
+          <Text fontWeight={'bold'} fontSize={'1.5rem'}>
             {item.text}
           </Text>
-          <OriginalSpacer size="16px" />
+          <OriginalSpacer size={'16px'} />
           {item.component}
         </Box>
       ))}
     </Flex>
   );
 
-  return <Content head="服を着せる" component={<Component />} isFoot />;
+  return <Content head={'服を着せる'} component={<Component />} isFoot />;
 };
 
 export default Goods;

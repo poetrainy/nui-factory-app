@@ -15,23 +15,23 @@ const Sms: FC = () => {
   };
 
   return (
-    <Flex justifyContent="space-around" ref={ref} id="test">
+    <Flex justifyContent={'space-around'} ref={ref} id={'test'}>
       {smsForm.map((item, i) => (
         <Flex
-          as="input"
-          type="text"
-          placeholder="0"
+          as={'input'}
+          type={'text'}
+          placeholder={'0'}
           maxLength={1}
           data-number={i}
           key={item}
-          justifyContent="center"
-          w="5.4rem"
-          h="80px"
-          p="0 1rem"
-          borderBottomWidth="3px"
-          borderBottomStyle="solid"
-          borderBottomColor="black200"
-          fontSize="5rem"
+          justifyContent={'center'}
+          w={'5.4rem'}
+          h={'80px'}
+          p={'0 1rem'}
+          borderBottomWidth={'3px'}
+          borderBottomStyle={'solid'}
+          borderBottomColor={'black200'}
+          fontSize={'5rem'}
           onKeyUp={keyDownFunc}
           // ref={refEl + i}
           sx={{

@@ -68,33 +68,33 @@ const Navigation: FC = () => {
       ],
     ];
     return (
-      <Box pos="relative">
+      <Box pos={'relative'}>
         <Box
-          w="80vw"
-          h="100vh"
-          bg="white"
-          p="64px 0 0 10vw"
-          pos="fixed"
-          inset="0 auto auto 0"
-          zIndex="20"
-          transform="translateX(-100%)"
-          transition="transform 0.3s"
+          w={'80vw'}
+          h={'100vh'}
+          bg={'white'}
+          p={'64px 0 0 10vw'}
+          pos={'fixed'}
+          inset={'0 auto auto 0'}
+          zIndex={'20'}
+          transform={'translateX(-100%)'}
+          transition={'transform 0.3s'}
           sx={{
             ...(accountFlag && {
               transform: 'translateX(0)',
             }),
           }}
         >
-          <Text fontSize="1.6rem" fontWeight="bold">
-            <Text as="span" color="tomato">
+          <Text fontSize={'1.6rem'} fontWeight={'bold'}>
+            <Text as={'span'} color={'tomato'}>
               名前
             </Text>
-            <Text as="span">様</Text>
+            <Text as={'span'}>様</Text>
           </Text>
-          <OriginalSpacer size="40px" />
-          <Flex flexDirection="column" gap="32px" fontSize="1.3rem">
+          <OriginalSpacer size={'40px'} />
+          <Flex flexDirection={'column'} gap={'32px'} fontSize={'1.3rem'}>
             {accountLink.map((list, i) => (
-              <Flex flexDirection="column" gap="12px" key={i}>
+              <Flex flexDirection={'column'} gap={'12px'} key={i}>
                 {list.map((item, i) => (
                   <NextLink href={`/${item.path}`} passHref key={item.path + i}>
                     {item.text}
@@ -105,15 +105,15 @@ const Navigation: FC = () => {
           </Flex>
         </Box>
         <Box
-          w="100vw"
-          h="100vh"
-          pos="absolute"
-          inset="0 0 0 0"
-          bg="rgba(0, 0, 0, 0.2)"
+          w={'100vw'}
+          h={'100vh'}
+          pos={'absolute'}
+          inset={'0 0 0 0'}
+          bg={'rgba(0, 0, 0, 0.2)'}
           opacity={0}
-          pointerEvents="none"
+          pointerEvents={'none'}
           zIndex={0}
-          transition="opacity 0.2s"
+          transition={'opacity 0.2s'}
           onClick={() => accountModal()}
           sx={{
             ...(accountFlag && {
@@ -131,16 +131,16 @@ const Navigation: FC = () => {
     <>
       <Account />
       <Flex
-        justifyContent="space-between"
-        alignItems="center"
-        h="64px"
-        p="0 5vw"
-        pos="relative"
+        justifyContent={'space-between'}
+        alignItems={'center'}
+        h={'64px'}
+        p={'0 5vw'}
+        pos={'relative'}
       >
         <Center
-          w="20px"
-          h="16px"
-          pos="relative"
+          w={'20px'}
+          h={'16px'}
+          pos={'relative'}
           sx={{
             span: {
               width: '100%',
@@ -152,16 +152,16 @@ const Navigation: FC = () => {
           }}
           onClick={() => accountModal()}
         >
-          <Box as="span" inset="0 0 auto auto" />
-          <Box as="span" />
-          <Box as="span" inset="auto 0 0 auto" />
+          <Box as={'span'} inset={'0 0 auto auto'} />
+          <Box as={'span'} />
+          <Box as={'span'} inset={'auto 0 0 auto'} />
         </Center>
         <Heading
-          as="h1"
-          w="fit-content"
-          pos="absolute"
-          inset="0 0 0 0"
-          m="auto"
+          as={'h1'}
+          w={'fit-content'}
+          pos={'absolute'}
+          inset={'0 0 0 0'}
+          m={'auto'}
           sx={{
             a: {
               display: 'flex',
@@ -170,20 +170,25 @@ const Navigation: FC = () => {
             },
           }}
         >
-          <NextLink href="/" passHref>
-            <Box as="img" src="/img/logo.svg" alt="ぬいふぁく！" w="112px" />
+          <NextLink href={'/'} passHref>
+            <Box
+              as={'img'}
+              src={'/img/logo.svg'}
+              alt={'ぬいふぁく！'}
+              w={'112px'}
+            />
           </NextLink>
         </Heading>
-        <Flex as="ul" gap="8px">
+        <Flex as={'ul'} gap={'8px'}>
           {nav.map((item) => (
-            <Box as="li" key={item}>
+            <Box as={'li'} key={item}>
               <NextLink href={`/${item}`} passHref>
-                <Box as="span">
+                <Box as={'span'}>
                   <Box
-                    as="img"
+                    as={'img'}
                     src={'/img/icon_' + item + '.svg'}
-                    w="22px"
-                    height="22px"
+                    w={'22px'}
+                    height={'22px'}
                   />
                 </Box>
               </NextLink>
