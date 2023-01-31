@@ -5713,6 +5713,13 @@ next@13.0.4:
     "@next/swc-win32-ia32-msvc" "13.0.4"
     "@next/swc-win32-x64-msvc" "13.0.4"
 
+nextjs-cors@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/nextjs-cors/-/nextjs-cors-2.1.2.tgz#f2298e490617ee99dbcbe5901db8307a36c6fe50"
+  integrity sha512-2yOVivaaf2ILe4f/qY32hnj3oC77VCOsUQJQfhVMGsXE/YMEWUY2zy78sH9FKUCM7eG42/l3pDofIzMD781XGA==
+  dependencies:
+    cors "^2.8.5"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

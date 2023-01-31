@@ -1,5 +1,5 @@
-import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import Content from 'src/components/Content';
 import NextLink from 'next/link';
 import OriginalSpacer from 'src/components/OriginalSpacer';
@@ -26,12 +26,22 @@ const Home: NextPage = () => {
         >
           <NextLink href={'/custom'} passHref>
             <Flex w={'100%'} h={'200px'} bg={'yellow300'}>
-              <Box
-                as={'img'}
-                src={'/img/index_nui_02.svg'}
-                w={'48px'}
-                h={'48px'}
-              />
+              <Flex
+                justifyContent={'center'}
+                alignItems={'flex-end'}
+                w={'120px'}
+                h={'120px'}
+                bg={'white'}
+                borderRadius={'9999px'}
+                overflow={'hidden'}
+              >
+                <Box
+                  as={'img'}
+                  src={'/img/index_nui_02.svg'}
+                  w={'95%'}
+                  h={'95%'}
+                />
+              </Flex>
               <Text w={'fit-content'} fontWeight={'bold'}>
                 ぬいぐるみを作る！
               </Text>
@@ -41,6 +51,7 @@ const Home: NextPage = () => {
             <NextLink href={`/${item.path}`} passHref key={item.path + i}>
               <Flex
                 alignItems={'center'}
+                gap={'8px'}
                 h={'72px'}
                 bg={'#dd705e1a'}
                 p={'0 32px'}

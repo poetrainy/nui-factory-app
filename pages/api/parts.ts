@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { partsType } from 'src/types/apiType';
+import NextCors from 'nextjs-cors';
 
 import {
   partsColor,
@@ -8,10 +9,15 @@ import {
   partsSkinColor,
 } from 'src/libs/partsArray';
 
-export default function goods(
+export default async function goods(
   req: NextApiRequest,
   res: NextApiResponse<partsType[]>
 ) {
+  await NextCors(req, res, {
+    methods: ['GET'],
+    origin: '*',
+    optionSuccessStatus: 200,
+  });
   res.status(200).json([
     {
       titleJa: 'りんかく',
