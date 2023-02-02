@@ -32,12 +32,22 @@ const Navigation: FC = () => {
       ],
       [
         {
+          text: 'ぬいのカスタマイズを始める',
+          path: 'custom',
+        },
+        {
           text: '下書きから選ぶ',
           path: 'draft',
         },
         {
           text: 'レシピを読み込む',
           path: 'read',
+        },
+      ],
+      [
+        {
+          text: '服を着せる',
+          path: 'goods',
         },
       ],
       [
