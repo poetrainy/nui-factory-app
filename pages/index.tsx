@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import Content from 'src/components/Content';
 import NextLink from 'next/link';
 import OriginalSpacer from 'src/components/OriginalSpacer';
@@ -11,21 +11,9 @@ const Home: NextPage = () => {
   const Component = () => {
     return (
       <>
-        <Flex
-          flexDirection={'column'}
-          w={'90vw'}
-          gap={'8px'}
-          m={'auto'}
-          sx={{
-            '>div': {
-              gap: '16px',
-              width: '100%',
-              borderRadius: '8px',
-            },
-          }}
-        >
+        <Flex flexDirection={'column'} w={'90vw'} gap={'8px'} m={'auto'}>
           <NextLink href={'/custom'} passHref>
-            <Flex w={'100%'} h={'200px'} bg={'yellow300'}>
+            <Center gap={'16px'} w={'100%'} h={'200px'} bg={'yellow300'}>
               <Flex
                 justifyContent={'center'}
                 alignItems={'flex-end'}
@@ -45,7 +33,7 @@ const Home: NextPage = () => {
               <Text w={'fit-content'} fontWeight={'bold'}>
                 ぬいぐるみを作る！
               </Text>
-            </Flex>
+            </Center>
           </NextLink>
           {nuiMakeArray.map((item: nuiMakeArrayType, i: number) => (
             <NextLink href={`/${item.path}`} passHref key={item.path + i}>
@@ -71,7 +59,7 @@ const Home: NextPage = () => {
         </Flex>
         <OriginalSpacer size={'24px'} />
         <Box w={'100vw'} h={'144px'} bg={'primary500'}>
-          ぬいふぁくってなに？
+          {/* ぬいふぁくってなに？ */}
         </Box>
         <OriginalSpacer size={'40px'} />
         <Box w={'85vw'} m={'auto'}>

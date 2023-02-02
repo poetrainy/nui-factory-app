@@ -749,7 +749,7 @@ const Custom: NextPage = () => {
       bg={'primary500'}
       borderRadius={'9999px'}
       pos={'absolute'}
-      inset={'200px 28px auto auto'}
+      inset={'200px 16px auto auto'}
       zIndex={'10'}
       transition={'background 0.2s'}
       sx={{
@@ -884,44 +884,35 @@ const Custom: NextPage = () => {
             <Select />
             <ColorSelect />
             {/* ----------------------------------
-            下書き読み込みボタン
-        ---------------------------------- */}
+                下書き読み込みボタン
+            ---------------------------------- */}
             <Center
               as={'button'}
               onClick={() => loadChange()}
-              w={'64px'}
-              h={'64px'}
-              bg={'primary500'}
+              w={'56px'}
+              h={'56px'}
+              bg={'white'}
               borderRadius={'9999px'}
               pos={'absolute'}
-              inset={'160px 28px auto auto'}
+              inset={'136px 16px auto auto'}
               zIndex={'10'}
               transition={'background 0.2s'}
-              sx={{
-                ...(isColorModal && {
-                  background: 'secondary500',
-                }),
-              }}
+              borderStyle={'width'}
+              borderWidth={'3px'}
+              borderColor={'primary500'}
             >
               <Box
                 as={'img'}
-                src={
-                  !isColorModal
-                    ? '/img/icon_palette.svg'
-                    : '/img/icon_nocolor.svg'
-                }
+                src={'/img/icon_read.svg'}
+                width={'50%'}
+                height={'50%'}
                 objectFit={'contain'}
-                sx={{
-                  ...(!isColorModal
-                    ? { width: '55%', height: '55%' }
-                    : { width: '40%', height: '40%' }),
-                }}
               />
             </Center>
             {isLoadModal && <LoadModal />}
             {/* ----------------------------------
-            確認ボタン
-        ---------------------------------- */}
+                確認ボタン
+            ---------------------------------- */}
             <Center
               as={'button'}
               onClick={() => orderCheck()}
@@ -939,14 +930,3 @@ const Custom: NextPage = () => {
 };
 
 export default Custom;
-
-// export const getStaticProps = async () => {
-//   const response = await fetch(`${partsApi}`);
-//   const data = await response.json();
-
-//   return {
-//     props: {
-//       data: data,
-//     },
-//   };
-// };

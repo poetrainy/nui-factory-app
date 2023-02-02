@@ -33,7 +33,6 @@ const Sms: FC = () => {
           borderBottomColor={'black200'}
           fontSize={'5rem'}
           onKeyUp={keyDownFunc}
-          // ref={refEl + i}
           sx={{
             '&:focus': {
               borderBottomWidth: '3px',

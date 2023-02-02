@@ -70,7 +70,6 @@ const DummyButton: FC<Props> = ({ data, inline, fixed, fav, policy }) => {
             cursor: 'pointer',
           }}
           sx={{
-            // ...(!fixed && {
             ...(inline
               ? {
                   width: 'fit-content',
@@ -80,7 +79,6 @@ const DummyButton: FC<Props> = ({ data, inline, fixed, fav, policy }) => {
                   width: '100%',
                   maxWidth: '400px',
                 }),
-            // }),
           }}
         >
           {data}
