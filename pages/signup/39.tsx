@@ -11,7 +11,7 @@ const Signup39: NextPage = () => {
         <br />
         引き続きぬいふぁく！でお買い物を楽しみましょう！
       </Text>
-      <Button data={'トップに戻る'} textIndex={[]} path={'/'} />
+      <Button data={'トップに戻る'} path={'/'} />
     </>
   );
 

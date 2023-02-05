@@ -187,8 +187,6 @@ const Custom: NextPage = () => {
       }
       const db = getFirestore(firebaseApp);
       const col = collection(db, 'order');
-      console.log(updateParts);
-
       await addDoc(col, { data: updateParts });
       console.log('Firestoreに送信完了');
     }

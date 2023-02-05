@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import OriginalSpacer from 'src/components/OriginalSpacer';
-import DummyButton from 'src/components/DummyButton';
+import Button from 'src/components/Button';
 
 const test = [1, 2, 3];
 
@@ -35,7 +35,7 @@ const Card: FC = () => {
         ))}
       </Flex>
       <OriginalSpacer size={'144px'} />
-      <DummyButton data={'まとめて購入する'} fixed />
+      <Button data={'まとめて購入する'} fixed />
     </>
   );
 };

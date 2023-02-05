@@ -6,7 +6,7 @@ import { goodsType } from 'src/types/goods';
 import OriginalSpacer from 'src/components/OriginalSpacer';
 import EcCategoryText from 'src/components/EcCategoryText';
 import { goodsApi } from 'src/libs/goods';
-import DummyButton from 'src/components/DummyButton';
+import Button from 'src/components/Button';
 
 type Props = {
   id: string;
@@ -81,7 +81,8 @@ const CategoryItem: NextPage<Props> = ({ id, data }) => {
           </Text>
         </Box>
       </Box>
-      <DummyButton data={'色を選択'} fixed fav />
+      <Button data={'色を選択'} fixed fav />
+      <OriginalSpacer size={'120px'} />
     </>
   );
 };

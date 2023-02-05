@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import OriginalSpacer from 'src/components/OriginalSpacer';
-import DummyButton from 'src/components/DummyButton';
+// import DummyButton from 'src/components/DummyButton';
 import { partsType } from 'src/types/apiType';
 import { partsApi } from 'src/libs/api';
 
