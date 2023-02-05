@@ -28,7 +28,7 @@ const Navigation: FC = () => {
     [
       {
         text: 'ぬいのカスタマイズを始める',
-        path: 'customize',
+        path: 'custom',
       },
       {
         text: '下書きから選ぶ',

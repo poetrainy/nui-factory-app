@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     return (
       <>
         <Flex flexDirection={'column'} w={'90vw'} gap={'8px'} m={'auto'}>
-          <NextLink href={'/customize'} passHref>
+          <NextLink href={'/custom'} passHref>
             <Center gap={'16px'} w={'100%'} h={'200px'} bg={'yellow300'}>
               <Flex
                 justifyContent={'center'}
@@ -58,9 +58,9 @@ const Home: NextPage = () => {
           ))}
         </Flex>
         <OriginalSpacer size={'24px'} />
-        <Box w={'100vw'} h={'144px'} bg={'primary500'}>
-          {/* ぬいふぁくってなに？ */}
-        </Box>
+        {/* ぬいふぁくってなに？ */}
+        {/* <Box w={'100vw'} h={'144px'} bg={'primary500'}>
+        </Box> */}
         <OriginalSpacer size={'40px'} />
         <Box w={'85vw'} m={'auto'}>
           <Text as={'h2'} fontSize={'2rem'} fontWeight={'bold'}>

@@ -8,7 +8,7 @@ const Draft: NextPage = () => {
   const Component = () => (
     <Center flexDirection={'column'} gap={'40px'} mt={'160px'}>
       下書きはまだありません
-      <Button data={'新しく作る！'} path={'/customize'} inline />
+      <Button data={'新しく作る！'} path={'/custom'} inline />
     </Center>
   );
 

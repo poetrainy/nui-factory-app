@@ -15,7 +15,7 @@ import { nuiMakeArrayType } from 'src/types/nuiMake';
 import Preview from 'src/components/Preview';
 import Button from 'src/components/Button';
 
-const CustomizeIndex: NextPage = () => {
+const Custom: NextPage = () => {
   const [parts, setParts] = useState<any>();
   // 色を編集する可能性のあるパーツの配列
   // const [colorPickerParts, setColorPickerParts] = useState<any>();
@@ -725,4 +725,4 @@ const CustomizeIndex: NextPage = () => {
   );
 };
 
-export default CustomizeIndex;
+export default Custom;
