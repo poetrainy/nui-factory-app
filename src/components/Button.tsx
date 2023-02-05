@@ -109,8 +109,6 @@ const Button: FC<Props> = ({
       h={'56px'}
       color={'white'}
       bg={'primary500'}
-      m={'0 auto'}
-      p={'0 32px'}
       fontSize={'1.6rem'}
       borderRadius={'9999px'}
       fontWeight={'bold'}
@@ -145,7 +143,7 @@ const Button: FC<Props> = ({
         sx={{
           ...(fixed && {
             position: 'fixed',
-            inset: 'auto auto 40px 5vw',
+            inset: 'auto auto 40px auto',
             ...(!inline && {
               width: '90vw',
               maxWidth: '400px',

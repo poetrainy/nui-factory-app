@@ -1,24 +1,18 @@
-import { FC, useState } from 'react';
-import { Box, Flex, Text } from '@chakra-ui/react';
-import OriginalSpacer from 'src/components/OriginalSpacer';
-// import DummyButton from 'src/components/DummyButton';
+import { FC } from 'react';
+import { Box } from '@chakra-ui/react';
 import { partsType } from 'src/types/apiType';
-import { partsApi } from 'src/libs/api';
+import { partsSvgArray } from 'src/libs/partsArray';
 
-const test = [1, 2, 3];
+type Props = {
+  data: partsType[];
+  selectParts: number[][];
+  selectColor: number[];
+};
 
-const Preview: FC = () => {
-  const [data, setData] = useState<partsType[]>();
-
-  const getApi = async () => {
-    const response = await fetch(`${partsApi}`);
-    const otetsudaiApiData = await response.json();
-    setData(otetsudaiApiData);
-  };
-
+const Preview: FC<Props> = ({ data, selectParts, selectColor }) => {
   return (
     <>
-      {/* {data && (
+      {data && (
         <Box
           w={'280px'}
           h={'280px'}
@@ -297,7 +291,7 @@ const Preview: FC = () => {
             </Box>
           ))}
         </Box>
-      )} */}
+      )}
     </>
   );
 };

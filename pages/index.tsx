@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     return (
       <>
         <Flex flexDirection={'column'} w={'90vw'} gap={'8px'} m={'auto'}>
-          <NextLink href={'/custom'} passHref>
+          <NextLink href={'/customize'} passHref>
             <Center gap={'16px'} w={'100%'} h={'200px'} bg={'yellow300'}>
               <Flex
                 justifyContent={'center'}

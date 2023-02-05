@@ -4,80 +4,82 @@ import { Box, Center, Flex, Heading, Text } from '@chakra-ui/react';
 import OriginalSpacer from 'src/components/OriginalSpacer';
 
 const Navigation: FC = () => {
-  const [accountFlag, setAccountFlag] = useState<boolean>(false);
+  const [isAccount, setIsAccount] = useState<boolean>(false);
 
   const nav = ['cart', 'fav'];
 
+  const accountLink = [
+    [
+      {
+        text: 'トップページ',
+        path: '',
+      },
+    ],
+    [
+      {
+        text: '新規会員登録',
+        path: 'signup',
+      },
+      {
+        text: 'ログイン',
+        path: 'signin',
+      },
+    ],
+    [
+      {
+        text: 'ぬいのカスタマイズを始める',
+        path: 'customize',
+      },
+      {
+        text: '下書きから選ぶ',
+        path: 'draft',
+      },
+      {
+        text: 'レシピを読み込む',
+        path: 'read',
+      },
+    ],
+    [
+      {
+        text: '服を着せる',
+        path: 'goods',
+      },
+    ],
+    [
+      {
+        text: '注文履歴',
+        path: '',
+      },
+      {
+        text: 'クーポン一覧',
+        path: 'coupon',
+      },
+    ],
+    [
+      {
+        text: 'ユーザー情報変更',
+        path: 'setting',
+      },
+    ],
+    [
+      {
+        text: '困ったときは',
+        path: '',
+      },
+      {
+        text: 'お問い合わせ',
+        path: '',
+      },
+    ],
+  ];
+
   const accountModal = () => {
-    setAccountFlag(!accountFlag);
+    setIsAccount(!isAccount);
   };
 
-  const Account = () => {
-    const accountLink = [
-      [
-        {
-          text: 'トップページ',
-          path: '',
-        },
-      ],
-      [
-        {
-          text: '新規会員登録',
-          path: 'signup',
-        },
-        {
-          text: 'ログイン',
-          path: 'signin',
-        },
-      ],
-      [
-        {
-          text: 'ぬいのカスタマイズを始める',
-          path: 'custom',
-        },
-        {
-          text: '下書きから選ぶ',
-          path: 'draft',
-        },
-        {
-          text: 'レシピを読み込む',
-          path: 'read',
-        },
-      ],
-      [
-        {
-          text: '服を着せる',
-          path: 'goods',
-        },
-      ],
-      [
-        {
-          text: '注文履歴',
-          path: '',
-        },
-        {
-          text: 'クーポン一覧',
-          path: 'coupon',
-        },
-      ],
-      [
-        {
-          text: 'ユーザー情報変更',
-          path: 'setting',
-        },
-      ],
-      [
-        {
-          text: '困ったときは',
-          path: '',
-        },
-        {
-          text: 'お問い合わせ',
-          path: '',
-        },
-      ],
-    ];
-    return (
+  return (
+    <>
+      {/* <Account /> */}
       <Box pos={'relative'}>
         <Box
           w={'80vw'}
@@ -86,11 +88,11 @@ const Navigation: FC = () => {
           p={'64px 0 0 10vw'}
           pos={'fixed'}
           inset={'0 auto auto 0'}
-          zIndex={'20'}
+          zIndex={'50'}
           transform={'translateX(-100%)'}
-          transition={'transform 0.3s'}
+          transition={'transform 0.2s'}
           sx={{
-            ...(accountFlag && {
+            ...(isAccount && {
               transform: 'translateX(0)',
             }),
           }}
@@ -122,24 +124,18 @@ const Navigation: FC = () => {
           bg={'rgba(0, 0, 0, 0.2)'}
           opacity={0}
           pointerEvents={'none'}
-          zIndex={0}
+          zIndex={45}
           transition={'opacity 0.2s'}
           onClick={() => accountModal()}
           sx={{
-            ...(accountFlag && {
+            ...(isAccount && {
               opacity: '1',
               pointerEvents: 'auto',
-              zIndex: '15',
+              zIndex: '45',
             }),
           }}
         />
       </Box>
-    );
-  };
-
-  return (
-    <>
-      <Account />
       <Flex
         justifyContent={'space-between'}
         alignItems={'center'}

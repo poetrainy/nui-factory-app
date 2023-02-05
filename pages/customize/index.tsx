@@ -12,28 +12,10 @@ import Heading from 'src/components/Heading';
 import OriginalSpacer from 'src/components/OriginalSpacer';
 import { nuiMakeArray } from 'src/libs/nuiMakeArray';
 import { nuiMakeArrayType } from 'src/types/nuiMake';
+import Preview from 'src/components/Preview';
+import Button from 'src/components/Button';
 
-// type Props = {
-//   data: partsType[];
-// };
-
-const partsTitle = [
-  'outline',
-  'eyes',
-  'eyebrows',
-  'ears',
-  'nose',
-  'cheeks',
-  'mouth',
-  'bang',
-  'backHair',
-  'hairOption',
-  'accessory',
-  'clothes',
-  'body',
-];
-
-const Custom: NextPage = () => {
+const CustomizeIndex: NextPage = () => {
   const [parts, setParts] = useState<any>();
   // 色を編集する可能性のあるパーツの配列
   // const [colorPickerParts, setColorPickerParts] = useState<any>();
@@ -68,6 +50,7 @@ const Custom: NextPage = () => {
   const [colorPicker, setColorPicker] = useState<string>('');
   const [isLoadModal, setIsLoadModal] = useState<boolean>(false);
   const [data, setData] = useState<partsType[]>();
+  const [isCheckModal, setIsCheckModal] = useState<boolean>(false);
 
   let updateParts: any = [];
   let updateSelectColor: any = [];
@@ -95,6 +78,11 @@ const Custom: NextPage = () => {
   // 下書きを読み込むモーダル呼び出す
   const loadChange = () => {
     setIsLoadModal(!isLoadModal);
+  };
+
+  // 下書きを読み込むモーダル呼び出す
+  const checkChange = () => {
+    setIsCheckModal(!isCheckModal);
   };
 
   // カラーピッカーで色を保存する
@@ -192,290 +180,6 @@ const Custom: NextPage = () => {
     }
   };
 
-  const Preview = () => (
-    <>
-      {data && (
-        <Box
-          w={'280px'}
-          h={'280px'}
-          pos={'relative'}
-          overflow={'hidden'}
-          sx={{
-            '.parts_hair-option_side': {
-              width: '40px',
-              height: '100px',
-              inset: '96px 0 auto 44px',
-              position: 'absolute',
-            },
-            '.parts_hair-option_mesh': {
-              // width: '40px',
-              // height: '100px',
-              // inset: '96px 0 auto 44px',
-              position: 'absolute',
-            },
-            '.parts_hair-option_stupid-top': {
-              width: '28px',
-              height: '100px',
-              inset: '-60px 0 auto 106px',
-              position: 'absolute',
-            },
-            '.parts_hair-option_stupid-bottom': {
-              width: '31px',
-              height: '100px',
-              inset: '-1px 0 auto 108px',
-              position: 'absolute',
-            },
-            '.parts_accessory_mole-leftEye': {
-              width: '3px',
-              height: '3px',
-              inset: '160px 0 auto 163px',
-              position: 'absolute',
-            },
-            '.parts_accessory_mole-rightEye': {
-              width: '3px',
-              height: '3px',
-              inset: '160px 0 auto 55px',
-              position: 'absolute',
-            },
-            '.parts_accessory_mole-free': {
-              width: '3px',
-              height: '3px',
-              inset: '166px 0 auto 136px',
-              position: 'absolute',
-            },
-            '.parts_accessory_freckles': {
-              width: '30px',
-              inset: '43px 0 auto 0',
-              margin: 'auto',
-              position: 'absolute',
-              path: {
-                fill: '#d39667',
-              },
-            },
-            '.parts_accessory_pierce-01': {
-              width: '20px',
-              position: 'absolute',
-              inset: '32px 0 auto 200px',
-            },
-            '.parts_accessory_pierce-02': {
-              display: 'flex',
-              justifyContent: 'space-between',
-              width: '194px',
-              height: '10px',
-              position: 'absolute',
-              inset: '147px auto auto auto',
-              svg: {
-                width: '10px',
-              },
-            },
-            '.parts_accessory_eyelashes': {
-              display: 'flex',
-              justifyContent: 'space-between',
-              width: '112px',
-              height: '7px',
-              position: 'absolute',
-              inset: '154px auto auto auto',
-              svg: {
-                width: '8.5px',
-              },
-            },
-          }}
-        >
-          {data.map((item: partsType, i) => (
-            <Box
-              key={item.titleEn + i}
-              w={'280px'}
-              h={'280px'}
-              pos={'absolute'}
-              sx={{
-                '>div': {
-                  // 1. 後ろ髪, 服
-                  // 2. 耳
-                  // 3. 輪郭, アクセサリー1, アクセサリー2
-                  // 4. 頬, 前髪
-                  // 5. 目, 眉, 鼻, 口
-                  // 輪郭
-                  ...(i === 0 && {
-                    width: '180px',
-                    height: '180px',
-                    inset: '30px 0 auto 0',
-                    zIndex: 3,
-                  }),
-                  // 目
-                  ...(i === 1 && {
-                    width: '128px',
-                    height: '33px',
-                    inset: '130px 0 auto 0',
-                    zIndex: 5,
-                    svg: {
-                      width: '51px',
-                    },
-                  }),
-                  // 眉
-                  ...(i === 2 && {
-                    width: '100px',
-                    inset: '115px 0 auto 0',
-                    zIndex: 5,
-                    svg: {
-                      width: '27px',
-                    },
-                  }),
-                  // 耳
-                  ...(i === 3 && {
-                    width: '215px',
-                    height: '48px',
-                    inset: '120px 0 auto 0',
-                    zIndex: 2,
-                    svg: {
-                      width: '34px',
-                    },
-                  }),
-                  // 鼻
-                  ...(i === 4 && {
-                    width: '1px',
-                    height: '5px',
-                    inset: '163px 0 auto 0',
-                    zIndex: 5,
-                    svg: {
-                      width: '1px',
-                    },
-                  }),
-                  // 頬
-                  ...(i === 5 && {
-                    width: '164px',
-                    height: '40px',
-                    inset: '145px 0 auto 0',
-                    zIndex: 3,
-                    opacity: 0.8,
-                    svg: {
-                      width: '40px',
-                    },
-                  }),
-                  // 口
-                  ...(i === 6 && {
-                    width: '32px',
-                    inset: '175px 0 auto 0',
-                    zIndex: 5,
-                    svg: {
-                      width: '32px',
-                    },
-                  }),
-                  // 前髪
-                  ...(i === 7 && {
-                    width: '194px',
-                    inset: '15px 0 auto 0',
-                    zIndex: 4,
-                    svg: {
-                      width: '194px',
-                    },
-                  }),
-                  // 後ろ髪
-                  ...(i === 8 && {
-                    width: '215px',
-                    inset: '4px 0 auto 0',
-                    zIndex: 1,
-                    svg: {
-                      width: '215px',
-                    },
-                  }),
-                  // 髪オプション
-                  ...(i === 9 && {
-                    width: '100%',
-                    height: '100%',
-                    inset: '4px 0 auto 0',
-                    zIndex: 5,
-                    div: {
-                      width: '100%',
-                      height: '100%',
-                    },
-                  }),
-                  // アクセサリー
-                  ...(i === 10 && {
-                    display: 'flex',
-                    justifyContent: 'center',
-                    width: '220px',
-                    height: '220px',
-                    inset: '4px 0 auto 0',
-                    zIndex: 3,
-                    div: {
-                      width: '100%',
-                      height: '100%',
-                      svg: {
-                        '&:nth-of-type(2)': {
-                          transform: 'scale(-1, 1)',
-                        },
-                      },
-                    },
-                  }),
-                  // 服
-                  ...(i === 11 && {
-                    width: '220px',
-                    height: '220px',
-                    inset: '160px 0 auto 0',
-                    zIndex: 2,
-                  }),
-                  // からだ
-                  ...(i === 12 && {
-                    width: '258px',
-                    height: '213px',
-                    inset: '198px 0 auto 0',
-                    zIndex: 1,
-                  }),
-                },
-              }}
-            >
-              {selectParts[i].map((svgIndex: number, i2) => (
-                <Box
-                  display={'flex'}
-                  justifyContent={'space-between'}
-                  margin={'auto'}
-                  position={'absolute'}
-                  key={i2 + 'preview'}
-                >
-                  <Box
-                    as={partsSvgArray[i][svgIndex]}
-                    w={'100%'}
-                    h={'100%'}
-                    objectFit={'contain'}
-                    sx={{
-                      '.colorChange': {
-                        transition: 'fill 0.2s',
-                      },
-                      ...(item.color !== undefined && {
-                        '.colorChange': {
-                          fill: item.color[selectColor[i]],
-                        },
-                      }),
-                    }}
-                  />
-                  {item.symmetry && (
-                    <Box
-                      as={partsSvgArray[i][svgIndex]}
-                      w={'100%'}
-                      h={'100%'}
-                      objectFit={'contain'}
-                      inset={'0 0 auto auto'}
-                      sx={{
-                        ...(item.reversal && {
-                          transform: 'scale(-1, 1)',
-                        }),
-                        ...(item.color !== undefined && {
-                          '.colorChange': {
-                            // @ts-ignore
-                            fill: item.color[selectColor[i]],
-                          },
-                        }),
-                      }}
-                    />
-                  )}
-                </Box>
-              ))}
-            </Box>
-          ))}
-        </Box>
-      )}
-    </>
-  );
   const Select = () => (
     <>
       {data && (
@@ -768,163 +472,257 @@ const Custom: NextPage = () => {
       />
     </Center>
   );
-  // 下書きを読み込むモーダル
-  const LoadModal = () => {
-    return (
-      <Box
-        w={'100vw'}
-        h={'calc(100vh - 64px)'}
-        bg={'white'}
-        p={'32px 5vw 0'}
-        pos={'fixed'}
-        inset={'64px 0 auto auto'}
-        zIndex={'30'}
-        transform={'translateY(100%)'}
-        transition={'transform 0.3s'}
-        sx={{
-          ...(isLoadModal && {
-            transform: 'translateY(0)',
-          }),
-        }}
-      >
-        <Heading data={'既にあるデザインから選ぶ'} />
-        <OriginalSpacer size={'15vh'} />
-        <Flex justifyContent={'space-between'}>
-          {nuiMakeArray.map((item: nuiMakeArrayType, i: number) => (
-            <NextLink href={item.path} passHref key={i + item.path}>
-              <Center
-                flexDirection={'column'}
-                gap={'8px'}
-                w={'160px'}
-                p={'32px 0'}
-                bg={'white'}
-                fontSize={'1.6rem'}
-                fontWeight={'bold'}
-                boxShadow={'0 0 10px rgba(0, 0, 0, 0.2)'}
-                borderRadius={'24px'}
-              >
-                <Box as={'img'} src={`/img/icon_make_${item.path}.svg`} />
-                <Text>{item.text}</Text>
-              </Center>
-            </NextLink>
-          ))}
-        </Flex>
-        <OriginalSpacer size={'24px'} />
-        <Text
-          w={'fit-content'}
-          m={'auto'}
-          textDecor={'underline'}
-          onClick={() => loadChange()}
-        >
-          カスタマイズに戻る
-        </Text>
-      </Box>
-    );
-  };
 
   return (
     <>
       {data && (
-        <Flex flexDirection={'column'} h={'100vh'}>
-          <Navigation />
-          <Flex
-            as={'section'}
-            flexDirection={'column'}
-            alignItems={'center'}
-            pos={'relative'}
-          >
-            <Preview />
-            {/* Tab */}
-            <Box
-              w={'100vw'}
-              h={'56px'}
-              bg={'white'}
-              overflowX={'scroll'}
+        <>
+          <Flex flexDirection={'column'} h={'100vh'}>
+            <Navigation />
+            <Flex
+              as={'section'}
+              flexDirection={'column'}
+              alignItems={'center'}
               pos={'relative'}
             >
-              <Flex flexWrap={'wrap'} w={`calc(${data.length - 2} * 21vw)`}>
-                {data.map((item: partsType, i: number) => (
-                  <Center
-                    key={item.titleEn + i}
-                    onClick={() => tabChange(i)}
-                    w={'21vw'}
-                    h={'56px'}
-                    opacity={1}
-                    filter={'none'}
-                    transition={'filter 0.2s, opacity 0.2s'}
-                    sx={{
-                      ...(i > data.length - 3 && {
-                        display: 'none',
-                      }),
-                      ...(i !== tab && {
-                        filter: 'grayscale(100%)',
-                        opacity: 0.2,
-                      }),
-                    }}
-                  >
-                    <Box
-                      as={partsSvgArray[i][selectParts[i][0]]}
-                      w={'55%'}
-                      h={'55%'}
-                      objectFit={'contain'}
+              <Preview
+                data={data}
+                selectParts={selectParts}
+                selectColor={selectColor}
+              />
+              {/* Tab */}
+              <Box
+                w={'100vw'}
+                h={'56px'}
+                bg={'white'}
+                overflowX={'scroll'}
+                pos={'relative'}
+              >
+                <Flex flexWrap={'wrap'} w={`calc(${data.length - 2} * 21vw)`}>
+                  {data.map((item: partsType, i: number) => (
+                    <Center
+                      key={item.titleEn + i}
+                      onClick={() => tabChange(i)}
+                      w={'21vw'}
+                      h={'56px'}
+                      opacity={1}
+                      filter={'none'}
+                      transition={'filter 0.2s, opacity 0.2s'}
                       sx={{
-                        ...(item.color !== undefined && {
-                          '.colorChange': {
-                            fill: item.color[selectColor[i]],
-                          },
+                        ...(i > data.length - 3 && {
+                          display: 'none',
+                        }),
+                        ...(i !== tab && {
+                          filter: 'grayscale(100%)',
+                          opacity: 0.2,
                         }),
                       }}
-                    />
-                  </Center>
-                ))}
-              </Flex>
-            </Box>
-            <Select />
-            <ColorSelect />
-            {/* ----------------------------------
-                下書き読み込みボタン
-            ---------------------------------- */}
-            <Center
-              as={'button'}
-              onClick={() => loadChange()}
-              w={'56px'}
-              h={'56px'}
-              bg={'white'}
-              borderRadius={'9999px'}
-              pos={'absolute'}
-              inset={'136px 16px auto auto'}
-              zIndex={'10'}
-              transition={'background 0.2s'}
-              borderStyle={'width'}
-              borderWidth={'3px'}
-              borderColor={'primary500'}
-            >
+                    >
+                      <Box
+                        as={partsSvgArray[i][selectParts[i][0]]}
+                        w={'55%'}
+                        h={'55%'}
+                        objectFit={'contain'}
+                        sx={{
+                          ...(item.color !== undefined && {
+                            '.colorChange': {
+                              fill: item.color[selectColor[i]],
+                            },
+                          }),
+                        }}
+                      />
+                    </Center>
+                  ))}
+                </Flex>
+              </Box>
+              <Select />
+              <ColorSelect />
+              {/* ----------------------------------
+                  下書き読み込みボタン
+              ---------------------------------- */}
+              <Center
+                as={'button'}
+                onClick={() => loadChange()}
+                w={'56px'}
+                h={'56px'}
+                bg={'white'}
+                borderRadius={'9999px'}
+                pos={'absolute'}
+                inset={'136px 16px auto auto'}
+                zIndex={'10'}
+                transition={'background 0.2s'}
+                borderStyle={'width'}
+                borderWidth={'3px'}
+                borderColor={'primary500'}
+              >
+                <Box
+                  as={'img'}
+                  src={'/img/icon_read.svg'}
+                  width={'50%'}
+                  height={'50%'}
+                  objectFit={'contain'}
+                />
+              </Center>
+              {/* ----------------------------------
+                  下書きのモーダル
+              ---------------------------------- */}
               <Box
-                as={'img'}
-                src={'/img/icon_read.svg'}
-                width={'50%'}
-                height={'50%'}
-                objectFit={'contain'}
-              />
-            </Center>
-            {isLoadModal && <LoadModal />}
-            {/* ----------------------------------
-                確認ボタン
-            ---------------------------------- */}
+                w={'100vw'}
+                h={'calc(100vh - 64px)'}
+                bg={'white'}
+                p={'32px 5vw 0'}
+                pos={'fixed'}
+                inset={'64px 0 auto auto'}
+                zIndex={'30'}
+                transform={'translateY(100%)'}
+                transition={'transform 0.3s'}
+                sx={{
+                  ...(isLoadModal && {
+                    transform: 'translateY(0)',
+                  }),
+                }}
+              >
+                <Heading data={'既にあるデザインから選ぶ'} />
+                <OriginalSpacer size={'15vh'} />
+                <Flex justifyContent={'space-between'}>
+                  {nuiMakeArray.map((item: nuiMakeArrayType, i: number) => (
+                    <NextLink href={item.path} passHref key={i + item.path}>
+                      <Center
+                        flexDirection={'column'}
+                        gap={'8px'}
+                        w={'160px'}
+                        p={'32px 0'}
+                        bg={'white'}
+                        fontSize={'1.6rem'}
+                        fontWeight={'bold'}
+                        boxShadow={'0 0 10px rgba(0, 0, 0, 0.2)'}
+                        borderRadius={'24px'}
+                      >
+                        <Box
+                          as={'img'}
+                          src={`/img/icon_make_${item.path}.svg`}
+                        />
+                        <Text>{item.text}</Text>
+                      </Center>
+                    </NextLink>
+                  ))}
+                </Flex>
+                <OriginalSpacer size={'24px'} />
+                <Text
+                  w={'fit-content'}
+                  m={'auto'}
+                  textDecor={'underline'}
+                  onClick={() => loadChange()}
+                >
+                  カスタマイズに戻る
+                </Text>
+              </Box>
+              <Center
+                as={'button'}
+                onClick={() => checkChange()}
+                display={'flex'}
+                w={'fit-content'}
+                h={'56px'}
+                color={'white'}
+                bg={'primary500'}
+                p={'0 56px'}
+                fontSize={'1.6rem'}
+                borderRadius={'9999px'}
+                fontWeight={'bold'}
+                opacity={'1'}
+                transition={'opacity 0.2s'}
+                pos={'absolute'}
+                inset={'auto auto 40px auto'}
+                zIndex={'10'}
+                _hover={{
+                  opacity: '0.7',
+                  cursor: 'pointer',
+                }}
+              >
+                確認
+              </Center>
+            </Flex>
+          </Flex>
+          <Center
+            flexDirection={'column'}
+            w={'100vw'}
+            h={'calc(100vh - 64px)'}
+            bg={'white'}
+            pos={'fixed'}
+            inset={'0 0 0 0'}
+            zIndex={'30'}
+            transition={'transform 0.2s'}
+            sx={{
+              ...(isCheckModal
+                ? {
+                    transform: 'translateY(64px)',
+                  }
+                : { transform: 'translateY(calc(100% + 64px))' }),
+            }}
+          >
+            <Preview
+              data={data}
+              selectParts={selectParts}
+              selectColor={selectColor}
+            />
+            <OriginalSpacer size={'24px'} />
+            <Text as={'span'}>完成しました！</Text>
+            <OriginalSpacer size={'56px'} />
             <Center
               as={'button'}
               onClick={() => orderCheck()}
-              pos={'absolute'}
-              inset={'auto auto 40px auto'}
+              display={'flex'}
+              w={'90vw'}
+              h={'56px'}
+              color={'white'}
+              bg={'primary500'}
+              p={'0 56px'}
+              fontSize={'1.6rem'}
+              borderRadius={'9999px'}
+              fontWeight={'bold'}
+              opacity={'1'}
+              transition={'opacity 0.2s'}
+              // pos={'absolute'}
+              // inset={'auto auto 40px auto'}
               zIndex={'10'}
+              _hover={{
+                opacity: '0.7',
+                cursor: 'pointer',
+              }}
             >
-              確認
+              カートに入れる
             </Center>
-          </Flex>
-        </Flex>
+            <OriginalSpacer size={'16px'} />
+            <Center
+              as={'button'}
+              onClick={() => checkChange()}
+              display={'flex'}
+              w={'fit-content'}
+              h={'56px'}
+              color={'black300'}
+              bg={'white'}
+              p={'0 56px'}
+              fontSize={'1.6rem'}
+              borderRadius={'9999px'}
+              fontWeight={'bold'}
+              opacity={'1'}
+              transition={'opacity 0.2s'}
+              borderWidth={'3px'}
+              borderStyle={'solid'}
+              borderColor={'black300'}
+              zIndex={'10'}
+              _hover={{
+                opacity: '0.7',
+                cursor: 'pointer',
+              }}
+            >
+              やっぱ手直しする
+            </Center>
+          </Center>
+        </>
       )}
     </>
   );
 };
 
-export default Custom;
+export default CustomizeIndex;
