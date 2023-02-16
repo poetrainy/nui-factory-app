@@ -185,16 +185,17 @@ const Custom: NextPage = () => {
       {data && (
         <Box
           w={'100vw'}
-          h={'calc(100vh - 56px - 280px - 64px)'}
+          h={'calc(100vh - 56px - 248px - 64px)'}
           bg={'black100'}
-          overflow={'hidden'}
+          overflow={'auto'}
           pos={'relative'}
         >
           <Flex
             as={'ul'}
             w={`calc(${data.length} * 100vw)`}
-            h={'fit-content'}
-            p={'40px 0'}
+            // h={'fit-content'}
+            minH={'calc(100vh - 56px - 280px - 64px)'}
+            p={'40px 0 120px'}
             transform={`translateX(calc(-${tab} * 100vw))`}
             transition={'transform 0.3s'}
             sx={{
@@ -496,6 +497,7 @@ const Custom: NextPage = () => {
                 h={'56px'}
                 bg={'white'}
                 overflowX={'scroll'}
+                overflowY={'hidden'}
                 pos={'relative'}
               >
                 <Flex flexWrap={'wrap'} w={`calc(${data.length - 2} * 21vw)`}>
@@ -631,7 +633,7 @@ const Custom: NextPage = () => {
                 fontWeight={'bold'}
                 opacity={'1'}
                 transition={'opacity 0.2s'}
-                pos={'absolute'}
+                pos={'fixed'}
                 inset={'auto auto 40px auto'}
                 zIndex={'10'}
                 _hover={{

@@ -133,7 +133,12 @@ export const partsSvgArray: any[][] = [
     backHairTieLeft,
     backHairTieRight,
   ],
-  [hairOptionSide, hairOptionMesh, hairOptionStupidTop, hairOptionStupidBottom],
+  [
+    hairOptionSide,
+    //  hairOptionMesh,
+    hairOptionStupidTop,
+    hairOptionStupidBottom,
+  ],
   [
     accessoryMoleLeftEye,
     accessoryMoleRightEye,

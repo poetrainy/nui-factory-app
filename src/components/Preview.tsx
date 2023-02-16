@@ -15,7 +15,7 @@ const Preview: FC<Props> = ({ data, selectParts, selectColor }) => {
       {data && (
         <Box
           w={'280px'}
-          h={'280px'}
+          h={'248px'}
           pos={'relative'}
           overflow={'hidden'}
           sx={{
